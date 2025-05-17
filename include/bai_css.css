@@ -129,3 +129,31 @@ iframe {
     height: 80px; /* điều chỉnh chiều cao ảnh nhỏ lại */
   }
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* cách đều 2 bên */
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.back-button {
+  background-color: #d32f2f !important; /* đỏ đậm */
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #b71c1c;
+  transform: scale(1.05);
+}
