@@ -12,7 +12,6 @@
 //   }
 // });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   fetch("data.json")
     .then((res) => res.json())
@@ -27,11 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const lopHeader = document.createElement("div");
         lopHeader.className = "card-header bg-light";
+        // Danh sách số học sinh cố định ứng với từng lớp
+        const fixedStudentCounts = [30, 50, 40, 200, 150, 150, 200]; // Bạn có thể thêm nữa nếu có nhiều lớp
+
+        // Lấy số tương ứng theo index lớp (lopIndex)
+        const studentCount = fixedStudentCounts[lopIndex] || 0;
+
         lopHeader.innerHTML = `
-          <h5 class="mb-0">
+          <h5 class="mb-0 d-flex justify-content-between align-items-center">
             <button class="btn btn-link collapsed text-dark font-weight-bold" data-toggle="collapse" data-target="#${lopId}" aria-expanded="false">
               ${lop}
             </button>
+            <span class="blinking text-danger font-weight-bold mr-2">> ${studentCount} học sinh đã tham gia khóa học</span>
           </h5>
         `;
 
@@ -70,7 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
                   ${baiList
                     .map((bai, baiIndex) => {
                       const lopNumberMatch = lop.match(/\d+/);
-                      const lopNumber = lopNumberMatch ? lopNumberMatch[0] : lopIndex + 1;
+                      const lopNumber = lopNumberMatch
+                        ? lopNumberMatch[0]
+                        : lopIndex + 1;
 
                       const lopSlug = `toan${lopNumber}`;
                       const kySlug = `ki${kyIndex + 1}`;
@@ -78,7 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                       // Trích số từ tên bài (vd: "Bài 26" -> 26)
                       const baiNumberMatch = bai.match(/\d+/);
-                      const baiNumber = baiNumberMatch ? baiNumberMatch[0] : baiIndex + 1;
+                      const baiNumber = baiNumberMatch
+                        ? baiNumberMatch[0]
+                        : baiIndex + 1;
 
                       const baiSlug = `bai${baiNumber}`;
 
@@ -122,3 +132,20 @@ function slugify(text) {
     .replace(/\s+/g, "-") // khoảng trắng -> gạch ngang
     .replace(/-+/g, "-"); // bỏ trùng gạch
 }
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const text =
+//     "Nhiều học sinh đạt điểm cao trong các kỳ thi tốt nghiệp được tặng nhiều món quà giá trị cao!";
+//   const target = document.getElementById("typing-text");
+//   let index = 0;
+
+//   function typeChar() {
+//     if (index < text.length) {
+//       target.innerHTML += text.charAt(index);
+//       index++;
+//       setTimeout(typeChar, 40); // tốc độ xuất hiện từng ký tự (ms)
+//     }
+//   }
+
+//   typeChar();
+// });

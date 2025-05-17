@@ -31,3 +31,23 @@ a.lesson-link:hover {
   background-color: #e9ecef;
   border-radius: 5px;
 }
+
+#giftBox {
+  position: fixed;
+  bottom: 40px; /* cách đáy màn hình 20px */
+  right: 20px; /* cách mép phải màn hình 20px */
+  width: 50px; /* kích thước gif */
+  height: auto;
+  z-index: 1000; /* luôn nổi trên các phần tử khác */
+  cursor: pointer; /* con trỏ chuột khi hover */
+}
+.blinking {
+  font-size: 14px !important;
+  animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.6;
+  }
+}
