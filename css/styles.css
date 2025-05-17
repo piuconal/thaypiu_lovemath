@@ -1,0 +1,33 @@
+body {
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  font-family: "Segoe UI", sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9999999999999999; /* Đảm bảo header luôn nằm trên các phần tử khác */
+  background-color: white; /* Nên có nền trắng để che khi scroll */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tạo bóng nhẹ đẹp */
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.card-body {
+  background-color: #f0f8ff;
+}
+
+a.lesson-link {
+  display: block;
+  padding: 8px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+a.lesson-link:hover {
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
