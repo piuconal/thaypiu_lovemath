@@ -70,23 +70,25 @@ document.addEventListener("DOMContentLoaded", () => {
                   ${baiList
                     .map((bai, baiIndex) => {
                       const lopNumberMatch = lop.match(/\d+/);
-                      const lopNumber = lopNumberMatch
-                        ? lopNumberMatch[0]
-                        : lopIndex + 1;
+                      const lopNumber = lopNumberMatch ? lopNumberMatch[0] : lopIndex + 1;
 
                       const lopSlug = `toan${lopNumber}`;
                       const kySlug = `ki${kyIndex + 1}`;
                       const chuongSlug = `chuong${chuongIndex + 1}`;
-                      const baiSlug = `bai${baiIndex + 1}`;
+
+                      // Trích số từ tên bài (vd: "Bài 26" -> 26)
+                      const baiNumberMatch = bai.match(/\d+/);
+                      const baiNumber = baiNumberMatch ? baiNumberMatch[0] : baiIndex + 1;
+
+                      const baiSlug = `bai${baiNumber}`;
 
                       return `
-                      <li class="list-group-item p-2">
-                        <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}.html" class="text-dark" title="${bai}" target="_blank">
-                          ${bai}
-                        </a>
-                      </li>`;
+                        <li class="list-group-item p-2">
+                          <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}.html" class="text-dark" title="${bai}" target="_blank">
+                            ${bai}
+                          </a>
+                        </li>`;
                     })
-
                     .join("")}
                 </ul>
               </div>
