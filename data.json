@@ -10,7 +10,7 @@
         "Bài 6: Lũy thừa với số mũ tự nhiên",
         "Bài 7: Thứ tự thực hiện các phép tính"
       ],
-      "Chương 2: Tính chia hết trong tập hợp các số tự nhiên": [
+      "Chương 2: Tính chia hết trong tập hợp N": [
         "Bài 8: Quan hệ chia hết và tính chất",
         "Bài 9: Dấu hiệu chia hết",
         "Bài 10: Số nguyên tố",
@@ -29,7 +29,7 @@
         "Bài 19: hình chữ nhật. Hình thoi hình bình hành. Hình thang cân",
         "Bài 20: Chu vi và diện tích của một số tứ giác đã học"
       ],
-      "Chương 5: Tính đối xứng của hình phẳng trong tự nhiên": [
+      "Chương 5: Tính đối xứng của hình phẳng ": [
         "Bài 21: Hình có trục đối xứng",
         "Bài 22: Hình có tâm đối xứng"
       ]
@@ -113,11 +113,11 @@
         "Bài 27: Phép nhân đa thức một biến",
         "Bài 28: Phép chia đa thức một biến"
       ],
-      "Chương 8: Làm quen với biến cố và xác suất của biến cố": [
+      "Chương 8: Biến cố và xác suất của biến cố": [
         "Bài 29: Làm quen với biến cố",
         "Bài 30: Làm quen với xác suất của biến cố"
       ],
-      "Chương 9: Quan hệ giữa các yếu tố trong một tam giác": [
+      "Chương 9: Quan hệ giữa các yếu tố trong tam giác": [
         "Bài 31: Quan hệ giữa góc và cạnh đối diện trong một tam giác",
         "Bài 32: Quan hệ giữa đường vuông góc và đường xiên",
         "Bài 33: Quan hệ giữa ba cạnh của một tam giác",
@@ -171,7 +171,7 @@
         "Bài 23: Phép cộng và phép trừ phân thức đại số",
         "Bài 24: Phép nhân và phép chia phân thức đại số"
       ],
-      "Chương 7: Phương trình bậc nhất và hàm số bậc nhất": [
+      "Chương 7: Phương trình và hàm số bậc nhất": [
         "Bài 25: Phương trình bậc nhất một ẩn",
         "Bài 26: Giải bài TOÁN bằng cách lập phương trình",
         "Bài 27: Khái niệm hàm số và đồ thị của hàm số",
@@ -199,12 +199,12 @@
 
   "TOÁN 9": {
     "HỌC KÌ I": {
-      "Chương 1: Phương trình và hệ hai phương trình bậc nhất hai ẩn": [
+      "Chương 1: PT và hệ 2 PT bậc nhất 2 ẩn": [
         "Bài 1: Khái niệm phương trình và hệ hai phương trình bậc nhất hai ẩn",
         "Bài 2: Giải hệ hai phương trình bậc nhất hai ẩn",
         "Bài 3: Giải bài TOÁN bằng cách lập hệ phương trình"
       ],
-      "Chương 2: Phương trình và bất phương trình bậc nhất một ẩn": [
+      "Chương 2: PT và BPT bậc nhất 1 ẩn": [
         "Bài 4: Phương trình quy về phương trình bậc nhất một ẩn",
         "Bài 5: Bất đẳng thức và tính chất",
         "Bài 6: Bất phương trình bậc nhất một ẩn"
@@ -228,7 +228,7 @@
       ]
     },
     "HỌC KÌ II": {
-      "Chương 6: Hàm số y = ax2 (a ≠ 0). Phương trình bậc hai một ẩn": [
+      "Chương 6: Hàm số y = ax2 (a ≠ 0). PT bậc hai 1 ẩn": [
         "Bài 18: Hàm số y = ax2 (a ≠ 0)",
         "Bài 19: Phương trình bậc hai một ẩn",
         "Bài 20: Định lí Viète và ứng dụng",
@@ -239,11 +239,11 @@
         "Bài 23: Bảng tần số tương đối và biểu đồ tần số tương đối",
         "Bài 24: Bảng tần số, tần số tương đối ghép nhóm và biểu đồ"
       ],
-      "Chương 8: Xác suất của biến cố trong một số mô hình xác suất đơn giản": [
+      "Chương 8: Xác suất của biến cố": [
         "Bài 25: Phép thử ngẫu nhiên và không gian mẫu",
         "Bài 26: Xác suất của biến cố liên quan tới phép thử"
       ],
-      "Chương 9: Đường tròn ngoại tiếp và đường tròn nội tiếp": [
+      "Chương 9: Đường tròn ngoại tiếp và nội tiếp": [
         "Bài 27: Góc nội tiếp",
         "Bài 28: Đường tròn ngoại tiếp và đường tròn nội tiếp của một tam giác",
         "Bài 29: Tứ giác nội tiếp",
@@ -262,7 +262,7 @@
         "Bài 1: Mệnh đề",
         "Bài 2: Tập hợp và các phép TOÁN trên tập hợp"
       ],
-      "Chương 2: Bất phương trình và hệ bất phương trình bậc nhất hai ẩn": [
+      "Chương 2: BPT và hệ BPT bậc nhất 2 ẩn": [
         "Bài 3: Bất phương trình bậc nhất hai ẩn",
         "Bài 4: Hệ bất phương trình bậc nhất hai ẩn"
       ],
@@ -277,7 +277,7 @@
         "Bài 10: Vectơ trong mặt phẳng tọa độ",
         "Bài 11: Tích vô hướng của hai vectơ"
       ],
-      "Chương 5: Các số đặc trưng của mẫu số liệu không ghép nhóm": [
+      "Chương 5: Mẫu số liệu không ghép nhóm": [
         "Bài 12: Số gần đúng và sai số",
         "Bài 13: Các số đặc trưng đo xu thế trung tâm",
         "Bài 14: Các số đặc trưng đo độ phân tán"
@@ -310,7 +310,7 @@
 
   "TOÁN 11": {
     "HỌC KÌ I": {
-      "Chương 1: Hàm số lượng giác và phương trình lượng giác": [
+      "Chương 1: Hàm số và phương trình lượng giác": [
         "Bài 1: Giá trị lượng giác của góc lượng giác",
         "Bài 2: Công thức lượng giác",
         "Bài 3: Hàm số lượng giác",
@@ -321,7 +321,7 @@
         "Bài 6: Cấp số cộng",
         "Bài 7: Cấp số nhân"
       ],
-      "Chương 3: Các số đặc trưng đo xu thế trung tâm của mẫu số liệu ghép nhóm": [
+      "Chương 3: Mẫu số liệu ghép nhóm": [
         "Bài 8: Mẫu số liệu ghép nhóm",
         "Bài 9: Các số đặc trưng đo xu thế trung tâm"
       ],
@@ -368,19 +368,19 @@
 
   "TOÁN 12": {
     "HỌC KÌ I": {
-      "Chương 1: Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số": [
+      "Chương 1: UD đạo hàm khảo sát và vẽ ĐTHS": [
         "Bài 1: Tính đơn điệu và cực trị của hàm số",
         "Bài 2: Giá trị lớn nhất và giá trị nhỏ nhất của hàm số",
         "Bài 3: Đường tiệm cận của đồ thị hàm số",
         "Bài 4: Khảo sát sự biến thiên và vẽ đồ thị của hàm số",
         "Bài 5: Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn"
       ],
-      "Chương 2: Vectơ và hệ trục tọa độ trong không gian": [
+      "Chương 2: Vectơ và hệ trục tọa độ": [
         "Bài 6: Vectơ trong không gian",
         "Bài 7: Hệ trục tọa độ trong không gian",
         "Bài 8: Biểu thức tọa độ của các phép TOÁN vectơ"
       ],
-      "Chương 3: Các số đặc trưng đo mức độ phân tán của mẫu số liệu ghép nhóm": [
+      "Chương 3: Mức độ phân tán của MSL ghép nhóm": [
         "Bài 9: Khoảng biến thiên và khoảng tứ phân vị",
         "Bài 10: Phương sai và độ lệch chuẩn"
       ]

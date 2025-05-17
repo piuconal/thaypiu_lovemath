@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  background: linear-gradient(to right, #669ae8, #f486ac);
   font-family: "Segoe UI", sans-serif;
 }
 
@@ -49,5 +49,18 @@ a.lesson-link:hover {
 @keyframes blinker {
   50% {
     opacity: 0.6;
+  }
+}
+#classList .card {
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+@media (max-width: 576px) {
+  .hsa-badge {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 }

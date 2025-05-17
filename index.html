@@ -20,7 +20,7 @@
         <div class="mb-1">
           <span class="badge badge-primary py-2 px-3" style="font-size: 1rem;">Vào lớp 10</span>
           <span class="badge badge-success py-2 px-3" style="font-size: 1rem;">THPT Quốc gia</span>
-          <span class="badge badge-warning text-dark py-2 px-3" style="font-size: 1rem;">Đánh giá năng lực (HSA)</span>
+          <span class="badge badge-danger py-2 px-3 hsa-badge" style="font-size: 1rem;">Đánh giá năng lực (HSA)</span>
         </div>
 
         <div class="text-secondary" style="font-size: 0.95rem;">
@@ -37,11 +37,23 @@
   </header>
 
   <div class="container py-4">
-    <!-- Danh sách các lớp -->
-    <div id="classList" class="accordion"></div>
+    <div class="row">
+      <!-- Cột trái: Danh sách các lớp -->
+      <div class="col-md-8 mb-3">
+        <div id="classList" class="accordion"></div>
+      </div>
+
+      <!-- Cột phải: Hình ảnh -->
+      <div class="col-md-4 mb-3 d-flex justify-content-center align-items-center" style="min-height: 100%;">
+        <img src="images/math.jpg" alt="Minh họa" class="img-fluid rounded shadow"
+          style="border-radius: 55% !important; width: 300px !important; height: 300px !important;">
+      </div>
+
+    </div>
   </div>
 
-  <a href="https://piuconal.github.io/liximayman/" target="_blank" id="giftLink">
+
+  <a href="https://piuconal.github.io/lliximayman/" target="_blank" id="giftLink">
     <img src="images/qua.gif" alt="Gif hộp quà" id="giftBox" />
   </a>
 
