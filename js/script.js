@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                       return `
                         <li class="list-group-item p-2">
-                          <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}.html" class="text-dark" title="${bai}" target="_blank">
+                          <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}/${baiSlug}.html" class="text-dark" title="${bai}" target="_blank">
                             ${bai}
                           </a>
                         </li>`;
