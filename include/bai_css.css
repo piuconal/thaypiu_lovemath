@@ -6,15 +6,6 @@ html {
   background-color: #f7f9fc;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: #1e88e5;
-  flex-wrap: wrap;
-}
-
 .nav-button {
   padding: 0.75rem 1.5rem;
   background: linear-gradient(135deg, #42a5f5, #1976d2);
@@ -53,7 +44,6 @@ iframe {
   gap: 20px;
 }
 
-/* Modal overlay */
 .modal {
   display: none;
   position: fixed;
@@ -93,7 +83,7 @@ iframe {
 }
 
 .image-container {
-  width: 23%; /* khoảng 4 ảnh mỗi hàng với khoảng cách */
+  width: 23%;
   text-align: center;
   cursor: pointer;
   display: flex;
@@ -119,33 +109,36 @@ iframe {
   justify-content: center;
   text-align: center;
 }
-/* Responsive cho màn hình nhỏ (điện thoại) */
+
 @media (max-width: 600px) {
   .image-container {
-    width: 32%; /* 2 ảnh mỗi hàng */
+    width: 32%;
     height: 140px;
   }
   .image-container img {
-    height: 80px; /* điều chỉnh chiều cao ảnh nhỏ lại */
+    height: 80px;
   }
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between; /* cách đều 2 bên */
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
   padding: 1rem;
   flex-wrap: wrap;
+  background-color: #007bff;
+  color: white;
+  position: relative;
 }
 
 .back-button {
-  background-color: #d32f2f !important; /* đỏ đậm */
-  color: white;
+  background-color: #f2efef !important;
+  color: black !important;
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: bold;
   display: inline-block;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -156,4 +149,47 @@ iframe {
 .back-button:hover {
   background-color: #b71c1c;
   transform: scale(1.05);
+}
+
+.nav-left .back-button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-right {
+  display: flex;
+  gap: 10px;
+  transition: max-height 0.3s ease;
+}
+
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  background-color: #f2efef !important;
+  color: black !important;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .nav-right {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: #007bff;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    width: calc(100% - 20px);
+    border-radius: 8px;
+  }
+
+  .nav-right.show {
+    max-height: 500px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
 }

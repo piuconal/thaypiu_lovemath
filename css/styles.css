@@ -64,3 +64,44 @@ a.lesson-link:hover {
     text-align: center;
   }
 }
+.list-group {
+  max-height: 300px; /* Giới hạn chiều cao tối đa */
+  overflow-y: auto; /* Khi vượt quá chiều cao thì có thanh cuộn dọc */
+}
+.gradient-border {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(270deg, #ff00c8, #00ffe1, #ffe600, #ff00c8);
+  background-size: 800% 800%;
+  animation: animatedGradient 5s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-effect {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  background-color: white;
+}
+
+.image-effect:hover {
+  transform: scale(1.1);
+}
+
+@keyframes animatedGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
