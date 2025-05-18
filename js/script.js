@@ -25,19 +25,43 @@ document.addEventListener("DOMContentLoaded", () => {
         lopCard.className = "card";
 
         const lopHeader = document.createElement("div");
-        lopHeader.className = "card-header bg-light";
-        // Danh sách số học sinh cố định ứng với từng lớp
-        const fixedStudentCounts = [30, 50, 40, 200, 150, 150, 200]; // Bạn có thể thêm nữa nếu có nhiều lớp
+        lopHeader.className = "card-header bg-light scroll-to-center";
 
-        // Lấy số tương ứng theo index lớp (lopIndex)
-        const studentCount = fixedStudentCounts[lopIndex] || 0;
+        // // Danh sách số học sinh cố định ứng với từng lớp
+        // const fixedStudentCounts = [30, 50, 40, 200, 150, 150, 200]; // Bạn có thể thêm nữa nếu có nhiều lớp
+
+        // // Lấy số tương ứng theo index lớp (lopIndex)
+        // const studentCount = fixedStudentCounts[lopIndex] || 0;
+
+        // Danh sách lớp có số học sinh 9+
+        const fixedStudentCounts = {
+          "TOÁN 9": 200,
+          "TOÁN 12": 300,
+        };
+
+        const studentCount = fixedStudentCounts[lop] || 0;
+
+        const showStudentCount = fixedStudentCounts.hasOwnProperty(lop);
+
+        // lopHeader.innerHTML = `
+        //   <h5 class="mb-0 d-flex justify-content-between align-items-center">
+        //     <button class="btn btn-link collapsed text-dark font-weight-bold" data-toggle="collapse" data-target="#${lopId}" aria-expanded="false">
+        //       ${lop}
+        //     </button>
+        //     <span class="blinking text-danger font-weight-bold mr-2">> ${studentCount} học sinh đạt 9+ trong các kì thi</span>
+        //   </h5>
+        // `;
 
         lopHeader.innerHTML = `
           <h5 class="mb-0 d-flex justify-content-between align-items-center">
             <button class="btn btn-link collapsed text-dark font-weight-bold" data-toggle="collapse" data-target="#${lopId}" aria-expanded="false">
               ${lop}
             </button>
-            <span class="blinking text-danger font-weight-bold mr-2">> ${studentCount} học sinh đã tham gia khóa học</span>
+            ${
+              showStudentCount
+                ? `<span class="blinking text-danger font-weight-bold mr-2">> ${studentCount} học sinh đạt 9+ trong kì thi tốt nghiệp</span>`
+                : ""
+            }
           </h5>
         `;
 
@@ -53,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const kyDiv = document.createElement("div");
 
           kyDiv.innerHTML = `
-            <button class="btn btn-outline-primary btn-sm mb-2" data-toggle="collapse" data-target="#${kyId}">
-              ${ky}
-            </button>
-            <div class="collapse" id="${kyId}"></div>
-          `;
+  <button class="btn btn-outline-primary btn-sm mb-2 scroll-to-center" data-toggle="collapse" data-target="#${kyId}">
+    ${ky}
+  </button>
+  <div class="collapse" id="${kyId}"></div>
+`;
 
           const chuongContainer = kyDiv.querySelector(`#${kyId}`);
 
@@ -68,9 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
               const chuongDiv = document.createElement("div");
 
               chuongDiv.innerHTML = `
-              <button class="btn btn-outline-secondary btn-sm mb-2 ml-3" data-toggle="collapse" data-target="#${chuongId}">
-                ${chuong}
-              </button>
+ <button class="btn btn-outline-secondary btn-sm mb-2 ml-3 scroll-to-center" data-toggle="collapse" data-target="#${chuongId}">
+    ${chuong}
+  </button>
               <div class="collapse ml-4" id="${chuongId}">
                 <ul class="list-group mb-3">
                   ${baiList
@@ -93,11 +117,14 @@ document.addEventListener("DOMContentLoaded", () => {
                       const baiSlug = `bai${baiNumber}`;
 
                       return `
-                        <li class="list-group-item p-2">
-                          <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}/${baiSlug}.html" class="text-dark" title="${bai}" target="_blank">
-                            ${bai}
-                          </a>
-                        </li>`;
+  <li class="list-group-item p-2">
+    <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}/${baiSlug}.html" 
+       class="text-dark scroll-to-center" 
+       title="${bai}" 
+       target="_blank">
+      ${bai}
+    </a>
+  </li>`;
                     })
                     .join("")}
                 </ul>
@@ -120,6 +147,34 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => {
       console.error("Lỗi khi tải dữ liệu JSON:", err);
     });
+
+  document.addEventListener("click", function (e) {
+    const target = e.target;
+
+    // Nếu phần tử hoặc cha nó có class scroll-to-center
+    const scrollTarget = target.closest(".scroll-to-center");
+    if (scrollTarget) {
+      // Scroll phần tử chứa nó (TOÁN, Học kỳ, Chương, Bài) vào giữa màn hình
+      const offset = 100; // Khoảng cách từ đỉnh
+      const topPos =
+        scrollTarget.getBoundingClientRect().top + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: topPos,
+        behavior: "smooth",
+      });
+
+      // Trường hợp là link bài học -> mở tab sau khi scroll
+      if (scrollTarget.tagName === "A" && scrollTarget.target === "_blank") {
+        e.preventDefault();
+        const href = scrollTarget.href;
+
+        setTimeout(() => {
+          window.open(href, "_blank");
+        }, 500);
+      }
+    }
+  });
 });
 
 // Hàm chuyển đổi văn bản thành slug (không dùng trong phần link rút gọn này nhưng giữ lại để bạn dùng sau)
