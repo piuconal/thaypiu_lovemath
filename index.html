@@ -34,6 +34,7 @@
             <a href="mailto:vuhieu.dev@gmail.com" class="text-decoration-none text-dark">vuhieu.dev@gmail.com</a>
             <button id="toggleIframeBtn" class="btn btn-outline-primary btn-sm ml-2">Tra điểm thi</button>
             <button id="toggleTempleBtn" class="btn btn-outline-success btn-sm ml-2">Thắp hương Online</button>
+            <button id="toggleAlarmBtn" class="btn btn-outline-warning btn-sm ml-2">Đồng hồ báo thức</button>
           </div>
         </div>
 
@@ -71,6 +72,12 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
+  <div id="alarmIframeContainer" style="display: none; width: 100vw; margin-left: -8px;">
+    <iframe src="https://donghobaothuc.com/" width="100%" height="600px" style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
+
 
   <a href="https://piuconal.github.io/lliximayman/" target="_blank" id="giftLink">
     <img src="images/qua.gif" alt="Gif hộp quà" id="giftBox" />
@@ -83,26 +90,63 @@
     document.addEventListener("DOMContentLoaded", function () {
       const toggleBtn = document.getElementById("toggleIframeBtn");
       const toggleTempleBtn = document.getElementById("toggleTempleBtn");
+      const toggleAlarmBtn = document.getElementById("toggleAlarmBtn");
+
       const iframeContainer = document.getElementById("iframeContainer");
       const templeIframeContainer = document.getElementById("templeIframeContainer");
+      const alarmIframeContainer = document.getElementById("alarmIframeContainer");
+
       const classListContainer = document.querySelector(".container.py-4");
+
+      function toggleSnowEffect(show) {
+        document.querySelectorAll(".snow, canvas, .noel-container").forEach(el => {
+          el.style.display = show ? "block" : "none";
+        });
+      }
 
       toggleBtn.addEventListener("click", function () {
         const isVisible = iframeContainer.style.display === "block";
         iframeContainer.style.display = isVisible ? "none" : "block";
+
         templeIframeContainer.style.display = "none";
+        alarmIframeContainer.style.display = "none";
+
         classListContainer.style.display = isVisible ? "block" : "none";
         toggleBtn.textContent = isVisible ? "Tra điểm thi" : "Ẩn điểm thi";
-        toggleTempleBtn.textContent = "Thắp hương Online";
+        toggleTempleBtn.textContent = "Thắp hương";
+        toggleAlarmBtn.textContent = "Đồng hồ báo thức";
+
+        toggleSnowEffect(true);
       });
 
       toggleTempleBtn.addEventListener("click", function () {
         const isVisible = templeIframeContainer.style.display === "block";
         templeIframeContainer.style.display = isVisible ? "none" : "block";
+
         iframeContainer.style.display = "none";
+        alarmIframeContainer.style.display = "none";
+
         classListContainer.style.display = isVisible ? "block" : "none";
-        toggleTempleBtn.textContent = isVisible ? "Thắp hương Online" : "Ẩn Chánh điện";
+        toggleTempleBtn.textContent = isVisible ? "Thắp hương" : "Ẩn Chánh điện";
         toggleBtn.textContent = "Tra điểm thi";
+        toggleAlarmBtn.textContent = "Đồng hồ báo thức";
+
+        toggleSnowEffect(!isVisible);
+      });
+
+      toggleAlarmBtn.addEventListener("click", function () {
+        const isVisible = alarmIframeContainer.style.display === "block";
+        alarmIframeContainer.style.display = isVisible ? "none" : "block";
+
+        iframeContainer.style.display = "none";
+        templeIframeContainer.style.display = "none";
+
+        classListContainer.style.display = isVisible ? "block" : "none";
+        toggleAlarmBtn.textContent = isVisible ? "Đồng hồ báo thức" : "Ẩn Đồng hồ báo thức";
+        toggleBtn.textContent = "Tra điểm thi";
+        toggleTempleBtn.textContent = "Thắp hương";
+
+        toggleSnowEffect(!isVisible);
       });
     });
   </script>
