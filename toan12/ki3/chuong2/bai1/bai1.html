@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>THPTQG - TOÁN THỰC TẾ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../../../../images/logo.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1.title {
+      text-align: center;
+      color: #00d9ff;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-size: 32px;
+      /* mặc định cho desktop */
+    }
+
+    /* Giảm kích thước trên điện thoại */
+    @media (max-width: 600px) {
+      h1.title {
+        font-size: 15px;
+      }
+    }
+
+    .image-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .image-item {
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      cursor: pointer;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-item:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .image-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .image-caption {
+      padding: 10px;
+      text-align: center;
+      font-weight: 600;
+      color: #333;
+      user-select: none;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="title">DẠNG 1: ỨNG DỤNG ĐẠO HÀM, MAX-MIN HÀM SỐ</h1>
+
+  <div class="image-list">
+    <!-- Tạo 20 ảnh mẫu -->
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c1.png" alt="Bài tập 1" />
+      <div class="image-caption">Bài tập 1</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c2.png" alt="Bài tập 2" />
+      <div class="image-caption">Bài tập 2</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c3.png" alt="Bài tập 3" />
+      <div class="image-caption">Bài tập 3</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c4.png" alt="Bài tập 4" />
+      <div class="image-caption">Bài tập 4</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c3.png" alt="Bài tập 3" />
+      <div class="image-caption">Bài tập 3</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c4.png" alt="Bài tập 4" />
+      <div class="image-caption">Bài tập 4</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c5.png" alt="Bài tập 5" />
+      <div class="image-caption">Bài tập 5</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c6.png" alt="Bài tập 6" />
+      <div class="image-caption">Bài tập 6</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c7.png" alt="Bài tập 7" />
+      <div class="image-caption">Bài tập 7</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c8.png" alt="Bài tập 8" />
+      <div class="image-caption">Bài tập 8</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c9.png" alt="Bài tập 9" />
+      <div class="image-caption">Bài tập 9</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c10.png" alt="Bài tập 10" />
+      <div class="image-caption">Bài tập 10</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c11.png" alt="Bài tập 11" />
+      <div class="image-caption">Bài tập 11</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c12.png" alt="Bài tập 12" />
+      <div class="image-caption">Bài tập 12</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c13.png" alt="Bài tập 13" />
+      <div class="image-caption">Bài tập 13</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c14.png" alt="Bài tập 14" />
+      <div class="image-caption">Bài tập 14</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c15.png" alt="Bài tập 15" />
+      <div class="image-caption">Bài tập 15</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c16.png" alt="Bài tập 16" />
+      <div class="image-caption">Bài tập 16</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c17.png" alt="Bài tập 17" />
+      <div class="image-caption">Bài tập 17</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c18.png" alt="Bài tập 18" />
+      <div class="image-caption">Bài tập 18</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c19.png" alt="Bài tập 19" />
+      <div class="image-caption">Bài tập 19</div>
+    </div>
+    <div class="image-item" tabindex="0">
+      <img src="./list_ques/c20.png" alt="Bài tập 20" />
+      <div class="image-caption">Bài tập 20</div>
+    </div>
+  </div>
+
+  <!-- Modal hiển thị ảnh lớn -->
+  <div id="modal" class="modal" tabindex="0">
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="Ảnh lớn" />
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+
+    document.querySelectorAll('.image-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        // Đặt tiêu điểm cho modal để bắt phím ESC tắt modal
+        modal.focus();
+      });
+    });
+
+    // Đóng modal khi click bên ngoài ảnh hoặc nhấn ESC
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target === modalImg) {
+        modal.style.display = 'none';
+        modalImg.src = '';
+      }
+    });
+
+    // Đóng modal bằng phím ESC
+    modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modal.style.display = 'none';
+        modalImg.src = '';
+      }
+    });
+  </script>
+</body>
+
+</html>
