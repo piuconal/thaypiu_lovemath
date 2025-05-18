@@ -15,28 +15,18 @@
       <a href="../../../../index.html" class="back-button">←</a>
     </div>
 
-    <div class="nav-toggle" onclick="toggleMenu()">
-      ☰
+    <div id="mobile-warning"
+      style="display: none; color: rgb(0, 217, 255); text-align: center; font-weight: bold; margin-top: 10px; margin-bottom: 10px;">
+      Sử dụng máy tính để xem file chi tiết hơn
     </div>
+    <iframe id="pdfFrame" src="tuluan.pdf"></iframe>
 
-    <div class="nav-right" id="navMenu">
-      <button class="nav-button" onclick="loadPDF('tuluan.pdf')">TỰ LUẬN</button>
-      <button class="nav-button" onclick="loadPDF('tracnghiem.pdf')">TRẮC NGHIỆM</button>
+    <div id="imageList"></div>
+
+    <!-- Modal for zoomed image -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+      <img class="modal-content" id="modalImage">
     </div>
-  </div>
-
-  <div id="mobile-warning"
-    style="display: none; color: rgb(0, 217, 255); text-align: center; font-weight: bold; margin-top: 10px; margin-bottom: 10px;">
-    Sử dụng máy tính để xem file chi tiết hơn
-  </div>
-  <iframe id="pdfFrame" src="tuluan.pdf"></iframe>
-
-  <div id="imageList"></div>
-
-  <!-- Modal for zoomed image -->
-  <div id="imageModal" class="modal" onclick="closeModal()">
-    <img class="modal-content" id="modalImage">
-  </div>
 
 
 
