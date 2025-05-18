@@ -150,28 +150,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", function (e) {
     const target = e.target;
-
-    // Nếu phần tử hoặc cha nó có class scroll-to-center
     const scrollTarget = target.closest(".scroll-to-center");
-    if (scrollTarget) {
-      // Scroll phần tử chứa nó (TOÁN, Học kỳ, Chương, Bài) vào giữa màn hình
-      const offset = 100; // Khoảng cách từ đỉnh
-      const topPos =
-        scrollTarget.getBoundingClientRect().top + window.pageYOffset - offset;
 
-      window.scrollTo({
-        top: topPos,
-        behavior: "smooth",
-      });
+    if (scrollTarget) {
+      // Tìm ra phần tử nút lớp (TOÁN 6, TOÁN 7, ...)
+      const lopButton = scrollTarget
+        .closest(".card-header")
+        ?.querySelector("button");
+      const lopText = lopButton?.textContent?.trim();
+
+      if (lopText === "TOÁN 12" || lopText === "TOÁN 11") {
+        setTimeout(() => {
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth",
+          });
+        }, 300);
+      }
 
       // Trường hợp là link bài học -> mở tab sau khi scroll
       if (scrollTarget.tagName === "A" && scrollTarget.target === "_blank") {
         e.preventDefault();
         const href = scrollTarget.href;
-
         setTimeout(() => {
           window.open(href, "_blank");
-        }, 500);
+        }, 600);
       }
     }
   });
