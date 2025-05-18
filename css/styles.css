@@ -63,6 +63,12 @@ a.lesson-link:hover {
     width: 100%;
     text-align: center;
   }
+  .blinking {
+    font-size: 12px !important;
+  }
+  h5 button {
+    font-size: 11px !important;
+  }
 }
 .list-group {
   max-height: 300px; /* Giới hạn chiều cao tối đa */
