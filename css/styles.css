@@ -63,7 +63,7 @@ a.lesson-link:hover {
   .hsa-badge {
     margin-top: 10px;
     display: block;
-    width: 100%;
+    width: 80%;
     text-align: center;
   }
   .blinking {
@@ -291,3 +291,4 @@ a.lesson-link:hover {
     height: auto;
   }
 }
+

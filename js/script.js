@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Danh sách lớp có số học sinh 9+
         const fixedStudentCounts = {
-          "TOÁN 9": 200,
-          "TOÁN 12": 300,
+          "TOÁN 9": 400,
+          "TOÁN 12": 600,
         };
 
         const studentCount = fixedStudentCounts[lop] || 0;
@@ -272,11 +272,33 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  const classListContainer = document.querySelector(".container.py-4");
+
   const buttons = {
-    score: document.getElementById("toggleIframeBtn"),
-    temple: document.getElementById("toggleTempleBtn"),
-    alarm: document.getElementById("toggleAlarmBtn"),
-    game: document.getElementById("toggleGameBtn"),
+    score: [
+      document.getElementById("toggleIframeBtn"),
+      document.getElementById("toggleIframeBtnMobile"),
+    ],
+    temple: [
+      document.getElementById("toggleTempleBtn"),
+      document.getElementById("toggleTempleBtnMobile"),
+    ],
+    alarm: [
+      document.getElementById("toggleAlarmBtn"),
+      document.getElementById("toggleAlarmBtnMobile"),
+    ],
+    game: [
+      document.getElementById("toggleGameBtn"),
+      document.getElementById("toggleGameBtnMobile"),
+    ],
+    visualgo: [
+      document.getElementById("toggleVisualgoBtn"),
+      document.getElementById("toggleVisualgoBtnMobile"),
+    ],
+    geogebra: [
+      document.getElementById("toggleGeogebraBtn"),
+      document.getElementById("toggleGeogebraBtnMobile"),
+    ],
   };
 
   const containers = {
@@ -284,22 +306,26 @@ document.addEventListener("DOMContentLoaded", function () {
     temple: document.getElementById("templeIframeContainer"),
     alarm: document.getElementById("alarmIframeContainer"),
     game: document.getElementById("gameIframeContainer"),
+    visualgo: document.getElementById("visualgoIframeContainer"),
+    geogebra: document.getElementById("geogebraIframeContainer"),
   };
-
-  const classListContainer = document.querySelector(".container.py-4");
 
   const defaultTexts = {
     score: "Tra điểm thi",
     temple: "Thắp hương",
-    alarm: "Đồng hồ báo thức",
+    alarm: "Đồng hồ",
     game: "Tower of Hanoi",
+    visualgo: "Thuật toán",
+    geogebra: "GeoGebra",
   };
 
   const hiddenTexts = {
     score: "Ẩn Điểm thi",
     temple: "Ẩn Chánh điện",
-    alarm: "Ẩn Đồng hồ báo thức",
+    alarm: "Ẩn Đồng hồ",
     game: "Ẩn Trò chơi",
+    visualgo: "Ẩn Visualgo",
+    geogebra: "Ẩn GeoGebra",
   };
 
   function toggleSnowEffect(show) {
@@ -314,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Object.keys(containers).forEach((key) => {
       const isCurrent = key === section;
       const container = containers[key];
-      const button = buttons[key];
+      const btnList = buttons[key];
 
       container.style.display = isCurrent
         ? container.style.display === "block"
@@ -322,10 +348,12 @@ document.addEventListener("DOMContentLoaded", function () {
           : "block"
         : "none";
 
-      button.textContent =
-        isCurrent && container.style.display === "block"
-          ? hiddenTexts[key]
-          : defaultTexts[key];
+      const isVisible = container.style.display === "block";
+
+      btnList.forEach((btn) => {
+        btn.textContent =
+          isCurrent && isVisible ? hiddenTexts[key] : defaultTexts[key];
+      });
     });
 
     const isVisible = containers[section].style.display === "block";
@@ -335,10 +363,12 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  buttons.score.addEventListener("click", () => toggleSection("score"));
-  buttons.temple.addEventListener("click", () => toggleSection("temple"));
-  buttons.alarm.addEventListener("click", () => toggleSection("alarm"));
-  buttons.game.addEventListener("click", () => toggleSection("game"));
+  // Gán sự kiện cho tất cả các nút (cả desktop và mobile)
+  Object.keys(buttons).forEach((key) => {
+    buttons[key].forEach((btn) => {
+      btn.addEventListener("click", () => toggleSection(key));
+    });
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

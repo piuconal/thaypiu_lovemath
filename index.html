@@ -19,23 +19,26 @@
       <img src="images/logo.png" alt="Logo" style="height:60px; width:auto; margin-right:15px;">
       <div>
         <div class="mb-1">
-          <span class="badge badge-primary py-2 px-3" style="font-size: 1rem;">Vào lớp 10</span>
-          <span class="badge badge-success py-2 px-3" style="font-size: 1rem;">THPT Quốc gia</span>
-          <span class="badge badge-danger py-2 px-3 hsa-badge" style="font-size: 1rem;">Đánh giá năng lực (HSA)</span>
+          <span class="badge badge-primary py-2 px-3" style="font-size: 0.9;">Vào lớp 10</span>
+          <span class="badge badge-success py-2 px-3" style="font-size: 0.9;">THPT Quốc gia</span>
+          <span class="badge badge-danger py-2 px-3 hsa-badge" style="font-size: 0.9;">Đánh giá năng lực (HSA)</span>
         </div>
 
-        <div class="text-secondary" style="font-size: 0.95rem;">
-          <strong>Thầy Piu</strong> - Vũ Trọng Hiếu với đội ngũ nhiều năm kinh nghiệm luyện thi,
+        <div class="text-secondary" style="font-size: 0.75rem;">
+          <strong>Thầy Piu</strong> - Vũ Trọng Hiếu cùng với đội ngũ nhiều năm kinh nghiệm luyện thi,
           chia sẻ nhiều <span class="text-info font-italic">kỹ năng</span> và <span class="text-info font-italic">mẹo
-            nhanh</span>.
+            nhanh</span>.<br>
+          <a href="tel:0971110602" class="text-decoration-none text-dark d-md-block mt-2">📞0971 11 06 02
+            📩vuhieu.dev@gmail.com</a>
           <div class="d-none d-md-block mt-2">
-            <i class="fas fa-phone-alt text-success mr-1"></i>
-            <a href="tel:0971110602" class="text-decoration-none text-dark">0971110602 |</a>
-            <a href="mailto:vuhieu.dev@gmail.com" class="text-decoration-none text-dark">vuhieu.dev@gmail.com</a>
             <button id="toggleIframeBtn" class="btn btn-outline-primary btn-sm ml-2">Tra điểm thi</button>
             <button id="toggleTempleBtn" class="btn btn-outline-success btn-sm ml-2">Thắp hương Online</button>
-            <button id="toggleAlarmBtn" class="btn btn-outline-warning btn-sm ml-2 lockapi">Đồng hồ báo thức</button>
+            <button id="toggleAlarmBtn" class="btn btn-outline-warning btn-sm ml-2 lockapi">Đồng hồ</button>
             <button id="toggleGameBtn" class="btn btn-outline-danger btn-sm ml-2 lockapi">Tower of Hanoi</button>
+            <button id="toggleVisualgoBtn" class="btn btn-outline-info btn-sm ml-2">Thuật toán</button>
+            <button id="toggleGeogebraBtn" class="btn btn-outline-warning btn-sm ml-2">Swap Face</button>
+            <a href="https://e.20142022.xyz/" target="_blank" class="btn btn-outline-dark btn-sm ml-2">Casio
+              580VNX</a>
           </div>
         </div>
 
@@ -87,6 +90,18 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
+  <div id="visualgoIframeContainer" style="display: none; width: 100vw; margin-left: -8px;">
+    <iframe src="https://visualgo.net/en" width="100%" height="700px" style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
+  <div id="geogebraIframeContainer" style="display: none; width: 100vw; margin-left: -8px;">
+    <iframe src="https://www.deepswapper.com/vi" width="100%" height="700px" style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
+
+
 
   <!-- Nút menu cố định góc dưới trái (chỉ hiện trên mobile) -->
   <div id="mobileMenuBtn" class="d-md-none">
@@ -98,10 +113,14 @@
 
     <!-- Menu popup -->
     <div id="mobileDropdownMenu" class="mobile-dropdown-menu">
-      <button id="toggleIframeBtn" class="dropdown-item text-primary">📝 Tra điểm thi</button>
-      <button id="toggleTempleBtn" class="dropdown-item text-success">🕯️ Thắp hương Online</button>
-      <button id="toggleAlarmBtn" class="dropdown-item text-warning lockapi">⏰ Đồng hồ báo thức</button>
-      <button id="toggleGameBtn" class="dropdown-item text-danger lockapi">🧠 Tower of Hanoi</button>
+      <!-- MENU MOBILE -->
+      <button id="toggleIframeBtnMobile" class="d-md-none dropdown-item text-primary">📝 Tra điểm thi</button>
+      <button id="toggleTempleBtnMobile" class="d-md-none dropdown-item text-success">🕯️ Thắp hương</button>
+      <button id="toggleAlarmBtnMobile" class="d-md-none dropdown-item text-warning lockapi">⏰ Đồng hồ</button>
+      <button id="toggleGameBtnMobile" class="d-md-none dropdown-item text-danger lockapi">🧠 Tower of Hanoi</button>
+      <button id="toggleVisualgoBtnMobile" class="d-md-none dropdown-item text-info">📊 Thuật toán</button>
+      <button id="toggleGeogebraBtnMobile" class="d-md-none dropdown-item text-warning">👨🏼 Swap Face</button>
+      <a href="https://e.20142022.xyz/" target="_blank" class="d-md-none dropdown-item text-dark">🧮 Casio 580VNX</a>
     </div>
   </div>
 
