@@ -252,6 +252,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function appendMessage(sender, message) {
     const messageDiv = document.createElement("div");
+    messageDiv.classList.add("chat-message");
+
+    if (sender === "Bạn") {
+      messageDiv.classList.add("message-user");
+    } else {
+      messageDiv.classList.add("message-ai");
+    }
+
     messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
     chatArea.appendChild(messageDiv);
     chatArea.scrollTop = chatArea.scrollHeight;
