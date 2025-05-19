@@ -244,7 +244,7 @@ a.lesson-link:hover {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  width: 200px;
+  max-width: 300px;
   display: none;
   flex-direction: column;
   padding: 10px 0;
@@ -395,7 +395,7 @@ a.lesson-link:hover {
 @media (max-width: 768px) {
   .feedback-popup {
     width: 95vw;
-    height: 44vh;
+    height: 47vh;
     top: 25vh;
     left: 50%;
     transform: translateX(-50%);
