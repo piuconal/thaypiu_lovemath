@@ -501,16 +501,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function loadFeedbacks() {
     showLoading();
-    feedbackList.innerHTML = "";
-    const feedbacks = await fetchFeedbacksFromAPI();
+    feedbackList.innerHTML = ""; // 1. Đọc dữ liệu từ feed.json
+
+    let localFeedbacks = [];
+    try {
+      const res = await fetch("feed.json");
+      if (!res.ok) throw new Error("Không đọc được file feed.json");
+      localFeedbacks = await res.json();
+    } catch (e) {
+      console.error("Lỗi khi đọc feed.json:", e);
+    } // 2. Sau khi đọc xong file, gọi MockAPI
+
+    const apiFeedbacks = await fetchFeedbacksFromAPI();
+
     hideLoading();
 
-    if (feedbacks.length === 0) {
+    const allFeedbacks = [...localFeedbacks, ...apiFeedbacks];
+
+    if (allFeedbacks.length === 0) {
       feedbackList.innerHTML = "<div>Chưa có góp ý nào.</div>";
       return;
-    }
+    } // 3. Sắp xếp theo thời gian giảm dần (mới nhất trước)
 
-    feedbacks.forEach((fb) => {
+    allFeedbacks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // 4. Hiển thị
+
+    allFeedbacks.forEach((fb) => {
       const div = document.createElement("div");
       const timeStr = fb.createdAt ? formatDateTime(fb.createdAt) : "??";
       div.textContent = `${timeStr}💠${fb.content}`;
@@ -518,7 +533,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const colorClass = "color" + (Math.floor(Math.random() * 6) + 1);
       div.classList.add(colorClass);
 
-      feedbackList.prepend(div);
+      feedbackList.appendChild(div);
     });
   }
 
