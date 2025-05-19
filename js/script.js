@@ -455,29 +455,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const feedbackList = document.getElementById("feedbackList");
   const loadingIndicator = document.getElementById("loadingIndicator");
 
-  // Hiển thị loading
   function showLoading() {
     if (loadingIndicator) loadingIndicator.style.display = "block";
   }
 
-  // Ẩn loading
   function hideLoading() {
     if (loadingIndicator) loadingIndicator.style.display = "none";
   }
 
-  // Hiển thị popup
   function showFeedbackPopup() {
     feedbackPopup.style.display = "flex";
     loadFeedbacks();
     feedbackInput.focus();
   }
 
-  // Ẩn popup
   function hideFeedbackPopup() {
     feedbackPopup.style.display = "none";
   }
 
-  // Lấy góp ý từ API
+  // Format thời gian ISO thành dd/mm/yy hh:mm:ss
+  function formatDateTime(isoString) {
+    const date = new Date(isoString);
+    const dd = String(date.getDate()).padStart(2, "0");
+    const mm = String(date.getMonth() + 1).padStart(2, "0");
+    const yy = String(date.getFullYear()).slice(2);
+    const hh = String(date.getHours()).padStart(2, "0");
+    const mi = String(date.getMinutes()).padStart(2, "0");
+    const ss = String(date.getSeconds()).padStart(2, "0");
+    return `${dd}/${mm}/${yy} ${hh}:${mi}:${ss}`;
+  }
+
   async function fetchFeedbacksFromAPI() {
     try {
       const res = await fetch(
@@ -485,14 +492,13 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       if (!res.ok) throw new Error("Không lấy được góp ý từ server");
       const data = await res.json();
-      return data.map((item) => item.content);
+      return data;
     } catch (e) {
       console.error(e);
       return [];
     }
   }
 
-  // Hiển thị danh sách góp ý
   async function loadFeedbacks() {
     showLoading();
     feedbackList.innerHTML = "";
@@ -506,9 +512,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     feedbacks.forEach((fb) => {
       const div = document.createElement("div");
-      div.textContent = fb;
+      const timeStr = fb.createdAt ? formatDateTime(fb.createdAt) : "??";
+      div.textContent = `${timeStr}💠${fb.content}`;
 
-      // Gán class màu ngẫu nhiên từ 1 đến 6
       const colorClass = "color" + (Math.floor(Math.random() * 6) + 1);
       div.classList.add(colorClass);
 
@@ -516,7 +522,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Gửi góp ý
   async function sendFeedback(text) {
     showLoading();
     try {
@@ -525,7 +530,10 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ content: text }),
+          body: JSON.stringify({
+            content: text,
+            createdAt: new Date().toISOString(),
+          }),
         }
       );
       if (!res.ok) throw new Error("Không thể gửi góp ý");
@@ -539,15 +547,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Mở popup
   if (feedbackBtn) feedbackBtn.addEventListener("click", showFeedbackPopup);
   if (feedbackBtnMobile)
     feedbackBtnMobile.addEventListener("click", showFeedbackPopup);
 
-  // Đóng popup
   closeFeedbackBtn.addEventListener("click", hideFeedbackPopup);
 
-  // Gửi góp ý khi nhấn Enter
   feedbackInput.addEventListener("keydown", async function (e) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
