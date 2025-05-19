@@ -588,3 +588,26 @@ document.addEventListener("keydown", function (e) {
   }
 });
 // ------------
+// Hiển thị overlay và popup ngay khi bắt đầu tải trang
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("overlay").style.display = "block";
+  document.getElementById("popupImage").style.display = "block";
+});
+
+// Khi trang tải xong thì ẩn overlay và popup
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("popupImage").style.display = "none";
+  }, 100); // Delay 1s để giữ hiệu ứng 1 chút
+});
+
+// Cho phép tắt khi click thủ công vào overlay hoặc ảnh
+document.getElementById("overlay").addEventListener("click", function () {
+  this.style.display = "none";
+  document.getElementById("popupImage").style.display = "none";
+});
+document.getElementById("popupImage").addEventListener("click", function () {
+  this.style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+});
