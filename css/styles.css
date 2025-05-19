@@ -84,10 +84,14 @@ a.lesson-link:hover {
 
 @media (max-width: 576px) {
   .hsa-badge {
-    margin-top: 10px;
+    margin-top: 4px;
     display: block;
-    width: 80%;
     text-align: center;
+    width: 99.555555555555%;
+  }
+  .l10-badge,
+  .thpt-badge {
+    width: 49%;
   }
   .blinking {
     font-size: 12px !important;
