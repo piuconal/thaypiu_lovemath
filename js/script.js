@@ -363,14 +363,14 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const defaultTexts = {
-    score: "Tra điểm thi",
-    temple: "Thắp hương",
-    alarm: "Đồng hồ",
-    game: "Tower of Hanoi",
-    visualgo: "Thuật toán",
-    geogebra: "Swap Face",
-    mathAi: "Math AI",
-    createAIPic: "Tạo ảnh AI", // <-- thêm
+    score: "📝 Tra điểm thi",
+    temple: "🕯️ Thắp hương",
+    alarm: "⏰ Đồng hồ",
+    game: "🧠 Tower of Hanoi",
+    visualgo: "📊 Thuật toán",
+    geogebra: "👨🏼 Swap Face",
+    mathAi: "📐 Math AI",
+    createAIPic: "🤖 Create AI Picture", // <-- thêm
   };
 
   const hiddenTexts = {
@@ -378,10 +378,10 @@ document.addEventListener("DOMContentLoaded", function () {
     temple: "Ẩn Chánh điện",
     alarm: "Ẩn Đồng hồ",
     game: "Ẩn Trò chơi",
-    visualgo: "Ẩn Visualgo",
+    visualgo: "Ẩn Thuật toán",
     geogebra: "Ẩn Swap Face",
     mathAi: "Ẩn Math AI",
-    createAIPic: "Ẩn Tạo ảnh AI", // <-- thêm
+    createAIPic: "Ẩn Create AI", // <-- thêm
   };
 
   function toggleSnowEffect(show) {

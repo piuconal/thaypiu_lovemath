@@ -300,12 +300,12 @@ a.lesson-link:hover {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  max-width: 420px;
+  max-width: 500px;
   display: none;
   flex-direction: column;
   padding: 10px 0;
   animation: slideUpFade 0.3s ease forwards;
-  font-size: 0.9rem;
+  font-size: 1rem;
   max-height: 40vh; /* hoặc bao nhiêu tùy ý */
   overflow-y: auto;
 }
