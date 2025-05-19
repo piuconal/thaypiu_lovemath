@@ -395,14 +395,32 @@ a.lesson-link:hover {
 @media (max-width: 768px) {
   .feedback-popup {
     width: 95vw;
-    height: 47vh;
-    top: 25vh;
+    height: 320px;
+    top: 200px;
     left: 50%;
     transform: translateX(-50%);
+    overflow: hidden; /* Giữ popup không tràn */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feedback-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ngăn tràn ra ngoài */
+  }
+
+  .feedback-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ngăn tràn */
   }
 
   .feedback-list {
-    max-height: 200px;
+    flex: 1;
+    overflow-y: auto;
     font-size: 0.7rem;
   }
 }
