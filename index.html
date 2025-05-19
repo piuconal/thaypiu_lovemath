@@ -42,10 +42,22 @@
               style="font-size: 0.8rem;">Tower of Hanoi</button>
             <button id="toggleVisualgoBtn" class="btn btn-outline-info btn-sm ml-2" style="font-size: 0.8rem;">Thuật
               toán</button>
-            <button id="toggleGeogebraBtn" class="btn btn-outline-warning btn-sm ml-2" style="font-size: 0.8rem;">Swap
-              Face</button>
             <button id="toggleMathAiBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">Math
               AI</button>
+            <div class="dropdown ml-2 d-inline-block">
+              <button class="btn btn-outline-warning btn-sm dropdown-toggle" type="button" id="dropdownTools"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 0.8rem;">
+                Tools
+              </button>
+              <div class="dropdown-menu custom-dropdown" aria-labelledby="dropdownTools" style="min-width: 10rem;">
+                <a class="dropdown-item custom-item" href="#" id="toggleGeogebraBtn">
+                  Swap Face
+                </a>
+                <a class="dropdown-item custom-item" href="#" id="toggleCreateAIPicBtn">
+                  Create AI
+                </a>
+              </div>
+            </div>
             <div class="dropdown ml-2 d-inline-block">
               <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownCasio"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 0.8rem;">
@@ -65,8 +77,6 @@
             <a href="https://www.facebook.com/developer.268/" target="_blank" class="btn btn-outline-pink btn-sm ml-2"
               style="font-size: 0.8rem;">🚀 Liên hệ thầy Piu</a>
           </div>
-
-
           <!-- Desktop (đoạn nút trong header) -->
         </div>
       </div>
@@ -134,6 +144,11 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
+  <div id="createAIPicIframeContainer" style="display: none; width: 100vw; margin-left: -8px;">
+    <iframe src="https://raphael.app/vi" width="100%" height="700px" style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
 
   <div id="feedbackPopup" class="feedback-popup" style="display:none;">
     <div class="feedback-content">
@@ -167,12 +182,30 @@
       <button id="toggleAlarmBtnMobile" class="d-md-none dropdown-item text-warning lockapi">⏰ Đồng hồ</button>
       <button id="toggleGameBtnMobile" class="d-md-none dropdown-item text-danger lockapi">🧠 Tower of Hanoi</button>
       <button id="toggleVisualgoBtnMobile" class="d-md-none dropdown-item text-info">📊 Thuật toán</button>
-      <button id="toggleGeogebraBtnMobile" class="d-md-none dropdown-item text-warning">👨🏼 Swap Face</button>
       <button id="toggleMathAiBtnMobile" class="d-md-none dropdown-item text-primary">📐 Math AI</button>
-      <a href="https://e.20142022.xyz/" target="_blank" class="d-md-none dropdown-item text-dark">🧮 Casio 580VNX</a>
-      <a href="https://drive.google.com/file/d/1f7ltJo_b6jwHRcg8StX0b8FV16PpcB3Q/view?usp=sharing" target="_blank"
-        class="d-md-none dropdown-item text-dark">🧮 Cách dùng Casio Ios/Android</a>
-      <!-- Mobile (menu dropdown) -->
+      <div class="dropdown">
+        <button class="btn btn-outline-warning d-md-none dropdown-toggle dropdown-item" type="button"
+          id="dropdownToolsMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          style="width: 100%; text-align: left;">
+          ⚙️ Tools
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownToolsMobile" style="width: 100%;">
+          <button id="toggleGeogebraBtnMobile" class="dropdown-item btn-outline-pink">👨🏼 Swap Face</button>
+          <button id="toggleCreateAIPicBtnMobile" class="dropdown-item btn-outline-pink">🤖 Create AI</button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-outline-dark d-md-none dropdown-toggle dropdown-item" type="button"
+          id="dropdownCasioMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          style="width: 100%; text-align: left;">
+          🧮 Casio
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownCasioMobile" style="width: 100%;">
+          <a href="https://e.20142022.xyz/" target="_blank" class="dropdown-item btn-outline-pink">Casio 580VNX</a>
+          <a href="https://drive.google.com/file/d/1f7ltJo_b6jwHRcg8StX0b8FV16PpcB3Q/view?usp=sharing" target="_blank"
+            class="dropdown-item btn-outline-pink">Cách dùng</a>
+        </div>
+      </div>
       <button id="toggleFeedbackBtnMobile" class="d-md-none dropdown-item text-secondary">
         ✍️ Góp ý
       </button>

@@ -333,9 +333,13 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("toggleGeogebraBtnMobile"),
     ],
     mathAi: [
-      // <-- thêm Math AI ở đây
       document.getElementById("toggleMathAiBtn"),
       document.getElementById("toggleMathAiBtnMobile"),
+    ],
+    createAIPic: [
+      // <-- thêm createAIPic
+      document.getElementById("toggleCreateAIPicBtn"),
+      document.getElementById("toggleCreateAIPicBtnMobile"),
     ],
   };
 
@@ -347,6 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
     visualgo: document.getElementById("visualgoIframeContainer"),
     geogebra: document.getElementById("geogebraIframeContainer"),
     mathAi: document.getElementById("mathAiIframeContainer"),
+    createAIPic: document.getElementById("createAIPicIframeContainer"), // <-- thêm
   };
 
   const defaultTexts = {
@@ -357,6 +362,7 @@ document.addEventListener("DOMContentLoaded", function () {
     visualgo: "Thuật toán",
     geogebra: "Swap Face",
     mathAi: "Math AI",
+    createAIPic: "Tạo ảnh AI", // <-- thêm
   };
 
   const hiddenTexts = {
@@ -367,6 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
     visualgo: "Ẩn Visualgo",
     geogebra: "Ẩn Swap Face",
     mathAi: "Ẩn Math AI",
+    createAIPic: "Ẩn Tạo ảnh AI", // <-- thêm
   };
 
   function toggleSnowEffect(show) {
@@ -392,8 +399,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const isVisible = container.style.display === "block";
 
       btnList.forEach((btn) => {
-        btn.textContent =
-          isCurrent && isVisible ? hiddenTexts[key] : defaultTexts[key];
+        if (btn) {
+          btn.textContent =
+            isCurrent && isVisible ? hiddenTexts[key] : defaultTexts[key];
+        }
       });
     });
 
@@ -404,10 +413,11 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  // Gán sự kiện cho tất cả các nút (cả desktop và mobile)
   Object.keys(buttons).forEach((key) => {
     buttons[key].forEach((btn) => {
-      btn.addEventListener("click", () => toggleSection(key));
+      if (btn) {
+        btn.addEventListener("click", () => toggleSection(key));
+      }
     });
   });
 });

@@ -250,6 +250,8 @@ a.lesson-link:hover {
   padding: 10px 0;
   animation: slideUpFade 0.3s ease forwards;
   font-size: 0.9rem;
+  max-height: 40vh; /* hoặc bao nhiêu tùy ý */
+  overflow-y: auto;
 }
 
 /* Hiện menu */
