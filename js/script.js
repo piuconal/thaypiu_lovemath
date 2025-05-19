@@ -611,3 +611,22 @@ document.getElementById("popupImage").addEventListener("click", function () {
   this.style.display = "none";
   document.getElementById("overlay").style.display = "none";
 });
+
+const bubbleContainer = document.getElementById("summerBubbles");
+
+for (let i = 0; i < 40; i++) {
+  const bubble = document.createElement("div");
+  bubble.className = "bubble";
+
+  // Ngẫu nhiên kích thước và vị trí
+  const size = Math.random() * 20 + 10; // từ 10px đến 30px
+  bubble.style.width = `${size}px`;
+  bubble.style.height = `${size}px`;
+  bubble.style.left = `${Math.random() * 100}%`;
+
+  // Ngẫu nhiên thời gian trễ và tốc độ
+  bubble.style.animationDuration = `${Math.random() * 5 + 4}s`;
+  bubble.style.animationDelay = `${Math.random() * 5}s`;
+
+  bubbleContainer.appendChild(bubble);
+}
