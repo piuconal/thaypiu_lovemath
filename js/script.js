@@ -581,18 +581,6 @@ document.addEventListener("keydown", function (e) {
     e.preventDefault();
   }
 });
-
-// Phát hiện DevTools (chênh lệch kích thước)
-setInterval(function () {
-  if (
-    window.outerWidth - window.innerWidth > 160 ||
-    window.outerHeight - window.innerHeight > 160
-  ) {
-    document.body.innerHTML =
-      "<h1 style='color:red;text-align:center;'>Đừng mở DevTools nữa!</h1>";
-  }
-}, 1000);
-
 // ------------
 // Hiển thị overlay và popup ngay khi bắt đầu tải trang
 document.addEventListener("DOMContentLoaded", function () {
