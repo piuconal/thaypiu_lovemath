@@ -467,7 +467,7 @@ document.addEventListener("DOMContentLoaded", function () {
     feedbacks.forEach((fb) => {
       const div = document.createElement("div");
       div.textContent = fb;
-      feedbackList.appendChild(div);
+      feedbackList.prepend(div);
     });
   }
 

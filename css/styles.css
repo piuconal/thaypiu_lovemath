@@ -392,3 +392,17 @@ a.lesson-link:hover {
 #toggleFeedbackBtn {
   animation: blink 1.5s ease-in-out infinite;
 }
+@media (max-width: 768px) {
+  .feedback-popup {
+    width: 95vw;
+    height: 45vh;
+    top: 22vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .feedback-list {
+    max-height: 200px;
+    font-size: 0.7rem;
+  }
+}
