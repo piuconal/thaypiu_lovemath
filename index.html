@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script type="text/javascript" src="https://itexpress.vn/API/js/noel.js"></script>
 </head>
 
@@ -24,20 +25,17 @@
         </div>
 
         <div class="text-secondary" style="font-size: 0.95rem;">
-          <i class="fas fa-chalkboard-teacher mr-1 text-primary"></i>
           <strong>Thầy Piu</strong> - Vũ Trọng Hiếu với đội ngũ nhiều năm kinh nghiệm luyện thi,
           chia sẻ nhiều <span class="text-info font-italic">kỹ năng</span> và <span class="text-info font-italic">mẹo
             nhanh</span>.
-          <div class="mt-2">
+          <div class="d-none d-md-block mt-2">
             <i class="fas fa-phone-alt text-success mr-1"></i>
             <a href="tel:0971110602" class="text-decoration-none text-dark">0971110602 |</a>
             <a href="mailto:vuhieu.dev@gmail.com" class="text-decoration-none text-dark">vuhieu.dev@gmail.com</a>
             <button id="toggleIframeBtn" class="btn btn-outline-primary btn-sm ml-2">Tra điểm thi</button>
             <button id="toggleTempleBtn" class="btn btn-outline-success btn-sm ml-2">Thắp hương Online</button>
             <button id="toggleAlarmBtn" class="btn btn-outline-warning btn-sm ml-2 lockapi">Đồng hồ báo thức</button>
-            <a href="https://piuconal.github.io/lliximayman/" target="_blank" id="giftLink">
-              <img src="images/qua.gif" alt="Gif hộp quà" id="giftBox_1" />
-            </a>
+            <button id="toggleGameBtn" class="btn btn-outline-danger btn-sm ml-2 lockapi">Tower of Hanoi</button>
           </div>
         </div>
 
@@ -57,11 +55,12 @@
         <div id="classList" class="accordion"></div>
       </div>
 
-      <div class="col-md-4 mb-3 d-flex justify-content-center align-items-center" style="min-height: 100%;">
+      <div class="col-12 col-md-4 mb-3 d-flex justify-content-center align-items-center" style="min-height: 100%;">
         <div class="gradient-border">
           <img src="images/math.jpg" alt="Minh họa" class="img-fluid image-effect">
         </div>
       </div>
+
     </div>
   </div>
   <!-- Phần iframe đặt ngoài container nếu muốn full chiều ngang -->
@@ -82,7 +81,33 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
+  <div id="gameIframeContainer" style="display: none; width: 100vw; margin-left: -8px;">
+    <iframe src="https://www.mathsisfun.com/games/towerofhanoi.html" width="100%" height="700px"
+      style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
 
+  <!-- Nút menu cố định góc dưới trái (chỉ hiện trên mobile) -->
+  <div id="mobileMenuBtn" class="d-md-none">
+    <button class="btn toggle-menu-btn" id="menuToggleBtn" aria-label="Menu">
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+    </button>
+
+    <!-- Menu popup -->
+    <div id="mobileDropdownMenu" class="mobile-dropdown-menu">
+      <button id="toggleIframeBtn" class="dropdown-item text-primary">📝 Tra điểm thi</button>
+      <button id="toggleTempleBtn" class="dropdown-item text-success">🕯️ Thắp hương Online</button>
+      <button id="toggleAlarmBtn" class="dropdown-item text-warning lockapi">⏰ Đồng hồ báo thức</button>
+      <button id="toggleGameBtn" class="dropdown-item text-danger lockapi">🧠 Tower of Hanoi</button>
+    </div>
+  </div>
+
+  <a href="https://piuconal.github.io/lliximayman/" target="_blank" id="giftLink">
+    <img src="images/qua.gif" alt="Gif hộp quà" id="giftBox_1" />
+  </a>
   <!-- Chatbot popup góc phải dưới -->
   <div id="chatbotPopup" style="display:none;">
     <div id="chatbotHeader">

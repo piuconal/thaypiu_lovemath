@@ -272,17 +272,35 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const toggleBtn = document.getElementById("toggleIframeBtn");
-  const toggleTempleBtn = document.getElementById("toggleTempleBtn");
-  const toggleAlarmBtn = document.getElementById("toggleAlarmBtn");
+  const buttons = {
+    score: document.getElementById("toggleIframeBtn"),
+    temple: document.getElementById("toggleTempleBtn"),
+    alarm: document.getElementById("toggleAlarmBtn"),
+    game: document.getElementById("toggleGameBtn"),
+  };
 
-  const iframeContainer = document.getElementById("iframeContainer");
-  const templeIframeContainer = document.getElementById(
-    "templeIframeContainer"
-  );
-  const alarmIframeContainer = document.getElementById("alarmIframeContainer");
+  const containers = {
+    score: document.getElementById("iframeContainer"),
+    temple: document.getElementById("templeIframeContainer"),
+    alarm: document.getElementById("alarmIframeContainer"),
+    game: document.getElementById("gameIframeContainer"),
+  };
 
   const classListContainer = document.querySelector(".container.py-4");
+
+  const defaultTexts = {
+    score: "Tra điểm thi",
+    temple: "Thắp hương",
+    alarm: "Đồng hồ báo thức",
+    game: "Tower of Hanoi",
+  };
+
+  const hiddenTexts = {
+    score: "Ẩn Điểm thi",
+    temple: "Ẩn Chánh điện",
+    alarm: "Ẩn Đồng hồ báo thức",
+    game: "Ẩn Trò chơi",
+  };
 
   function toggleSnowEffect(show) {
     document
@@ -292,50 +310,49 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  toggleBtn.addEventListener("click", function () {
-    const isVisible = iframeContainer.style.display === "block";
-    iframeContainer.style.display = isVisible ? "none" : "block";
+  function toggleSection(section) {
+    Object.keys(containers).forEach((key) => {
+      const isCurrent = key === section;
+      const container = containers[key];
+      const button = buttons[key];
 
-    templeIframeContainer.style.display = "none";
-    alarmIframeContainer.style.display = "none";
+      container.style.display = isCurrent
+        ? container.style.display === "block"
+          ? "none"
+          : "block"
+        : "none";
 
-    classListContainer.style.display = isVisible ? "block" : "none";
-    toggleBtn.textContent = isVisible ? "Tra điểm thi" : "Ẩn điểm thi";
-    toggleTempleBtn.textContent = "Thắp hương";
-    toggleAlarmBtn.textContent = "Đồng hồ báo thức";
+      button.textContent =
+        isCurrent && container.style.display === "block"
+          ? hiddenTexts[key]
+          : defaultTexts[key];
+    });
 
-    toggleSnowEffect(true);
+    const isVisible = containers[section].style.display === "block";
+    classListContainer.style.display = isVisible ? "none" : "block";
+    toggleSnowEffect(
+      section === "temple" || section === "game" ? !isVisible : true
+    );
+  }
+
+  buttons.score.addEventListener("click", () => toggleSection("score"));
+  buttons.temple.addEventListener("click", () => toggleSection("temple"));
+  buttons.alarm.addEventListener("click", () => toggleSection("alarm"));
+  buttons.game.addEventListener("click", () => toggleSection("game"));
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menuToggleBtn");
+  const dropdownMenu = document.getElementById("mobileDropdownMenu");
+
+  menuBtn.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("show");
   });
 
-  toggleTempleBtn.addEventListener("click", function () {
-    const isVisible = templeIframeContainer.style.display === "block";
-    templeIframeContainer.style.display = isVisible ? "none" : "block";
-
-    iframeContainer.style.display = "none";
-    alarmIframeContainer.style.display = "none";
-
-    classListContainer.style.display = isVisible ? "block" : "none";
-    toggleTempleBtn.textContent = isVisible ? "Thắp hương" : "Ẩn Chánh điện";
-    toggleBtn.textContent = "Tra điểm thi";
-    toggleAlarmBtn.textContent = "Đồng hồ báo thức";
-
-    toggleSnowEffect(!isVisible);
-  });
-
-  toggleAlarmBtn.addEventListener("click", function () {
-    const isVisible = alarmIframeContainer.style.display === "block";
-    alarmIframeContainer.style.display = isVisible ? "none" : "block";
-
-    iframeContainer.style.display = "none";
-    templeIframeContainer.style.display = "none";
-
-    classListContainer.style.display = isVisible ? "block" : "none";
-    toggleAlarmBtn.textContent = isVisible
-      ? "Đồng hồ báo thức"
-      : "Ẩn Đồng hồ báo thức";
-    toggleBtn.textContent = "Tra điểm thi";
-    toggleTempleBtn.textContent = "Thắp hương";
-
-    toggleSnowEffect(!isVisible);
+  // Click ngoài menu sẽ đóng menu
+  document.addEventListener("click", (e) => {
+    if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.classList.remove("show");
+    }
   });
 });

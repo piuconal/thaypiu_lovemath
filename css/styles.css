@@ -195,3 +195,99 @@ a.lesson-link:hover {
     margin-top: 5px;
   }
 }
+/* Vị trí cố định góc dưới trái */
+#mobileMenuBtn {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  z-index: 1050; /* trên các phần khác */
+}
+
+/* Nút hamburger */
+.toggle-menu-btn {
+  background-color: #ffffff;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-menu-btn:hover {
+  background-color: #f8f9fa;
+  transform: scale(1.1);
+}
+
+.menu-icon-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Menu popup ẩn mặc định */
+.mobile-dropdown-menu {
+  position: absolute;
+  bottom: 55px; /* cách nút 7px */
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  display: none;
+  flex-direction: column;
+  padding: 10px 0;
+  animation: slideUpFade 0.3s ease forwards;
+  font-size: 0.9rem;
+}
+
+/* Hiện menu */
+.mobile-dropdown-menu.show {
+  display: flex;
+}
+
+/* Hiệu ứng slide lên + mờ dần */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Item menu */
+.mobile-dropdown-menu .dropdown-item {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mobile-dropdown-menu .dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Ảnh thu nhỏ trên màn hình nhỏ */
+@media (max-width: 767.98px) {
+  .gradient-border {
+    max-width: 40%; /* giảm kích thước ảnh */
+    height: auto;
+  }
+}
