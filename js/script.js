@@ -332,6 +332,11 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("toggleGeogebraBtn"),
       document.getElementById("toggleGeogebraBtnMobile"),
     ],
+    mathAi: [
+      // <-- thêm Math AI ở đây
+      document.getElementById("toggleMathAiBtn"),
+      document.getElementById("toggleMathAiBtnMobile"),
+    ],
   };
 
   const containers = {
@@ -341,6 +346,7 @@ document.addEventListener("DOMContentLoaded", function () {
     game: document.getElementById("gameIframeContainer"),
     visualgo: document.getElementById("visualgoIframeContainer"),
     geogebra: document.getElementById("geogebraIframeContainer"),
+    mathAi: document.getElementById("mathAiIframeContainer"),
   };
 
   const defaultTexts = {
@@ -350,6 +356,7 @@ document.addEventListener("DOMContentLoaded", function () {
     game: "Tower of Hanoi",
     visualgo: "Thuật toán",
     geogebra: "Swap Face",
+    mathAi: "Math AI",
   };
 
   const hiddenTexts = {
@@ -359,6 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
     game: "Ẩn Trò chơi",
     visualgo: "Ẩn Visualgo",
     geogebra: "Ẩn Swap Face",
+    mathAi: "Ẩn Math AI",
   };
 
   function toggleSnowEffect(show) {

@@ -40,7 +40,9 @@
             <button id="toggleGameBtn" class="btn btn-outline-danger btn-sm ml-2 lockapi">Tower of Hanoi</button>
             <button id="toggleVisualgoBtn" class="btn btn-outline-info btn-sm ml-2">Thuật toán</button>
             <button id="toggleGeogebraBtn" class="btn btn-outline-warning btn-sm ml-2">Swap Face</button>
-            <a href="https://drive.google.com/file/d/1f7ltJo_b6jwHRcg8StX0b8FV16PpcB3Q/view?usp=sharing" target="_blank" class="btn btn-outline-dark btn-sm ml-2">Cách dùng Casio trên ios/android</a>
+            <button id="toggleMathAiBtn" class="btn btn-outline-primary btn-sm ml-2">Math AI</button>
+            <a href="https://drive.google.com/file/d/1f7ltJo_b6jwHRcg8StX0b8FV16PpcB3Q/view?usp=sharing" target="_blank"
+              class="btn btn-outline-dark btn-sm ml-2">Cách dùng Casio trên ios/android</a>
             <a href="https://e.20142022.xyz/" target="_blank" class="btn btn-outline-dark btn-sm ml-2">Casio
               580VNX</a>
             <!-- Desktop (đoạn nút trong header) -->
@@ -105,6 +107,12 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
+  <div id="mathAiIframeContainer" style="display: none; width: 100vw; margin-left: -8px;">
+    <iframe src="https://www.mathway.com/BasicMath" width="100%" height="700px" style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
+
   <div id="feedbackPopup" class="feedback-popup" style="display:none;">
     <div class="feedback-content">
       <div class="feedback-header">
@@ -139,8 +147,10 @@
       <button id="toggleGameBtnMobile" class="d-md-none dropdown-item text-danger lockapi">🧠 Tower of Hanoi</button>
       <button id="toggleVisualgoBtnMobile" class="d-md-none dropdown-item text-info">📊 Thuật toán</button>
       <button id="toggleGeogebraBtnMobile" class="d-md-none dropdown-item text-warning">👨🏼 Swap Face</button>
+      <button id="toggleMathAiBtnMobile" class="d-md-none dropdown-item text-primary">📐 Math AI</button>
       <a href="https://e.20142022.xyz/" target="_blank" class="d-md-none dropdown-item text-dark">🧮 Casio 580VNX</a>
-      <a href="https://drive.google.com/file/d/1f7ltJo_b6jwHRcg8StX0b8FV16PpcB3Q/view?usp=sharing" target="_blank" class="d-md-none dropdown-item text-dark">🧮 Cách dùng Casio Ios/Android</a>
+      <a href="https://drive.google.com/file/d/1f7ltJo_b6jwHRcg8StX0b8FV16PpcB3Q/view?usp=sharing" target="_blank"
+        class="d-md-none dropdown-item text-dark">🧮 Cách dùng Casio Ios/Android</a>
       <!-- Mobile (menu dropdown) -->
       <button id="toggleFeedbackBtnMobile" class="d-md-none dropdown-item text-secondary">
         ✍️ Góp ý
