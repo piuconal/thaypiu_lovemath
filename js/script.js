@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
     alarm: "Đồng hồ",
     game: "Tower of Hanoi",
     visualgo: "Thuật toán",
-    geogebra: "GeoGebra",
+    geogebra: "Swap Face",
   };
 
   const hiddenTexts = {
@@ -358,7 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
     alarm: "Ẩn Đồng hồ",
     game: "Ẩn Trò chơi",
     visualgo: "Ẩn Visualgo",
-    geogebra: "Ẩn GeoGebra",
+    geogebra: "Ẩn Swap Face",
   };
 
   function toggleSnowEffect(show) {
