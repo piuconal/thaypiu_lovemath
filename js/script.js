@@ -427,6 +427,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeFeedbackBtn = document.getElementById("closeFeedbackBtn");
   const feedbackInput = document.getElementById("feedbackInput");
   const feedbackList = document.getElementById("feedbackList");
+  const loadingIndicator = document.getElementById("loadingIndicator");
+
+  // Hiển thị loading
+  function showLoading() {
+    if (loadingIndicator) loadingIndicator.style.display = "block";
+  }
+
+  // Ẩn loading
+  function hideLoading() {
+    if (loadingIndicator) loadingIndicator.style.display = "none";
+  }
 
   // Hiển thị popup
   function showFeedbackPopup() {
@@ -448,7 +459,6 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       if (!res.ok) throw new Error("Không lấy được góp ý từ server");
       const data = await res.json();
-      // data là mảng object, lấy ra mảng nội dung
       return data.map((item) => item.content);
     } catch (e) {
       console.error(e);
@@ -456,14 +466,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Hiển thị danh sách góp ý trong popup (lấy từ API)
+  // Hiển thị danh sách góp ý
   async function loadFeedbacks() {
-    const feedbacks = await fetchFeedbacksFromAPI();
+    showLoading();
     feedbackList.innerHTML = "";
+    const feedbacks = await fetchFeedbacksFromAPI();
+    hideLoading();
+
     if (feedbacks.length === 0) {
       feedbackList.innerHTML = "<div>Chưa có góp ý nào.</div>";
       return;
     }
+
     feedbacks.forEach((fb) => {
       const div = document.createElement("div");
       div.textContent = fb;
@@ -471,8 +485,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Gửi góp ý lên mockAPI
+  // Gửi góp ý
   async function sendFeedback(text) {
+    showLoading();
     try {
       const res = await fetch(
         "https://682a9218ab2b5004cb370ec8.mockapi.io/lovemath",
@@ -488,10 +503,12 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error(e);
       alert("Lỗi khi gửi góp ý. Vui lòng thử lại sau.");
       return false;
+    } finally {
+      hideLoading();
     }
   }
 
-  // Event mở popup
+  // Mở popup
   if (feedbackBtn) feedbackBtn.addEventListener("click", showFeedbackPopup);
   if (feedbackBtnMobile)
     feedbackBtnMobile.addEventListener("click", showFeedbackPopup);
@@ -499,24 +516,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // Đóng popup
   closeFeedbackBtn.addEventListener("click", hideFeedbackPopup);
 
-  // Nhấn Enter gửi góp ý
+  // Gửi góp ý khi nhấn Enter
   feedbackInput.addEventListener("keydown", async function (e) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       const text = feedbackInput.value.trim();
       if (text.length === 0) return;
 
-      // Gửi lên API
       const sent = await sendFeedback(text);
       if (sent) {
-        // Cập nhật lại danh sách sau khi gửi
         await loadFeedbacks();
-        // Xóa input
         feedbackInput.value = "";
       }
     }
   });
-
-  // Không cần load ở đây nữa vì popup chưa mở
-  // if (feedbackPopup.style.display === "flex") loadFeedbacks();
 });
