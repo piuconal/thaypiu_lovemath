@@ -178,6 +178,39 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+  // Yêu cầu mật khẩu trước khi mở chương
+  document.addEventListener("click", function (e) {
+    const target = e.target.closest("button.btn-outline-secondary");
+
+    if (target && target.dataset.toggle === "collapse") {
+      const collapseId = target.dataset.target;
+      const collapseElement = document.querySelector(collapseId);
+
+      if (!collapseElement.classList.contains("show")) {
+        e.preventDefault();
+
+        const correctPassword = "`";
+        const userPassword = prompt("🔒 Nhập mật khẩu để mở chương:");
+
+        if (userPassword === correctPassword) {
+          $(collapseId).collapse("show");
+        } else {
+          if (userPassword !== null) {
+            alert("❌ Sai mật khẩu!");
+          }
+          // Đóng tất cả collapse đang mở
+          document.querySelectorAll(".collapse.show").forEach((el) => {
+            $(el).collapse("hide");
+          });
+
+          // Chờ một chút để animation đóng xong rồi reload trang
+          setTimeout(() => {
+            location.reload();
+          }, 300); // 300ms đủ để animation đóng hoàn tất
+        }
+      }
+    }
+  });
 });
 
 // Hàm chuyển đổi văn bản thành slug (không dùng trong phần link rút gọn này nhưng giữ lại để bạn dùng sau)
