@@ -442,25 +442,72 @@ a.lesson-link:hover {
   }
 }
 
-<style>
-  .feedback-list div {
-    padding: 6px 10px;
-    margin-bottom: 5px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 500;
-    animation: fadeIn 0.3s ease-in-out;
-  }
+.feedback-list div {
+  padding: 6px 10px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in-out;
+}
 
-  .color1 { color: #1abc9c; }  /* xanh ngọc */
-  .color2 { color: #e74c3c; }  /* đỏ */
-  .color3 { color: #3498db; }  /* xanh dương */
-  .color4 { color: #9b59b6; }  /* tím */
-  .color5 { color: #e67e22; }  /* cam */
-  .color6 { color: #2ecc71; }  /* xanh lá */
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
+.color1 {
+  color: #1abc9c;
+} /* xanh ngọc */
+.color2 {
+  color: #e74c3c;
+} /* đỏ */
+.color3 {
+  color: #3498db;
+} /* xanh dương */
+.color4 {
+  color: #9b59b6;
+} /* tím */
+.color5 {
+  color: #e67e22;
+} /* cam */
+.color6 {
+  color: #2ecc71;
+} /* xanh lá */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
   }
-</style>
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-outline-pink {
+  color: #e83e8c;
+  border-color: #e83e8c;
+}
+
+.btn-outline-pink:hover {
+  background-color: #e83e8c;
+  color: #fff;
+}
+.custom-dropdown {
+  border: 1px solid #ccc;
+  padding: 0.3rem;
+  border-radius: 8px;
+  background-color: #fff5f8; /* nền hồng nhạt */
+  min-width: 220px;
+}
+
+.custom-item {
+  font-size: 0.75rem; /* chữ nhỏ hơn */
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  color: #3387d6; /* màu hồng */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.custom-item:hover {
+  background-color: #f8d7da; /* hồng nhạt hơn khi hover */
+  color: #301c72;
+  text-decoration: none;
+}
