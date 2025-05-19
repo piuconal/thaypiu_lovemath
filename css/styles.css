@@ -441,3 +441,26 @@ a.lesson-link:hover {
     transform: rotate(360deg);
   }
 }
+
+<style>
+  .feedback-list div {
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .color1 { color: #1abc9c; }  /* xanh ngọc */
+  .color2 { color: #e74c3c; }  /* đỏ */
+  .color3 { color: #3498db; }  /* xanh dương */
+  .color4 { color: #9b59b6; }  /* tím */
+  .color5 { color: #e67e22; }  /* cam */
+  .color6 { color: #2ecc71; }  /* xanh lá */
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

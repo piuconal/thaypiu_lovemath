@@ -489,6 +489,11 @@ document.addEventListener("DOMContentLoaded", function () {
     feedbacks.forEach((fb) => {
       const div = document.createElement("div");
       div.textContent = fb;
+
+      // Gán class màu ngẫu nhiên từ 1 đến 6
+      const colorClass = "color" + (Math.floor(Math.random() * 6) + 1);
+      div.classList.add(colorClass);
+
       feedbackList.prepend(div);
     });
   }
@@ -539,3 +544,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Chặn phá
+setInterval(function () {
+  if (
+    window.outerWidth - window.innerWidth > 100 ||
+    window.outerHeight - window.innerHeight > 100
+  ) {
+    document.body.innerHTML =
+      "<h1 style='color: red; text-align:center;'>Không được mở Developer Tools!</h1>";
+  }
+}, 1000);
+document.addEventListener("keydown", function (e) {
+  // F12
+  if (e.keyCode === 123) {
+    e.preventDefault();
+  }
+
+  // Ctrl+U, Ctrl+Shift+I, Ctrl+S, Ctrl+Shift+C
+  if (
+    e.ctrlKey &&
+    (e.key === "u" || e.key === "s" || e.key === "U" || e.key === "S")
+  ) {
+    e.preventDefault();
+  }
+
+  if (
+    e.ctrlKey &&
+    e.shiftKey &&
+    (e.key === "I" || e.key === "i" || e.key === "C" || e.key === "c")
+  ) {
+    e.preventDefault();
+  }
+});
+// ------------
