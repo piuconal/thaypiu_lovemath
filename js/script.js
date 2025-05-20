@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
               const chuongDiv = document.createElement("div");
 
               chuongDiv.innerHTML = `
-              <button class="font-weight-bold btn btn-outline-info text-info btn-sm mb-2 ml-3 scroll-to-center" data-toggle="collapse" data-target="#${chuongId}">
+              <button class="chuongbai font-weight-bold btn btn-outline-info text-info btn-sm mb-2 ml-3 scroll-to-center" data-toggle="collapse" data-target="#${chuongId}">
                   ${chuong}
                 </button>
               <div class="collapse ml-4" id="${chuongId}">
@@ -614,25 +614,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Cảnh báo khi mở DevTools
-// Chặn chuột phải
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});
+// // Cảnh báo khi mở DevTools
+// // Chặn chuột phải
+// document.addEventListener("contextmenu", function (e) {
+//   e.preventDefault();
+// });
 
-// Chặn F12, Ctrl+U, Ctrl+Shift+I/C
-document.addEventListener("keydown", function (e) {
-  if (
-    e.keyCode === 123 || // F12
-    (e.ctrlKey && (e.key === "u" || e.key === "s")) ||
-    (e.ctrlKey &&
-      e.shiftKey &&
-      (e.key === "I" || e.key === "C" || e.key === "J"))
-  ) {
-    e.preventDefault();
-  }
-});
-// ------------
+// // Chặn F12, Ctrl+U, Ctrl+Shift+I/C
+// document.addEventListener("keydown", function (e) {
+//   if (
+//     e.keyCode === 123 || // F12
+//     (e.ctrlKey && (e.key === "u" || e.key === "s")) ||
+//     (e.ctrlKey &&
+//       e.shiftKey &&
+//       (e.key === "I" || e.key === "C" || e.key === "J"))
+//   ) {
+//     e.preventDefault();
+//   }
+// });
+// // ------------
 
 window.addEventListener("DOMContentLoaded", function () {
   const overlay = document.getElementById("overlay");

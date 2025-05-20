@@ -700,6 +700,11 @@ a.lesson-link:hover {
   outline: none;
   box-shadow: none;
 }
+.chuongbai:hover,
+.chuongbai:focus,
+.chuongbai:active {
+  color: white !important;
+}
 
 /* Khi màn hình cực lớn (ultra wide) */
 @media (min-width: 1600px) {
@@ -717,7 +722,7 @@ a.lesson-link:hover {
 }
 
 @media (max-width: 576px) {
-  .tucngu{
+  .tucngu {
     font-size: 12px;
   }
   .pt-4,
