@@ -314,7 +314,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const classListContainer = document.querySelector(".container.py-4");
-  const teacherInfo = document.getElementById("teacherInfo");
 
   const buttons = {
     score: [
@@ -350,6 +349,11 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("toggleCreateAIPicBtn"),
       document.getElementById("toggleCreateAIPicBtnMobile"),
     ],
+    countDown: [
+      // <-- thêm createAIPic
+      document.getElementById("toggleCountdownBtn"),
+      document.getElementById("toggleCountdownBtnMobile"),
+    ],
   };
 
   const containers = {
@@ -361,6 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
     geogebra: document.getElementById("geogebraIframeContainer"),
     mathAi: document.getElementById("mathAiIframeContainer"),
     createAIPic: document.getElementById("createAIPicIframeContainer"), // <-- thêm
+    countDown: document.getElementById("countdownIframeContainer"), // <-- thêm
   };
 
   const defaultTexts = {
@@ -372,6 +377,7 @@ document.addEventListener("DOMContentLoaded", function () {
     geogebra: "👨🏼 Swap Face",
     mathAi: "📐 Math AI",
     createAIPic: "🤖 Create AI Picture", // <-- thêm
+    countDown: "⏳ Đếm ngược kì thi", // <-- thêm
   };
 
   const hiddenTexts = {
@@ -383,6 +389,7 @@ document.addEventListener("DOMContentLoaded", function () {
     geogebra: "Ẩn Swap Face",
     mathAi: "Ẩn Math AI",
     createAIPic: "Ẩn Create AI", // <-- thêm
+    countDown: "Ẩn Đếm ngược", // <-- thêm
   };
 
   function toggleSnowEffect(show) {
@@ -417,8 +424,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const isVisible = containers[section].style.display === "block";
     classListContainer.style.display = isVisible ? "none" : "block";
-    teacherInfo.style.display = isVisible ? "none" : "block";
-
     toggleSnowEffect(
       section === "temple" || section === "game" ? !isVisible : true
     );

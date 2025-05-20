@@ -32,12 +32,12 @@
       <img id="logomath" src="images/logo.png" alt="Logo" style="height:60px; width:auto; margin-right:15px;">
       <div>
         <div class="mb-1">
-          <span class="badge badge-primary py-2 px-4 l10-badge" style="font-size: 0.9;">Vào lớp 10</span>
-          <span class="badge badge-success py-2 px-4 thpt-badge" style="font-size: 0.9;">THPT Quốc gia</span>
+          <span class="badge badge-primary py-2 px-3 l10-badge" style="font-size: 0.9;">Vào lớp 10</span>
+          <span class="badge badge-success py-2 px-3 thpt-badge" style="font-size: 0.9;">THPT Quốc gia</span>
           <span class="badge badge-danger py-2 px-3 hsa-badge" style="font-size: 0.9;">Đánh giá năng lực (HSA)</span>
         </div>
 
-        <div class="text-secondary" style="font-size: 0.75rem;">
+        <div class="text-secondary" style="font-size: 0.8rem;">
           <div id="teacherInfo">
             <i><strong>Thầy Piu</strong></i> - <i>Vũ Trọng Hiếu</i> cùng với đội ngũ nhiều năm kinh nghiệm luyện thi,
             chia sẻ nhiều <span class="text-info font-italic">kỹ năng</span> và <span class="text-info font-italic">mẹo
@@ -48,17 +48,22 @@
             <button id="toggleFeedbackBtn" class="btn btn-outline-secondary btn-sm" style="font-size: 0.8rem;">
               ✍️ Nhận xét
             </button>
-            <button id="toggleIframeBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">Tra điểm
+            <button id="toggleIframeBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">📝 Tra
+              điểm
               thi</button>
-            <button id="toggleTempleBtn" class="btn btn-outline-success btn-sm ml-2" style="font-size: 0.8rem;">Thắp
+            <button id="toggleCountdownBtn" class="btn btn-outline-info btn-sm ml-2" style="font-size: 0.8rem;">
+              ⏳ Đếm ngược kỳ thi
+            </button>
+
+            <button id="toggleTempleBtn" class="btn btn-outline-success btn-sm ml-2" style="font-size: 0.8rem;">🕯️Thắp
               hương</button>
-            <button id="toggleAlarmBtn" class="btn btn-outline-warning btn-sm ml-2 lockapi"
-              style="font-size: 0.8rem;">Đồng hồ</button>
+            <button id="toggleAlarmBtn" class="btn btn-outline-warning btn-sm ml-2 lockapi" style="font-size: 0.8rem;">⏰
+              Đồng hồ</button>
             <button id="toggleGameBtn" class="btn btn-outline-danger btn-sm ml-2 lockapi"
-              style="font-size: 0.8rem;">Tower of Hanoi</button>
-            <button id="toggleVisualgoBtn" class="btn btn-outline-info btn-sm ml-2" style="font-size: 0.8rem;">Thuật
+              style="font-size: 0.8rem;">🧠 Tower of Hanoi</button>
+            <button id="toggleVisualgoBtn" class="btn btn-outline-info btn-sm ml-2" style="font-size: 0.8rem;">📊 Thuật
               toán</button>
-            <button id="toggleMathAiBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">Math
+            <button id="toggleMathAiBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">📐 Math
               AI</button>
             <div class="dropdown ml-2 d-inline-block">
               <button class="btn btn-outline-warning btn-sm dropdown-toggle" type="button" id="dropdownTools"
@@ -67,10 +72,10 @@
               </button>
               <div class="dropdown-menu custom-dropdown" aria-labelledby="dropdownTools" style="min-width: 10rem;">
                 <a class="dropdown-item custom-item" href="#" id="toggleGeogebraBtn">
-                  Swap Face
+                  👨🏼 Swap Face
                 </a>
                 <a class="dropdown-item custom-item" href="#" id="toggleCreateAIPicBtn">
-                  Create AI
+                  🤖 Create AI
                 </a>
               </div>
             </div>
@@ -96,8 +101,6 @@
           <!-- Desktop (đoạn nút trong header) -->
         </div>
       </div>
-
-    </div>
     </div>
 
     <!-- Ảnh dài bên cạnh phải -->
@@ -135,7 +138,7 @@
     </iframe>
   </div>
   <div id="alarmIframeContainer" class="iframe-wrapper">
-    <iframe src="https://donghobaothuc.com/" width="100%" height="100%" style="border: none; display: block;">
+    <iframe src="https://ngay.kabala.vn/bao-thuc.html" width="100%" height="100%" style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
@@ -165,6 +168,13 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
+  <div id="countdownIframeContainer" class="iframe-wrapper">
+    <iframe src="https://chuky.vn/dem-nguoc-ngay-thi.html" width="100%" height="100%"
+      style="border:none; display:block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
+
 
   <div id="feedbackPopup" class="feedback-popup" style="display:none;">
     <div class="feedback-content">
@@ -197,6 +207,10 @@
         ✍️ Nhận xét
       </button>
       <button id="toggleIframeBtnMobile" class="d-md-none dropdown-item text-primary">📝 Tra điểm thi</button>
+      <button id="toggleCountdownBtnMobile" class="d-md-none dropdown-item text-info">
+        ⏳ Đếm ngược kỳ thi
+      </button>
+
       <button id="toggleTempleBtnMobile" class="d-md-none dropdown-item text-success">🕯️ Thắp hương</button>
       <button id="toggleAlarmBtnMobile" class="d-md-none dropdown-item text-warning lockapi">⏰ Đồng hồ</button>
       <button id="toggleGameBtnMobile" class="d-md-none dropdown-item text-danger lockapi">🧠 Tower of Hanoi</button>

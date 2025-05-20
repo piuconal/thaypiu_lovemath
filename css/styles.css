@@ -87,13 +87,16 @@ a.lesson-link:hover {
     margin-top: 4px;
     display: block;
     text-align: center;
-    width: 98.555555555%;
+    width: 100%;
     font-size: 11px;
   }
   .l10-badge,
   .thpt-badge {
-    font-size: 10px;
-    width: 48%;
+    font-size: 11px;
+    width: 49%;
+  }
+  #giftBox {
+    width: 55px; /* kích thước gif */
   }
   .blinking {
     font-size: 12px !important;
@@ -650,7 +653,7 @@ a.lesson-link:hover {
   position: fixed;
   bottom: 10px;
   left: 10px;
-  width: 180px; /* tuỳ chỉnh kích thước ảnh */
+  width: 10%; /* tuỳ chỉnh kích thước ảnh */
   height: auto;
   z-index: 9999;
   transition: transform 0.3s;
@@ -662,7 +665,7 @@ a.lesson-link:hover {
 .iframe-wrapper {
   display: none;
   width: 100vw;
-  height: 84.5vh;
+  height: 83.5vh;
 }
 
 .iframe-wrapper iframe {
@@ -673,6 +676,14 @@ a.lesson-link:hover {
 /* Khi màn hình cực lớn (ultra wide) */
 @media (min-width: 1600px) {
   .iframe-wrapper {
-    height: 87.6vh;
+    height: 86.6vh;
+  }
+  h5 {
+    font-size: 60px !important;
+  }
+  #classList .card {
+    margin-top: 30px;
+    max-width: 900px;
+    margin-right: 200px;
   }
 }
