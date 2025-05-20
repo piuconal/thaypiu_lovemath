@@ -32,18 +32,21 @@
       <img id="logomath" src="images/logo.png" alt="Logo" style="height:60px; width:auto; margin-right:15px;">
       <div>
         <div class="mb-1">
-          <span class="badge badge-primary py-2 px-3 l10-badge" style="font-size: 0.9;">Vào lớp 10</span>
-          <span class="badge badge-success py-2 px-3 thpt-badge" style="font-size: 0.9;">THPT Quốc gia</span>
+          <span class="badge badge-primary py-2 px-4 l10-badge" style="font-size: 0.9;">Vào lớp 10</span>
+          <span class="badge badge-success py-2 px-4 thpt-badge" style="font-size: 0.9;">THPT Quốc gia</span>
           <span class="badge badge-danger py-2 px-3 hsa-badge" style="font-size: 0.9;">Đánh giá năng lực (HSA)</span>
         </div>
 
         <div class="text-secondary" style="font-size: 0.75rem;">
-          <i><strong>Thầy Piu</strong></i> - <i>Vũ Trọng Hiếu</i> cùng với đội ngũ nhiều năm kinh nghiệm luyện thi,
-          chia sẻ nhiều <span class="text-info font-italic">kỹ năng</span> và <span class="text-info font-italic">mẹo
-            nhanh</span>.<br>
+          <div id="teacherInfo">
+            <i><strong>Thầy Piu</strong></i> - <i>Vũ Trọng Hiếu</i> cùng với đội ngũ nhiều năm kinh nghiệm luyện thi,
+            chia sẻ nhiều <span class="text-info font-italic">kỹ năng</span> và <span class="text-info font-italic">mẹo
+              nhanh</span>.<br>
+          </div>
+
           <div class="d-none d-md-block mt-2">
-            <button id="toggleFeedbackBtn" class="btn btn-outline-secondary btn-sm ml-2" style="font-size: 0.8rem;">
-              Góp ý
+            <button id="toggleFeedbackBtn" class="btn btn-outline-secondary btn-sm" style="font-size: 0.8rem;">
+              ✍️ Nhận xét
             </button>
             <button id="toggleIframeBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">Tra điểm
               thi</button>
@@ -119,45 +122,45 @@
     </div>
   </div>
 
-  <div id="iframeContainer" style="display: none; width: 100vw; height: 83.5vh;">
+  <div id="iframeContainer" class="iframe-wrapper">
     <iframe src="https://diemthi.vnanet.vn/tra-cuu-diem-thi-THPT-2024" width="100%" height="100%"
       style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
-  <div id="templeIframeContainer" style="display: none; width: 100vw; height: 83.5vh;">
+  <div id="templeIframeContainer" class="iframe-wrapper">
     <iframe src="https://conduonggiacngo.com/chanh-dien" width="100%" height="100%"
       style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
-  <div id="alarmIframeContainer" style="display: none; width: 100vw; height: 83.5vh;">
+  <div id="alarmIframeContainer" class="iframe-wrapper">
     <iframe src="https://donghobaothuc.com/" width="100%" height="100%" style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
-  <div id="gameIframeContainer" style="display: none; width: 100vw; height: 83.5vh;">
+  <div id="gameIframeContainer" class="iframe-wrapper">
     <iframe src="https://www.mathsisfun.com/games/towerofhanoi.html" width="100%" height="100%"
       style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
-  <div id="visualgoIframeContainer" style="display: none; width: 100vw; height: 83.5vh;">
+  <div id="visualgoIframeContainer" class="iframe-wrapper">
     <iframe src="https://visualgo.net/en" width="100%" height="100%" style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
-  <div id="geogebraIframeContainer" style="display: none; width: 100vw; height: 83.5vh;">
+  <div id="geogebraIframeContainer" class="iframe-wrapper">
     <iframe src="https://www.deepswapper.com/vi" width="100%" height="100%" style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
-  <div id="mathAiIframeContainer" style="display: none; width: 100vw; height: 83.5vh;">
+  <div id="mathAiIframeContainer" class="iframe-wrapper">
     <iframe src="https://www.blackbox.ai/" width="100%" height="100%" style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
-  <div id="createAIPicIframeContainer" style="display: none; width: 100vw; height: 83.5vh;">
+  <div id="createAIPicIframeContainer" class="iframe-wrapper">
     <iframe src="https://raphael.app/vi" width="100%" height="100%" style="border: none; display: block;">
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
@@ -166,7 +169,7 @@
   <div id="feedbackPopup" class="feedback-popup" style="display:none;">
     <div class="feedback-content">
       <div class="feedback-header">
-        <span>Góp ý phát triển cùng nhau học tập</span>
+        <span>Nhận xét và góp ý từ mọi người</span>
         <button id="closeFeedbackBtn" aria-label="Đóng">×</button>
       </div>
       <div class="feedback-body">
@@ -190,6 +193,9 @@
     <!-- Menu popup -->
     <div id="mobileDropdownMenu" class="mobile-dropdown-menu">
       <!-- MENU MOBILE -->
+      <button id="toggleFeedbackBtnMobile" class="d-md-none dropdown-item text-secondary">
+        ✍️ Nhận xét
+      </button>
       <button id="toggleIframeBtnMobile" class="d-md-none dropdown-item text-primary">📝 Tra điểm thi</button>
       <button id="toggleTempleBtnMobile" class="d-md-none dropdown-item text-success">🕯️ Thắp hương</button>
       <button id="toggleAlarmBtnMobile" class="d-md-none dropdown-item text-warning lockapi">⏰ Đồng hồ</button>
@@ -219,10 +225,6 @@
             class="dropdown-item btn-outline-pink">Cách dùng</a>
         </div>
       </div>
-      <button id="toggleFeedbackBtnMobile" class="d-md-none dropdown-item text-secondary">
-        ✍️ Góp ý
-      </button>
-
       <a href="https://www.facebook.com/developer.268/" target="_blank"
         class="d-md-none dropdown-item btn-outline-pink">🚀 Liên
         hệ thầy Piu</a>

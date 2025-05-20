@@ -87,11 +87,13 @@ a.lesson-link:hover {
     margin-top: 4px;
     display: block;
     text-align: center;
-    width: 99.555555555555%;
+    width: 98.555555555%;
+    font-size: 11px;
   }
   .l10-badge,
   .thpt-badge {
-    width: 49%;
+    font-size: 10px;
+    width: 48%;
   }
   .blinking {
     font-size: 12px !important;
@@ -356,7 +358,7 @@ a.lesson-link:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90vw;
-  max-width: 400px;
+  max-width: 600px;
   max-height: 80vh;
   background: white;
   border-radius: 8px;
@@ -375,7 +377,7 @@ a.lesson-link:hover {
 }
 
 .feedback-header {
-  background-color: #6c757d;
+  background-color: #88c1cf;
   color: white;
   padding: 10px;
   font-weight: bold;
@@ -452,8 +454,8 @@ a.lesson-link:hover {
 }
 @media (max-width: 768px) {
   .feedback-popup {
-    width: 80vw;
-    height: 320px;
+    width: 75vw;
+    height: 340px;
     top: 200px;
     left: 50%;
     transform: translateX(-50%);
@@ -656,4 +658,21 @@ a.lesson-link:hover {
 
 .bottom-left-img:hover {
   transform: scale(1.1);
+}
+.iframe-wrapper {
+  display: none;
+  width: 100vw;
+  height: 84.5vh;
+}
+
+.iframe-wrapper iframe {
+  border: none;
+  display: block;
+}
+
+/* Khi màn hình cực lớn (ultra wide) */
+@media (min-width: 1600px) {
+  .iframe-wrapper {
+    height: 87.6vh;
+  }
 }

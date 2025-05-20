@@ -314,6 +314,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const classListContainer = document.querySelector(".container.py-4");
+  const teacherInfo = document.getElementById("teacherInfo");
 
   const buttons = {
     score: [
@@ -416,6 +417,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const isVisible = containers[section].style.display === "block";
     classListContainer.style.display = isVisible ? "none" : "block";
+    teacherInfo.style.display = isVisible ? "none" : "block";
+
     toggleSnowEffect(
       section === "temple" || section === "game" ? !isVisible : true
     );
