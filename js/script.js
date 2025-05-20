@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Đặt mật khẩu đúng ở đây (ví dụ: "matkhau123")
         const correctPassword = "`";
-        const userPassword = prompt("🔒 Nhập mật khẩu để mở chương:");
+        const userPassword = prompt("🔒 Nhập mật khẩu:");
 
         if (userPassword === correctPassword) {
           $(collapseId).collapse("show");
