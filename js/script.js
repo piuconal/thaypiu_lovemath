@@ -610,33 +610,31 @@ document.addEventListener("keydown", function (e) {
   }
 });
 // ------------
-// Hiển thị overlay và popup ngay khi bắt đầu tải trang
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("overlay").style.display = "block";
-  document.getElementById("popupImage").style.display = "block";
-});
 
-// Khi trang tải xong thì ẩn overlay và popup
-window.addEventListener("load", function () {
+window.addEventListener("DOMContentLoaded", function () {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popupImage");
+
+  // Hiển thị overlay và popup ngay lập tức
+  overlay.style.display = "block";
+  popup.style.display = "block";
+
+  // Sau 1 giây bắt đầu mờ dần trong 3 giây
   setTimeout(function () {
-    document.getElementById("overlay").style.display = "none";
-    document.getElementById("popupImage").style.display = "none";
-  }, 100); // Delay 1s để giữ hiệu ứng 1 chút
-});
+    overlay.classList.add("fade-out");
+    popup.classList.add("fade-out");
 
-// Cho phép tắt khi click thủ công vào overlay hoặc ảnh
-document.getElementById("overlay").addEventListener("click", function () {
-  this.style.display = "none";
-  document.getElementById("popupImage").style.display = "none";
-});
-document.getElementById("popupImage").addEventListener("click", function () {
-  this.style.display = "none";
-  document.getElementById("overlay").style.display = "none";
+    // Sau 3 giây mờ dần thì ẩn hoàn toàn
+    setTimeout(function () {
+      overlay.style.display = "none";
+      popup.style.display = "none";
+    }, 3000); // đúng bằng thời gian transition
+  }, 100); // đợi 1 giây trước khi bắt đầu mờ dần
 });
 
 const bubbleContainer = document.getElementById("summerBubbles");
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 20; i++) {
   const bubble = document.createElement("div");
   bubble.className = "bubble";
 
@@ -652,3 +650,8 @@ for (let i = 0; i < 40; i++) {
 
   bubbleContainer.appendChild(bubble);
 }
+setTimeout(() => {
+  bubbleContainer.innerHTML = ""; // Xóa tất cả bóng
+  // Hoặc ẩn luôn container:
+  // bubbleContainer.style.display = "none";
+}, 10000);
