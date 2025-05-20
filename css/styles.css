@@ -87,15 +87,11 @@ a.lesson-link:hover {
 }
 #classList .card {
   max-width: 600px;
-  margin: 10px auto;
-}
-.card-body .collapse button {
-  font-weight: bold;
+  margin: 13px auto;
 }
 .card-body a {
   font-size: 14px;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .list-group {
@@ -675,8 +671,7 @@ a.lesson-link:hover {
   border: none;
   border-radius: 10px;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* bóng nhẹ */
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* bóng nhẹ */
   cursor: pointer;
 }
 
@@ -722,6 +717,13 @@ a.lesson-link:hover {
 }
 
 @media (max-width: 576px) {
+  .tucngu{
+    font-size: 12px;
+  }
+  .pt-4,
+  .py-4 {
+    padding-top: 0.2rem !important;
+  }
   .feedback-popup {
     width: 75vw;
     height: 340px;
@@ -753,8 +755,7 @@ a.lesson-link:hover {
     font-size: 0.7rem;
   }
   .gradient-border {
-    max-width: 40%; /* giảm kích thước ảnh */
-    height: auto;
+    display: none;
   }
   #chatbotPopup {
     width: 80vw;

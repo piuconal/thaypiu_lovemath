@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
               const chuongDiv = document.createElement("div");
 
               chuongDiv.innerHTML = `
-              <button class="btn btn-outline-secondary btn-sm mb-2 ml-3 scroll-to-center" data-toggle="collapse" data-target="#${chuongId}">
+              <button class="font-weight-bold btn btn-outline-info text-info btn-sm mb-2 ml-3 scroll-to-center" data-toggle="collapse" data-target="#${chuongId}">
                   ${chuong}
                 </button>
               <div class="collapse ml-4" id="${chuongId}">
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       return `
                       <li class="list-group-item p-2">
                         <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}/${baiSlug}.html" 
-                          class="text-dark scroll-to-center" 
+                          class="text-dark font-weight-bold scroll-to-center" 
                           title="${bai}" 
                           target="_blank">
                           ${bai}
@@ -657,19 +657,31 @@ window.addEventListener("DOMContentLoaded", function () {
 
 const bubbleContainer = document.getElementById("summerBubbles");
 
-for (let i = 0; i < 26; i++) {
+// Sử dụng DocumentFragment để giảm thao tác DOM
+const fragment = document.createDocumentFragment();
+
+const totalBubbles = 12;
+
+for (let i = 0; i < totalBubbles; i++) {
   const bubble = document.createElement("div");
   bubble.className = "bubble";
 
-  // Ngẫu nhiên kích thước và vị trí
-  const size = Math.random() * 20 + 10; // từ 10px đến 30px
+  // Ngẫu nhiên kích thước (10px - 25px)
+  const size = Math.random() * 15 + 10;
   bubble.style.width = `${size}px`;
   bubble.style.height = `${size}px`;
-  bubble.style.left = `${Math.random() * 100}%`;
 
-  // Ngẫu nhiên thời gian trễ và tốc độ
-  bubble.style.animationDuration = `${Math.random() * 5 + 4}s`;
-  bubble.style.animationDelay = `${Math.random() * 5}s`;
+  // Vị trí bên trái (%)
+  const left = Math.random() * 100;
+  bubble.style.left = `${left}%`;
 
-  bubbleContainer.appendChild(bubble);
+  // Hiệu ứng mượt: thời gian chạy và delay ngẫu nhiên
+  const duration = Math.random() * 4 + 4; // 4s - 8s
+  const delay = Math.random() * 3; // 0s - 3s
+  bubble.style.animationDuration = `${duration}s`;
+  bubble.style.animationDelay = `${delay}s`;
+
+  fragment.appendChild(bubble);
 }
+
+bubbleContainer.appendChild(fragment);
