@@ -614,25 +614,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// // Cảnh báo khi mở DevTools
-// // Chặn chuột phải
-// document.addEventListener("contextmenu", function (e) {
-//   e.preventDefault();
-// });
+// Cảnh báo khi mở DevTools
+// Chặn chuột phải
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
 
-// // Chặn F12, Ctrl+U, Ctrl+Shift+I/C
-// document.addEventListener("keydown", function (e) {
-//   if (
-//     e.keyCode === 123 || // F12
-//     (e.ctrlKey && (e.key === "u" || e.key === "s")) ||
-//     (e.ctrlKey &&
-//       e.shiftKey &&
-//       (e.key === "I" || e.key === "C" || e.key === "J"))
-//   ) {
-//     e.preventDefault();
-//   }
-// });
-// // ------------
+// Chặn F12, Ctrl+U, Ctrl+Shift+I/C
+document.addEventListener("keydown", function (e) {
+  if (
+    e.keyCode === 123 || // F12
+    (e.ctrlKey && (e.key === "u" || e.key === "s")) ||
+    (e.ctrlKey &&
+      e.shiftKey &&
+      (e.key === "I" || e.key === "C" || e.key === "J"))
+  ) {
+    e.preventDefault();
+  }
+});
+// ------------
 
 window.addEventListener("DOMContentLoaded", function () {
   const overlay = document.getElementById("overlay");

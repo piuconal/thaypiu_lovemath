@@ -1,3 +1,22 @@
+// Cảnh báo khi mở DevTools
+// Chặn chuột phải
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
+
+// Chặn F12, Ctrl+U, Ctrl+Shift+I/C
+document.addEventListener("keydown", function (e) {
+  if (
+    e.keyCode === 123 || // F12
+    (e.ctrlKey && (e.key === "u" || e.key === "s")) ||
+    (e.ctrlKey &&
+      e.shiftKey &&
+      (e.key === "I" || e.key === "C" || e.key === "J"))
+  ) {
+    e.preventDefault();
+  }
+});
+// ------------
 // Kiểm tra nếu đang dùng thiết bị di động
 function isMobileDevice() {
   return window.innerWidth <= 768 || /Mobi|Android/i.test(navigator.userAgent);
