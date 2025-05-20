@@ -704,6 +704,7 @@ a.lesson-link:hover {
 .chuongbai:focus,
 .chuongbai:active {
   color: white !important;
+  background-color: #0077b6;
 }
 
 /* Khi màn hình cực lớn (ultra wide) */

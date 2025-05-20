@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Yêu cầu mật khẩu trước khi mở chương
   document.addEventListener("click", function (e) {
-    const target = e.target.closest("button.btn-outline-secondary");
+    const target = e.target.closest("button.btn-outline-info"); // chỉ nút chương
 
     if (target && target.dataset.toggle === "collapse") {
       const collapseId = target.dataset.target;
@@ -212,8 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!collapseElement.classList.contains("show")) {
         e.preventDefault();
 
+        // Đặt mật khẩu đúng ở đây (ví dụ: "matkhau123")
         const correctPassword = "`";
-        const userPassword = prompt("🔒 Nhập mật khẩu để mở:");
+        const userPassword = prompt("🔒 Nhập mật khẩu để mở chương:");
 
         if (userPassword === correctPassword) {
           $(collapseId).collapse("show");
@@ -226,10 +227,9 @@ document.addEventListener("DOMContentLoaded", () => {
             $(el).collapse("hide");
           });
 
-          // Chờ một chút để animation đóng xong rồi reload trang
           setTimeout(() => {
             location.reload();
-          }, 300); // 300ms đủ để animation đóng hoàn tất
+          }, 300);
         }
       }
     }
