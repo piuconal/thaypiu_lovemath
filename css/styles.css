@@ -701,3 +701,7 @@ input,
 label {
   touch-action: manipulation; /* Ngăn double-tap delay và zoom */
 }
+
+.btn-sm {
+  border-radius: 30px;
+}

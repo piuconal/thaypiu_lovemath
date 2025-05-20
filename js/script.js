@@ -628,7 +628,7 @@ window.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       overlay.style.display = "none";
       popup.style.display = "none";
-    }, 3000); // đúng bằng thời gian transition
+    }, 2000); // đúng bằng thời gian transition
   }, 100); // đợi 1 giây trước khi bắt đầu mờ dần
 });
 
