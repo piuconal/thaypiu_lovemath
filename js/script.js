@@ -12,6 +12,16 @@
 //   }
 // });
 
+const gradientClasses = [
+  "bg-gradient-1",
+  "bg-gradient-2",
+  "bg-gradient-3",
+  "bg-gradient-4",
+  "bg-gradient-5",
+  "bg-gradient-6",
+  "bg-gradient-7",
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   fetch("data.json")
     .then((res) => res.json())
@@ -22,11 +32,24 @@ document.addEventListener("DOMContentLoaded", () => {
       Object.entries(data).forEach(([lop, kyList], lopIndex) => {
         const lopId = `lop-${lopIndex}`;
         const lopCard = document.createElement("div");
-        lopCard.className = "card";
+        const gradientClass =
+          gradientClasses[lopIndex % gradientClasses.length];
+        lopCard.className = `card ${gradientClass}`;
 
         const lopHeader = document.createElement("div");
-        lopHeader.className = "card-header bg-light scroll-to-center";
-
+        lopHeader.className = `card-header text-white scroll-to-center ${gradientClass}`;
+        lopHeader.style.cursor = "pointer";
+        lopHeader.addEventListener("click", (e) => {
+          if (e.target.tagName.toLowerCase() === "button") {
+            return; // cho button xử lý riêng
+          }
+          const collapseElem = document.getElementById(lopId);
+          if (collapseElem.classList.contains("show")) {
+            $(collapseElem).collapse("hide");
+          } else {
+            $(collapseElem).collapse("show");
+          }
+        });
         // // Danh sách số học sinh cố định ứng với từng lớp
         // const fixedStudentCounts = [30, 50, 40, 200, 150, 150, 200]; // Bạn có thể thêm nữa nếu có nhiều lớp
 
@@ -54,12 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         lopHeader.innerHTML = `
           <h5 class="mb-0 d-flex justify-content-between align-items-center">
-            <button class="btn btn-link collapsed text-dark font-weight-bold" data-toggle="collapse" data-target="#${lopId}" aria-expanded="false">
+            <button class="btn btn-link collapsed text-white font-weight-bold" data-toggle="collapse" data-target="#${lopId}" aria-expanded="false">
               ${lop}
             </button>
             ${
               showStudentCount
-                ? `<span class="blinking text-danger font-weight-bold mr-2">> ${studentCount} học sinh đạt 9+ trong kì thi tốt nghiệp</span>`
+                ? `<span class="blinking text-white font-weight-bold mr-2">> ${studentCount} học sinh đạt 9+ trong kì thi tốt nghiệp</span>`
                 : ""
             }
           </h5>
@@ -77,11 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const kyDiv = document.createElement("div");
 
           kyDiv.innerHTML = `
-  <button class="btn btn-outline-primary btn-sm mb-2 scroll-to-center" data-toggle="collapse" data-target="#${kyId}">
-    ${ky}
-  </button>
-  <div class="collapse" id="${kyId}"></div>
-`;
+            <button class="btn btn-outline-primary btn-sm mb-2 scroll-to-center" data-toggle="collapse" data-target="#${kyId}">
+              ${ky}
+            </button>
+            <div class="collapse" id="${kyId}"></div>
+          `;
 
           const chuongContainer = kyDiv.querySelector(`#${kyId}`);
 
@@ -92,9 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
               const chuongDiv = document.createElement("div");
 
               chuongDiv.innerHTML = `
- <button class="btn btn-outline-secondary btn-sm mb-2 ml-3 scroll-to-center" data-toggle="collapse" data-target="#${chuongId}">
-    ${chuong}
-  </button>
+              <button class="btn btn-outline-secondary btn-sm mb-2 ml-3 scroll-to-center" data-toggle="collapse" data-target="#${chuongId}">
+                  ${chuong}
+                </button>
               <div class="collapse ml-4" id="${chuongId}">
                 <ul class="list-group mb-3">
                   ${baiList
@@ -117,14 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
                       const baiSlug = `bai${baiNumber}`;
 
                       return `
-  <li class="list-group-item p-2">
-    <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}/${baiSlug}.html" 
-       class="text-dark scroll-to-center" 
-       title="${bai}" 
-       target="_blank">
-      ${bai}
-    </a>
-  </li>`;
+                      <li class="list-group-item p-2">
+                        <a href="${lopSlug}/${kySlug}/${chuongSlug}/${baiSlug}/${baiSlug}.html" 
+                          class="text-dark scroll-to-center" 
+                          title="${bai}" 
+                          target="_blank">
+                          ${bai}
+                        </a>
+                      </li>`;
                     })
                     .join("")}
                 </ul>
@@ -634,7 +657,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 const bubbleContainer = document.getElementById("summerBubbles");
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 26; i++) {
   const bubble = document.createElement("div");
   bubble.className = "bubble";
 
@@ -650,8 +673,3 @@ for (let i = 0; i < 20; i++) {
 
   bubbleContainer.appendChild(bubble);
 }
-setTimeout(() => {
-  bubbleContainer.innerHTML = ""; // Xóa tất cả bóng
-  // Hoặc ẩn luôn container:
-  // bubbleContainer.style.display = "none";
-}, 10000);

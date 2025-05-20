@@ -3,13 +3,14 @@ body {
   background: linear-gradient(
     270deg,
     #86e7f4,
-    #fceabb,
-    #fcb69f,
-    #a1c4fd,
-    #86e7f4
+    /* xanh dương nhạt */ #a1c4fd,
+    /* xanh pastel */ #70c1ff,
+    /* xanh da trời sáng */ #3a86ff,
+    /* xanh dương đậm */ #86e7f4 /* xanh dương nhạt (để khép vòng) */
   );
+
   background-size: 1000% 1000%;
-  animation: gradientSummer 30s ease infinite;
+  animation: gradientSummer 15s ease infinite;
   min-height: 100vh;
   margin: 0;
 }
@@ -115,7 +116,15 @@ a.lesson-link:hover {
   height: 300px;
   border-radius: 50%;
   padding: 5px;
-  background: linear-gradient(270deg, #ff00c8, #00ffe1, #ffe600, #ff00c8);
+  background: linear-gradient(
+    270deg,
+    #0077b6,
+    /* xanh dương đậm */ #00b4d8,
+    /* xanh nước biển nhạt */ #48cae4,
+    /* xanh biển sáng */ #90e0ef,
+    /* xanh nhẹ pastel */ #0077b6 /* xanh dương đậm (để khép vòng) */
+  );
+
   background-size: 800% 800%;
   animation: animatedGradient 5s ease infinite;
   display: flex;
@@ -131,11 +140,6 @@ a.lesson-link:hover {
   transition: transform 0.3s ease;
   background-color: white;
 }
-
-.image-effect:hover {
-  transform: scale(1.1);
-}
-
 @keyframes animatedGradient {
   0% {
     background-position: 0% 50%;
@@ -704,4 +708,68 @@ label {
 
 .btn-sm {
   border-radius: 30px;
+}
+
+.bg-gradient-1 {
+  background: linear-gradient(to right, #c9e5f0, #a0d8ef); /* xanh lam nhạt */
+}
+.bg-gradient-2 {
+  background: linear-gradient(
+    to right,
+    #a0d8ef,
+    #70bfe2
+  ); /* xanh da trời nhạt */
+}
+.bg-gradient-3 {
+  background: linear-gradient(to right, #70bfe2, #4096d4); /* xanh trời */
+}
+.bg-gradient-4 {
+  background: linear-gradient(
+    to right,
+    #4096d4,
+    #1e6bb8
+  ); /* xanh dương trung bình */
+}
+.bg-gradient-5 {
+  background: linear-gradient(to right, #1e6bb8, #104a8b); /* xanh dương đậm */
+}
+.bg-gradient-6 {
+  background: linear-gradient(to right, #104a8b, #08306b); /* xanh navy */
+}
+.bg-gradient-7 {
+  background: linear-gradient(to right, #08306b, #041c3d); /* xanh navy đậm */
+}
+.card {
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* bóng nhẹ */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25); /* bóng đậm hơn khi hover */
+  transform: translateY(-2px); /* hơi nhấc lên */
+}
+
+/* Bỏ gạch chân khi hover và focus trên button */
+.card-header button.btn-link {
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Khi hover vẫn không có gạch chân */
+.card-header button.btn-link:hover,
+.card-header button.btn-link:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Loại bỏ outline và viền xung quanh h5 khi focus (nếu có) */
+.card-header h5:focus {
+  outline: none;
+  box-shadow: none;
 }
