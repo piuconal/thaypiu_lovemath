@@ -1,5 +1,5 @@
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Quicksand", sans-serif;
   background: linear-gradient(
     270deg,
     #86e7f4,
@@ -711,34 +711,47 @@ label {
 }
 
 .bg-gradient-1 {
-  background: linear-gradient(to right, #c9e5f0, #a0d8ef); /* xanh lam nhạt */
+  background: linear-gradient(
+    to right,
+    #79b7d9,
+    #4ba8d6
+  ); /* xanh lam đậm hơn */
 }
 .bg-gradient-2 {
   background: linear-gradient(
     to right,
-    #a0d8ef,
-    #70bfe2
-  ); /* xanh da trời nhạt */
+    #4ba8d6,
+    #2e90c9
+  ); /* xanh da trời trung bình */
 }
 .bg-gradient-3 {
-  background: linear-gradient(to right, #70bfe2, #4096d4); /* xanh trời */
+  background: linear-gradient(
+    to right,
+    #2e90c9,
+    #1d6fb5
+  ); /* xanh trời rõ nét */
 }
 .bg-gradient-4 {
   background: linear-gradient(
     to right,
-    #4096d4,
-    #1e6bb8
-  ); /* xanh dương trung bình */
+    #1d6fb5,
+    #165a9e
+  ); /* xanh dương đậm hơn */
 }
 .bg-gradient-5 {
-  background: linear-gradient(to right, #1e6bb8, #104a8b); /* xanh dương đậm */
+  background: linear-gradient(to right, #165a9e, #0d3d78); /* xanh dương đậm */
 }
 .bg-gradient-6 {
-  background: linear-gradient(to right, #104a8b, #08306b); /* xanh navy */
+  background: linear-gradient(to right, #0d3d78, #062c5d); /* xanh navy đậm */
 }
 .bg-gradient-7 {
-  background: linear-gradient(to right, #08306b, #041c3d); /* xanh navy đậm */
+  background: linear-gradient(
+    to right,
+    #062c5d,
+    #021837
+  ); /* xanh navy rất đậm */
 }
+
 .card {
   border: none;
   border-radius: 10px;
@@ -773,3 +786,4 @@ label {
   outline: none;
   box-shadow: none;
 }
+
