@@ -1,3 +1,10 @@
+button,
+a,
+input,
+label {
+  touch-action: manipulation; /* Ngăn double-tap delay và zoom */
+}
+
 body {
   font-family: "Quicksand", sans-serif;
   background: linear-gradient(
@@ -82,29 +89,13 @@ a.lesson-link:hover {
   max-width: 600px;
   margin: 10px auto;
 }
-
-@media (max-width: 576px) {
-  .hsa-badge {
-    margin-top: 4px;
-    display: block;
-    text-align: center;
-    width: 100%;
-    font-size: 11px;
-  }
-  .l10-badge,
-  .thpt-badge {
-    font-size: 11px;
-    width: 49%;
-  }
-  #giftBox {
-    width: 55px; /* kích thước gif */
-  }
-  .blinking {
-    font-size: 10px !important;
-  }
-  h5 button {
-    font-size: 11px !important;
-  }
+.card-body .collapse button {
+  font-weight: bold;
+}
+.card-body a {
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .list-group {
@@ -250,17 +241,6 @@ a.lesson-link:hover {
   box-sizing: border-box;
 }
 
-@media (max-width: 480px) {
-  #chatbotPopup {
-    width: 80vw;
-    height: 450px;
-    bottom: 25px;
-    right: 5vw;
-  }
-  .lockapi {
-    margin-top: 5px;
-  }
-}
 /* Vị trí cố định góc dưới trái */
 #mobileMenuBtn {
   position: fixed;
@@ -350,14 +330,6 @@ a.lesson-link:hover {
 
 .mobile-dropdown-menu .dropdown-item:hover {
   background-color: #f0f0f0;
-}
-
-/* Ảnh thu nhỏ trên màn hình nhỏ */
-@media (max-width: 767.98px) {
-  .gradient-border {
-    max-width: 40%; /* giảm kích thước ảnh */
-    height: auto;
-  }
 }
 
 .feedback-popup {
@@ -460,38 +432,7 @@ a.lesson-link:hover {
 #toggleFeedbackBtn {
   animation: blink 1.5s ease-in-out infinite;
 }
-@media (max-width: 768px) {
-  .feedback-popup {
-    width: 75vw;
-    height: 340px;
-    top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow: hidden; /* Giữ popup không tràn */
-    display: flex;
-    flex-direction: column;
-  }
 
-  .feedback-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Ngăn tràn ra ngoài */
-  }
-
-  .feedback-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Ngăn tràn */
-  }
-
-  .feedback-list {
-    flex: 1;
-    overflow-y: auto;
-    font-size: 0.7rem;
-  }
-}
 .spinner {
   width: 32px;
   height: 32px;
@@ -684,28 +625,6 @@ a.lesson-link:hover {
   display: block;
 }
 
-/* Khi màn hình cực lớn (ultra wide) */
-@media (min-width: 1600px) {
-  .iframe-wrapper {
-    height: 86.6vh;
-  }
-  h5 {
-    font-size: 60px !important;
-  }
-  #classList .card {
-    margin-top: 30px;
-    max-width: 900px;
-    margin-right: 200px;
-  }
-}
-
-button,
-a,
-input,
-label {
-  touch-action: manipulation; /* Ngăn double-tap delay và zoom */
-}
-
 .btn-sm {
   border-radius: 30px;
 }
@@ -787,3 +706,90 @@ label {
   box-shadow: none;
 }
 
+/* Khi màn hình cực lớn (ultra wide) */
+@media (min-width: 1600px) {
+  .iframe-wrapper {
+    height: 86.6vh;
+  }
+  h5 {
+    font-size: 60px !important;
+  }
+  #classList .card {
+    margin-top: 30px;
+    max-width: 900px;
+    margin-right: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .feedback-popup {
+    width: 75vw;
+    height: 340px;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden; /* Giữ popup không tràn */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feedback-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ngăn tràn ra ngoài */
+  }
+
+  .feedback-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ngăn tràn */
+  }
+
+  .feedback-list {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 0.7rem;
+  }
+  .gradient-border {
+    max-width: 40%; /* giảm kích thước ảnh */
+    height: auto;
+  }
+  #chatbotPopup {
+    width: 80vw;
+    height: 450px;
+    bottom: 25px;
+    right: 5vw;
+  }
+  .lockapi {
+    margin-top: 5px;
+  }
+  .hsa-badge {
+    margin-top: 4px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 11px;
+  }
+  .l10-badge,
+  .thpt-badge {
+    font-size: 11px;
+    width: 49%;
+  }
+  #giftBox {
+    width: 55px; /* kích thước gif */
+  }
+  .blinking {
+    font-size: 10.5px !important;
+  }
+  h5 button {
+    font-size: 13px !important;
+  }
+  .card-body button {
+    font-size: 12px;
+  }
+  .card-body a {
+    font-size: 12px;
+  }
+}

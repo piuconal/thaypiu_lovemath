@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </button>
             ${
               showStudentCount
-                ? `<span class="blinking text-white font-weight-bold mr-2">> ${studentCount} học sinh đạt 9+ trong kì thi tốt nghiệp</span>`
+                ? `<span class="blinking text-white font-weight-bold mr-2">> ${studentCount} HS đạt 9+ kì thi tốt nghiệp 🌍</span>`
                 : ""
             }
           </h5>
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         const correctPassword = "`";
-        const userPassword = prompt("🔒 Nhập mật khẩu để mở chương:");
+        const userPassword = prompt("🔒 Nhập mật khẩu để mở:");
 
         if (userPassword === correctPassword) {
           $(collapseId).collapse("show");
