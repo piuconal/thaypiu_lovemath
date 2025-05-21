@@ -377,6 +377,11 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("toggleCountdownBtn"),
       document.getElementById("toggleCountdownBtnMobile"),
     ],
+    thinkingTest: [
+      // <-- thêm createAIPic
+      document.getElementById("toggleThinkingTestBtn"),
+      document.getElementById("toggleThinkingTestBtnMobile"),
+    ],
   };
 
   const containers = {
@@ -389,18 +394,20 @@ document.addEventListener("DOMContentLoaded", function () {
     mathAi: document.getElementById("mathAiIframeContainer"),
     createAIPic: document.getElementById("createAIPicIframeContainer"), // <-- thêm
     countDown: document.getElementById("countdownIframeContainer"), // <-- thêm
+    thinkingTest: document.getElementById("thinkingTestIframeContainer"), // <-- thêm
   };
 
   const defaultTexts = {
     score: "📝 Tra điểm thi",
     temple: "🕯️ Thắp hương",
     alarm: "⏰ Đồng hồ",
-    game: "🧠 Tower of Hanoi",
+    game: "🥇 Tower of Hanoi",
     visualgo: "📊 Thuật toán",
     geogebra: "👨🏼 Swap Face",
     mathAi: "📐 Math AI",
     createAIPic: "🤖 Create AI Picture", // <-- thêm
     countDown: "⏳ Đếm ngược kì thi", // <-- thêm
+    thinkingTest: "✨ Đánh giá tư duy", // <-- thêm
   };
 
   const hiddenTexts = {
@@ -413,6 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mathAi: "Ẩn Math AI",
     createAIPic: "Ẩn Create AI", // <-- thêm
     countDown: "Ẩn Đếm ngược", // <-- thêm
+    thinkingTest: "Ẩn Đánh giá", // <-- thêm
   };
 
   function toggleSnowEffect(show) {

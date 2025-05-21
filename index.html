@@ -50,6 +50,21 @@
             <button id="toggleFeedbackBtn" class="btn btn-outline-secondary btn-sm" style="font-size: 0.8rem;">
               ✍️ Nhận xét
             </button>
+            <div class="dropdown ml-2 d-inline-block">
+              <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="dropdownThinkingGames"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 0.8rem;">
+                🧠 Tư duy
+              </button>
+              <div class="dropdown-menu custom-dropdown" aria-labelledby="dropdownThinkingGames"
+                style="min-width: 10rem;">
+                <a class="dropdown-item custom-item" href="#" id="toggleGameBtn">
+                  🥇 Tower of Hanoi
+                </a>
+                <a class="dropdown-item custom-item" href="#" id="toggleThinkingTestBtn">
+                  ✨ Đánh giá tư duy
+                </a>
+              </div>
+            </div>
             <button id="toggleIframeBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">📝 Tra
               điểm
               thi</button>
@@ -61,8 +76,7 @@
               hương</button>
             <button id="toggleAlarmBtn" class="btn btn-outline-primary btn-sm ml-2 lockapi" style="font-size: 0.8rem;">⏰
               Đồng hồ</button>
-            <button id="toggleGameBtn" class="btn btn-outline-primary btn-sm ml-2 lockapi" style="font-size: 0.8rem;">🧠
-              Tower of Hanoi</button>
+
             <button id="toggleVisualgoBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">📊
               Thuật
               toán</button>
@@ -182,6 +196,12 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
+  <div id="thinkingTestIframeContainer" class="iframe-wrapper">
+    <iframe src="https://kiemtratuduy.vercel.app/" width="100%" height="100%"
+      style="border:none; display:block;"></iframe>>
+    Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
 
   <div id="feedbackPopup" class="feedback-popup" style="display:none;">
     <div class="feedback-content">
@@ -217,10 +237,22 @@
       <button id="toggleCountdownBtnMobile" class="d-md-none dropdown-item text-primary">
         ⏳ Đếm ngược kỳ thi
       </button>
+      <div class="dropdown">
+        <button class="btn btn-outline-primary d-md-none dropdown-toggle dropdown-item" type="button"
+          id="dropdownThinkingMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          style="width: 100%; text-align: left; color: rgb(91, 184, 228);">
+          🧠 Tư duy
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownThinkingMobile" style="width: 100%;">
+          <button id="toggleGameBtnMobile" class="dropdown-item btn-outline-pink lockapi">🥇 Tower of Hanoi</button>
+          <button id="toggleThinkingTestBtnMobile" class="dropdown-item btn-outline-pink">
+            ✨ Đánh giá tư duy
+          </button>
 
+        </div>
+      </div>
       <button id="toggleTempleBtnMobile" class="d-md-none dropdown-item text-primary">🕯️ Thắp hương</button>
       <button id="toggleAlarmBtnMobile" class="d-md-none dropdown-item text-primary lockapi">⏰ Đồng hồ</button>
-      <button id="toggleGameBtnMobile" class="d-md-none dropdown-item text-primary lockapi">🧠 Tower of Hanoi</button>
       <button id="toggleVisualgoBtnMobile" class="d-md-none dropdown-item text-primary">📊 Thuật toán</button>
       <button id="toggleMathAiBtnMobile" class="d-md-none dropdown-item text-primary">📐 Math AI</button>
       <div class="dropdown">
