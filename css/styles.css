@@ -709,6 +709,28 @@ a.lesson-link:hover {
 .card-body a:hover {
   color: #00b4d8 !important;
 }
+
+.link-buttons {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.link-buttons.show {
+  max-height: 100px; /* đủ cao cho 2 nút */
+  opacity: 1;
+}
+
+.link-buttons a {
+  display: inline-block;
+  margin: 5px;
+  transition: transform 0.2s ease;
+}
+
+.link-buttons a:hover {
+  transform: scale(1.05);
+}
 /* Khi màn hình cực lớn (ultra wide) */
 @media (min-width: 1600px) {
   .iframe-wrapper {

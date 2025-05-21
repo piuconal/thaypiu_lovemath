@@ -711,3 +711,11 @@ classPopup.addEventListener("click", (e) => {
     closeClassPopup();
   }
 });
+
+function toggleLinks(id) {
+  document.querySelectorAll(".link-buttons").forEach((el) => {
+    if (el.id !== id) el.classList.remove("show");
+  });
+  const element = document.getElementById(id);
+  element.classList.toggle("show");
+}
