@@ -697,10 +697,6 @@ bubbleContainer.appendChild(fragment);
 const classPopup = document.getElementById("classPopup");
 const showClassPopupBtn = document.getElementById("showClassPopupBtn");
 
-showClassPopupBtn.addEventListener("click", () => {
-  classPopup.style.display = "flex";
-});
-
 function closeClassPopup() {
   classPopup.style.display = "none";
 }
@@ -719,3 +715,25 @@ function toggleLinks(id) {
   const element = document.getElementById(id);
   element.classList.toggle("show");
 }
+
+document
+  .getElementById("showClassPopupBtn")
+  .addEventListener("click", function () {
+    const correctPassword = "*";
+
+    const userInput = prompt("🔐 Nhập mật khẩu:");
+
+    // Nếu nhấn Cancel hoặc không nhập gì hoặc nhập sai
+    if (
+      userInput === null ||
+      userInput.trim() === "" ||
+      userInput !== correctPassword
+    ) {
+      location.reload(); // Tải lại trang, không mở popup
+      return;
+    }
+
+    // Nếu nhập đúng mật khẩu
+    // Hiện popup bằng cách đổi display
+    document.getElementById("classPopup").style.display = "flex";
+  });
