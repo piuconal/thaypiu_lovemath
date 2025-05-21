@@ -747,7 +747,7 @@ a.lesson-link:hover {
 }
 
 @media (max-width: 576px) {
-  .kỉemtra {
+  #showClassPopupBtn {
     display: none;
   }
   .tucngu {
