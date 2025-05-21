@@ -706,7 +706,7 @@ a.lesson-link:hover {
   color: white !important;
   background-color: #0077b6;
 }
-.card-body a:hover{
+.card-body a:hover {
   color: #00b4d8 !important;
 }
 /* Khi màn hình cực lớn (ultra wide) */
@@ -725,6 +725,9 @@ a.lesson-link:hover {
 }
 
 @media (max-width: 576px) {
+  .kỉemtra {
+    display: none;
+  }
   .tucngu {
     font-size: 12px;
   }

@@ -693,3 +693,21 @@ for (let i = 0; i < totalBubbles; i++) {
 }
 
 bubbleContainer.appendChild(fragment);
+
+const classPopup = document.getElementById("classPopup");
+const showClassPopupBtn = document.getElementById("showClassPopupBtn");
+
+showClassPopupBtn.addEventListener("click", () => {
+  classPopup.style.display = "flex";
+});
+
+function closeClassPopup() {
+  classPopup.style.display = "none";
+}
+
+// Đóng popup khi click ra ngoài vùng popup
+classPopup.addEventListener("click", (e) => {
+  if (e.target === classPopup) {
+    closeClassPopup();
+  }
+});
