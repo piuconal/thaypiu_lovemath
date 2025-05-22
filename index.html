@@ -19,6 +19,7 @@
     </style>
   </noscript>
 </head>
+
 <!-- Overlay nền đen mờ -->
 <div id="overlay" style="display:none;"></div>
 
@@ -143,6 +144,7 @@
         </div>
         <div class="text-center mt-2">
           <button class="btn btn-primary" id="showClassPopupBtn">📚 KIỂM TRA</button>
+          <button class="btn btn-info" id="showRankingBtn">📊 XẾP HẠNG</button>
         </div>
       </div>
 
@@ -203,6 +205,12 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
+  <div id="rankingIframeContainer" class="iframe-wrapper">
+    <iframe src="./xephang/index.html" width="100%" height="100%" style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
+
 
   <div id="feedbackPopup" class="feedback-popup" style="display:none;">
     <div class="feedback-content">
@@ -377,6 +385,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+
 
 </body>
 

@@ -382,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("toggleThinkingTestBtn"),
       document.getElementById("toggleThinkingTestBtnMobile"),
     ],
+    ranking: [document.getElementById("showRankingBtn")],
   };
 
   const containers = {
@@ -395,6 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
     createAIPic: document.getElementById("createAIPicIframeContainer"), // <-- thêm
     countDown: document.getElementById("countdownIframeContainer"), // <-- thêm
     thinkingTest: document.getElementById("thinkingTestIframeContainer"), // <-- thêm
+    ranking: document.getElementById("rankingIframeContainer"), // <-- thêm
   };
 
   const defaultTexts = {

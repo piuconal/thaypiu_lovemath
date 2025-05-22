@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Danh sách điểm và Top 3</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <button class="reload-btn" onclick="location.reload()">
+    &#x21bb;
+  </button>
+
+  <div class="top" aria-label="Top 3 điểm cao nhất">
+    <!-- Top 3 sẽ hiện ở đây -->
+  </div>
+
+  <div class="list" aria-label="Danh sách điểm đầy đủ">
+    <ul id="score-list"></ul>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Chặn chuột phải
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // Chặn các tổ hợp phím phổ biến để view source / dev tools
+    document.addEventListener('keydown', function (e) {
+      // Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12, Ctrl+Shift+C
+      if (
+        (e.ctrlKey && e.key.toLowerCase() === 's') ||  // Ctrl+S
+        (e.ctrlKey && e.key.toLowerCase() === 'u') ||  // Ctrl+U
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') || // Ctrl+Shift+C
+        (e.key === 'F12')
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Chặn kéo thả chuột (nhiều khi dùng để inspect iframe)
+    document.addEventListener('dragstart', function (e) {
+      e.preventDefault();
+    });
+
+    // Ngăn click chuột giữa để mở tab mới
+    document.addEventListener('mousedown', function (e) {
+      if (e.button === 1) e.preventDefault();
+    });
+
+    // Nếu dùng nhiều iframe: chặn luôn các iframe nếu cùng domain
+    window.addEventListener('DOMContentLoaded', () => {
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        try {
+          iframe.contentWindow.document.addEventListener('contextmenu', e => e.preventDefault());
+        } catch (e) {
+          // Bỏ qua nếu iframe khác domain (không thể truy cập nội dung)
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

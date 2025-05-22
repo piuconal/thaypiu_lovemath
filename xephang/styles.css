@@ -1,0 +1,314 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  gap: 40px;
+  padding: 30px;
+  background-color: #f5f5f5;
+  justify-content: center;
+  /* Mặc định là ngang */
+  flex-wrap: nowrap;
+}
+
+.list,
+.top {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px #ccc;
+}
+
+/* Giới hạn chiều cao danh sách điểm và cho scroll */
+.list {
+  flex: 1 1 400px;
+  max-height: 470px;
+  overflow-y: auto;
+  min-width: 350px;
+}
+
+/* Top 3 rộng hơn để làm bố cục */
+.top {
+  flex: 1 1 400px;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  position: relative;
+  height: 200px;
+  flex-direction: column;
+  /* cho top 3 thành cột */
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  padding: 6px 10px;
+  margin: 4px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: normal;
+  color: #000;
+}
+
+.score-yellow {
+  background-color: #fff4c2;
+  color: #7a5d00;
+  font-weight: bold;
+}
+
+.score-green {
+  background-color: #c2f4d0;
+  color: #1e7e34;
+  font-weight: bold;
+}
+
+.score-blue {
+  background-color: #c2ddf4;
+  color: #004085;
+  font-weight: bold;
+}
+
+.score-teal {
+  background-color: #c2f0f4;
+  color: #006666;
+  font-weight: bold;
+}
+
+/* Style Top 3 */
+.top-list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  position: relative;
+  flex-wrap: nowrap;
+}
+
+/* Mỗi vị trí top 3 */
+.top-list li {
+  flex: 1;
+  background-color: #ffd700;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-weight: bold;
+  color: #4b3b00;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.top-list li.top1 {
+  background-color: #ffd700;
+  font-size: 1.4em;
+  height: 160px;
+  z-index: 10;
+  transform: translateY(-20px);
+  box-shadow: 0 6px 15px rgba(255, 215, 0, 0.7);
+}
+
+.top-list li.top2 {
+  background-color: #c0c0c0;
+  color: #3a3a3a;
+  font-size: 1.1em;
+  height: 120px;
+  transform: translateY(20px);
+  box-shadow: 0 4px 10px rgba(192, 192, 192, 0.5);
+}
+
+.top-list li.top3 {
+  background-color: #cd7f32;
+  color: #3a2100;
+  font-size: 1.1em;
+  height: 120px;
+  transform: translateY(20px);
+  box-shadow: 0 4px 10px rgba(205, 127, 50, 0.5);
+}
+
+.top-list li span {
+  margin-top: 8px;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: inherit;
+}
+
+.top {
+  flex: 1 1 400px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+  /* Ngang hàng */
+  justify-content: center;
+  align-items: flex-end;
+  /* bottom đều 0 */
+  gap: 40px;
+  position: relative;
+  height: 470px;
+  /* chiều cao khung top */
+  text-align: center;
+}
+
+.top > div.top1,
+.top > div.top2,
+.top > div.top3 {
+  width: 150px;
+  /* hoặc bạn muốn rộng hơn */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+
+.reload-btn {
+  z-index: 9999999999;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.reload-btn:hover {
+  background-color: #f0f0f0;
+  transform: rotate(90deg);
+}
+
+.top > div.top1 {
+  justify-content: start;
+  order: 2;
+  /* Đưa top1 ra giữa */
+  height: 440px;
+  gap: 7px;
+  background: linear-gradient(135deg, #00e0ff, #007bff);
+  /* các style khác */
+}
+
+.top > div.top2 {
+  justify-content: start;
+  order: 1;
+  /* bên trái */
+  height: 320px;
+  gap: 7px;
+
+  background: linear-gradient(135deg, #42e695, #3bb2b8);
+}
+
+.top > div.top3 {
+  justify-content: start;
+  order: 3;
+  /* bên phải */
+  height: 280px;
+  gap: 7px;
+  background: linear-gradient(135deg, #92c1d5, #62c5cc);
+}
+.top1 strong,
+.top2 strong,
+.top3 strong {
+  display: block;
+  font-size: 20px;
+  padding: 2px 2px;
+  border-radius: 10%;
+  color: #b0cff6;
+  background-color: #000;
+}
+.top1 img {
+  width: 120px !important;
+}
+.top2 img {
+  width: 60px !important;
+}
+.top3 img {
+  width: 60px !important;
+}
+/* Responsive cho điện thoại */
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+    align-items: center;
+    font-size: 10px;
+  }
+
+  .list,
+  .top {
+    min-width: auto;
+    width: 90vw;
+    max-width: 340px;
+    max-height: none;
+  }
+
+  .list {
+    max-height: 300px;
+  }
+
+  .top {
+    max-height: 250px;
+  }
+
+  .top-list {
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .top > div.top1 {
+    order: 2;
+    /* Đưa top1 ra giữa */
+    height: 220px;
+    /* các style khác */
+  }
+
+  .top > div.top2 {
+    order: 1;
+    /* bên trái */
+    height: 180px;
+  }
+
+  .top > div.top3 {
+    order: 3;
+    /* bên phải */
+    height: 150px;
+  }
+  .top1 img {
+    width: 65px !important;
+  }
+  .top2 img {
+    width: 35px !important;
+  }
+  .top3 img {
+    width: 35px !important;
+  }
+}
