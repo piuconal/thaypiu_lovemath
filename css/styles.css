@@ -35,19 +35,20 @@ label {
 
 body {
   font-family: "Quicksand", sans-serif;
-  background: linear-gradient(
-    270deg,
-    #86e7f4,
-    /* xanh dương nhạt */ #a1c4fd,
-    /* xanh pastel */ #70c1ff,
-    /* xanh da trời sáng */ #3a86ff,
-    /* xanh dương đậm */ #86e7f4 /* xanh dương nhạt (để khép vòng) */
-  );
-
-  background-size: 1000% 1000%;
-  animation: gradientSummer 15s ease infinite;
-  min-height: 100vh;
   margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1; /* Để video nằm phía sau các nội dung khác */
 }
 
 @keyframes gradientSummer {
@@ -66,8 +67,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 9999999999999999; /* Đảm bảo header luôn nằm trên các phần tử khác */
-  background-color: white; /* Nên có nền trắng để che khi scroll */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tạo bóng nhẹ đẹp */
+  background-color: rgb(230, 251, 252); /* Nên có nền trắng để che khi scroll */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Tạo bóng nhẹ đẹp */
+  opacity: 0.95;
 }
 
 .card-header {
