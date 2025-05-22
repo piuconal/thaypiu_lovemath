@@ -7,12 +7,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../../../../images/logo.png">
   <link rel="stylesheet" href="../../../../include/bai_css.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
+  <!-- Popup Hết Giờ -->
+  <div id="timeoutPopup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h1 style="color: red;">⏰ HẾT GIỜ ⏰</h1>
+      <button onclick="closeTimeoutPopup()">Chữa bài</button>
+    </div>
+  </div>
+
+  <!-- Âm thanh cảnh báo -->
+  <audio id="alarmSound" src="../reng.mp3" preload="auto"></audio>
+
   <div class="navbar">
     <div class="nav-left">
       <a href="../../../../index.html" class="back-button">←</a>
+    </div>
+    <div class="nav-right">
+      <span id="timer">46:00</span>
     </div>
   </div>
 
@@ -29,9 +44,16 @@
     <img class="modal-content" id="modalImage">
   </div>
 
-
+  <div id="countdownPopup" class="popup-overlay">
+    <div class="popup-content">
+      <h1 style="margin-bottom: 10px; color: red;">CHUẨN BỊ</h1>
+      <h2><span id="countdown">60</span> giây</h2>
+      <button onclick="startNow()">Bắt đầu</button>
+    </div>
+  </div>
 
 </body>
 <script src="../../../../include/bai_js.js"></script>
+<script src="../js/kt.js"></script>
 
 </html>
