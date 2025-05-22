@@ -410,6 +410,7 @@ document.addEventListener("DOMContentLoaded", function () {
     createAIPic: "🤖 Create AI Picture", // <-- thêm
     countDown: "⏳ Đếm ngược kì thi", // <-- thêm
     thinkingTest: "✨ Đánh giá tư duy", // <-- thêm
+    ranking: "📊 XẾP HẠNG", // <-- thêm
   };
 
   const hiddenTexts = {
