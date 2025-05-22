@@ -86,13 +86,20 @@ a.lesson-link:hover {
 }
 
 #giftBox_1 {
+  background-color: rgb(207, 222, 239);
+  border-radius: 50%;
   position: fixed;
-  bottom: 30px; /* cách đáy màn hình 20px */
-  right: 20px; /* cách mép phải màn hình 20px */
-  width: 50px; /* kích thước gif */
-  height: auto;
+  bottom: 20px; /* cách đáy màn hình 20px */
+  right: 25px; /* cách mép phải màn hình 20px */
+  width: 80px; /* kích thước gif */
+  height: 80px;
   z-index: 1000; /* luôn nổi trên các phần tử khác */
   cursor: pointer; /* con trỏ chuột khi hover */
+}
+
+#giftBox_1:hover {
+  transform: scale(0.95);
+  transition: 0.5s ease-in-out;
 }
 #giftBox {
   width: 80px; /* kích thước gif */
@@ -621,9 +628,9 @@ a.lesson-link:hover {
 
 .bottom-left-img {
   position: fixed;
-  bottom: 10px;
-  left: 10px;
-  width: 10%; /* tuỳ chỉnh kích thước ảnh */
+  bottom: 13px;
+  left: 13px;
+  width: 100px; /* tuỳ chỉnh kích thước ảnh */
   height: auto;
   z-index: 9999;
   transition: transform 0.3s;
@@ -835,6 +842,12 @@ a.lesson-link:hover {
   }
   #giftBox {
     width: 55px; /* kích thước gif */
+  }
+  #giftBox_1 {
+    width: 52px;
+    height: 52px;
+    bottom: 27px !important; /* cách đáy màn hình 20px */
+    right: 20px; /* cách mép phải màn hình 20px */
   }
   .blinking {
     font-size: 10.5px !important;
