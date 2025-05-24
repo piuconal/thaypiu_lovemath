@@ -334,6 +334,69 @@ li {
   background-color: #007bff;
   border-radius: 4px;
 }
+
+.top {
+  position: relative;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Viền chuyển màu */
+.top::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 15px;
+  padding: 2px; /* Độ dày của viền */
+  background: linear-gradient(
+    0deg,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet,
+    red
+  );
+  background-size: 400% 400%;
+  animation: borderMove 1s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+/* Hiệu ứng gradient xoay */
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Ảnh GIF góc phải trên */
+.top .corner-gif {
+  position: absolute;
+  top: 5px; /* khoảng cách cách trên */
+  right: 5px; /* khoảng cách cách phải */
+  width: 80px; /* kích thước ảnh */
+  height: 80px;
+  pointer-events: none; /* để không ảnh hưởng đến tương tác chuột */
+  z-index: 2;
+}
 /* Responsive cho điện thoại */
 @media screen and (max-width: 768px) {
   body {
@@ -342,6 +405,10 @@ li {
     gap: 10px;
     align-items: center;
     font-size: 10px;
+  }
+  .top .corner-gif {
+    width: 50px; /* kích thước ảnh */
+    height: 50px;
   }
 
   .list,
