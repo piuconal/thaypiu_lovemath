@@ -391,7 +391,7 @@ li {
 .top .corner-gif {
   position: absolute;
   top: 5px; /* khoảng cách cách trên */
-  right: 5px; /* khoảng cách cách phải */
+  left: 5px; /* khoảng cách cách phải */
   width: 80px; /* kích thước ảnh */
   height: 80px;
   pointer-events: none; /* để không ảnh hưởng đến tương tác chuột */
