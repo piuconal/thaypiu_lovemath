@@ -8,11 +8,11 @@ fetch(url)
     const rows = csv.trim().split("\n");
     const names = rows[0]
       .split(",")
-      .slice(1, 38)
+      .slice(1, 50)
       .map((name) => name.replace(/"/g, "").trim());
     const scores = rows[1]
       .split(",")
-      .slice(1, 38)
+      .slice(1, 50)
       .map((score) =>
         parseFloat(score.replace(/"/g, "").trim().replace(",", "."))
       );
@@ -31,7 +31,8 @@ fetch(url)
       if (colIndex >= 0 && colIndex <= 6) return "score-yellow";
       if (colIndex >= 7 && colIndex <= 18) return "score-green";
       if (colIndex === 19) return "score-blue";
-      return "score-teal";
+      if (colIndex >= 20 && colIndex <= 35) return "score-teal";
+      return "score-pink";
     }
 
     // Hiển thị danh sách điểm

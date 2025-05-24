@@ -87,6 +87,11 @@ li {
   color: #006666;
   font-weight: bold;
 }
+.score-pink {
+  background-color: #f0a5ab;
+  color: #006666;
+  font-weight: bold;
+}
 
 /* Style Top 3 */
 .top-list {
