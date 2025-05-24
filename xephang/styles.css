@@ -305,12 +305,18 @@ li {
 .top2 strong,
 .top3 strong {
   display: block;
-  font-size: 20px;
+  font-size: 27px;
   padding: 2px 2px;
   border-radius: 10%;
-  color: #b0cff6;
-  background-color: #000;
+  color: #ffffff;
+  background: linear-gradient(
+    to right,
+    #0f2027,
+    #203a43,
+    #2c5364
+  ); /* Gradient màu xanh đen */
 }
+
 .top1 img {
   width: 120px !important;
 }
