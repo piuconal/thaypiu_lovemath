@@ -205,34 +205,102 @@ li {
   transform: rotate(90deg);
 }
 
+/* === TOP1 === */
 .top > div.top1 {
+  position: relative;
   justify-content: start;
   order: 2;
-  /* Đưa top1 ra giữa */
   height: 440px;
   gap: 7px;
-  background: linear-gradient(135deg, #00e0ff, #007bff);
-  /* các style khác */
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20230331/pngtree-universe-earth-blue-illustration-background-image_2127824.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  z-index: 0;
+  overflow: hidden;
 }
 
+.top > div.top1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* lớp phủ đen mờ */
+  z-index: 1;
+}
+
+.top > div.top1 * {
+  position: relative;
+  z-index: 2;
+}
+
+/* === TOP2 === */
 .top > div.top2 {
+  position: relative;
   justify-content: start;
   order: 1;
-  /* bên trái */
   height: 320px;
   gap: 7px;
-
-  background: linear-gradient(135deg, #42e695, #3bb2b8);
+  background-image: url("https://th.bing.com/th/id/OIP.sl8rKCD9zfJ4g_fhPAA88gHaEK?cb=iwp2&rs=1&pid=ImgDetMain");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  z-index: 0;
+  overflow: hidden;
 }
 
+.top > div.top2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.top > div.top2 * {
+  position: relative;
+  z-index: 2;
+}
+
+/* === TOP3 === */
 .top > div.top3 {
+  position: relative;
   justify-content: start;
   order: 3;
-  /* bên phải */
   height: 280px;
   gap: 7px;
-  background: linear-gradient(135deg, #92c1d5, #62c5cc);
+  background-image: url("https://img.freepik.com/premium-photo/destruction-planets-concept-art-illustration-background-image_492154-997.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  z-index: 0;
+  overflow: hidden;
 }
+
+.top > div.top3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.top > div.top3 * {
+  position: relative;
+  z-index: 2;
+}
+
 .top1 strong,
 .top2 strong,
 .top3 strong {
