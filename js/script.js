@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         // Đặt mật khẩu đúng ở đây (ví dụ: "matkhau123")
-        const correctPassword = "`";
+        const correctPassword = "math";
         const userPassword = prompt("🔒 Nhập mật khẩu:");
 
         if (userPassword === correctPassword) {
@@ -736,7 +736,7 @@ function toggleLinks(id) {
 document
   .getElementById("showClassPopupBtn")
   .addEventListener("click", function () {
-    const correctPassword = "*";
+    const correctPassword = "math";
 
     const userInput = prompt("🔐 Nhập mật khẩu:");
 
