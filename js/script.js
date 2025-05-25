@@ -382,7 +382,15 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("toggleThinkingTestBtn"),
       document.getElementById("toggleThinkingTestBtnMobile"),
     ],
+    convertHsa: [
+      document.getElementById("convertHsaScoreBtn"),
+      document.getElementById("convertHsaScoreBtnMobile"),
+    ],
     ranking: [document.getElementById("showRankingBtn")],
+    simulation: [
+      document.getElementById("toggleSimulationBtn"),
+      document.getElementById("toggleSimulationBtnMobile"),
+    ],
   };
 
   const containers = {
@@ -397,11 +405,13 @@ document.addEventListener("DOMContentLoaded", function () {
     countDown: document.getElementById("countdownIframeContainer"), // <-- thêm
     thinkingTest: document.getElementById("thinkingTestIframeContainer"), // <-- thêm
     ranking: document.getElementById("rankingIframeContainer"), // <-- thêm
+    convertHsa: document.getElementById("convertHsaIframeContainer"), // <-- thêm
+    simulation: document.getElementById("simulationIframeContainer"),
   };
 
   const defaultTexts = {
     score: "📝 Tra điểm thi",
-    temple: "🕯️ Thắp hương",
+    temple: "🕯️ Cầu may mắn",
     alarm: "⏰ Đồng hồ",
     game: "🥇 Tower of Hanoi",
     visualgo: "📊 Thuật toán",
@@ -411,6 +421,8 @@ document.addEventListener("DOMContentLoaded", function () {
     countDown: "⏳ Đếm ngược kì thi", // <-- thêm
     thinkingTest: "✨ Đánh giá tư duy", // <-- thêm
     ranking: "📊 XẾP HẠNG", // <-- thêm
+    convertHsa: "📊 Đổi điểm HSA", // <-- thêm
+    simulation: "🎮 Mô phỏng",
   };
 
   const hiddenTexts = {
@@ -424,6 +436,8 @@ document.addEventListener("DOMContentLoaded", function () {
     createAIPic: "Ẩn Create AI", // <-- thêm
     countDown: "Ẩn Đếm ngược", // <-- thêm
     thinkingTest: "Ẩn Đánh giá", // <-- thêm
+    convertHsa: "Ẩn Đổi điểm", // <-- thêm
+    simulation: "Ẩn Mô phỏng",
   };
 
   function toggleSnowEffect(show) {

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trang Demo 5 Nút Chuyển Div Có Nút Cố Định</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      scroll-behavior: smooth;
+      margin: 0;
+      padding-top: 60px;
+      /* Dành chỗ cho thanh nút cố định */
+      background: #f8f9fa;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Thanh nút cố định trên cùng */
+    .btn-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1100;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    }
+
+    .btn-custom {
+      min-width: 150px;
+      margin: 0 10px;
+      white-space: nowrap;
+    }
+
+    .section {
+      display: none;
+      /* Mặc định ẩn */
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 15px;
+      max-height: calc(100vh - 60px);
+      /* 90% view height + chút */
+      background: #fff;
+      box-shadow: 0 0 12px rgb(0 0 0 / 0.1);
+      border-radius: 6px;
+      margin: 0 10px 20px;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    /* Section1 iframe */
+    #section1 .embed-responsive {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      border-radius: 6px;
+      box-shadow: 0 0 12px rgb(0 0 0 / 0.3);
+    }
+
+    #section1 iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 6px;
+    }
+
+    /* Section2 video grid */
+    #section2 .row {
+      height: 100%;
+      margin: 0 -7.5px;
+    }
+
+    #section2 .col-6 {
+      padding: 7.5px;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #section2 video {
+      width: 100%;
+      height: auto;
+      max-height: 40vh;
+      border-radius: 8px;
+      background: #000;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.7);
+      object-fit: contain;
+    }
+
+    .video-title {
+      margin-top: 8px;
+      padding: 5px 12px;
+      background-color: #cce5ff;
+      color: #004085;
+      border-radius: 8px;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      user-select: none;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
+    }
+
+    @media (min-width: 768px) {
+      #section2 .col-md-3 {
+        margin-bottom: 30px;
+      }
+
+      #section2 video {
+        max-height: 50vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Thanh nút cố định -->
+  <div class="btn-bar">
+    <button class="btn btn-primary btn-custom" data-target="section1">Đường tròn lượng giác</button>
+    <button class="btn btn-success btn-custom" data-target="section2">Vẻ đẹp toán học</button>
+    <!-- Các nút khác nếu cần -->
+  </div>
+
+  <div id="section1" class="section active">
+    <div class="embed-responsive">
+      <iframe src="https://phet.colorado.edu/sims/html/trig-tour/latest/trig-tour_all.html?locale=vi" allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div id="section2" class="section">
+    <div class="row g-0">
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <video controls preload="metadata" src="./video/sin(a+b).mp4"></video>
+        <div class="video-title">Sin(a+b)</div>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <video controls preload="metadata" src="./video/hình nón.mp4"></video>
+        <div class="video-title">Diện tích hình nón</div>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <video controls preload="metadata" src="./video/heron.mp4"></video>
+        <div class="video-title">Diện tích tam giác</div>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <video controls preload="metadata" src="./video/diện tích tròn.mp4"></video>
+        <div class="video-title">Diện tích hình tròn</div>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <video controls preload="metadata" src="./video/tập hợp.mp4"></video>
+        <div class="video-title">Tập hợp</div>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <video controls preload="metadata" src="./video/(a-b)mũ 3.mp4"></video>
+        <div class="video-title">Hiệu lập phương</div>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <video controls preload="metadata" src="./video/L’Hôpital’s Rule.mp4"></video>
+        <div class="video-title">L'Hospital Rule</div>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <video controls preload="metadata" src="./video/công thức euler.mp4"></video>
+        <div class="video-title">Công thức Euler</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const buttons = document.querySelectorAll('button[data-target]');
+    const sections = document.querySelectorAll('.section');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+
+        // Ẩn hết các section
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        // Hiện section mục tiêu
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.classList.add('active');
+
+          // Scroll tới phần section nếu muốn
+          targetSection.scrollTop = 0; // kéo lên đầu nội dung section
+        }
+      });
+    });
+  </script>
+  <script>
+    // Chặn chuột phải
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // Chặn các tổ hợp phím phổ biến để view source / dev tools
+    document.addEventListener('keydown', function (e) {
+      // Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12, Ctrl+Shift+C
+      if (
+        (e.ctrlKey && e.key.toLowerCase() === 's') ||  // Ctrl+S
+        (e.ctrlKey && e.key.toLowerCase() === 'u') ||  // Ctrl+U
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') || // Ctrl+Shift+C
+        (e.key === 'F12')
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Chặn kéo thả chuột (nhiều khi dùng để inspect iframe)
+    document.addEventListener('dragstart', function (e) {
+      e.preventDefault();
+    });
+
+    // Ngăn click chuột giữa để mở tab mới
+    document.addEventListener('mousedown', function (e) {
+      if (e.button === 1) e.preventDefault();
+    });
+
+    // Nếu dùng nhiều iframe: chặn luôn các iframe nếu cùng domain
+    window.addEventListener('DOMContentLoaded', () => {
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        try {
+          iframe.contentWindow.document.addEventListener('contextmenu', e => e.preventDefault());
+        } catch (e) {
+          // Bỏ qua nếu iframe khác domain (không thể truy cập nội dung)
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

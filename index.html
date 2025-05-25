@@ -69,23 +69,45 @@
                 </a>
               </div>
             </div>
-            <button id="toggleIframeBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">📝 Tra
-              điểm
-              thi</button>
-            <button id="toggleCountdownBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">
-              ⏳ Đếm ngược kỳ thi
-            </button>
+            <div class="dropdown ml-2 d-inline-block">
+              <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="dropdownExamTools"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 0.8rem;">
+                🎯 Hỗ trợ thi
+              </button>
+              <div class="dropdown-menu custom-dropdown" aria-labelledby="dropdownExamTools" style="min-width: 12rem;">
+                <a class="dropdown-item custom-item" href="#" id="toggleIframeBtn">
+                  📝 Tra điểm thi
+                </a>
+                <a class="dropdown-item custom-item" href="#" id="convertHsaScoreBtn">
+                  📊 Đổi điểm HSA
+                </a>
+                <a class="dropdown-item custom-item" href="#" id="toggleCountdownBtn">
+                  ⏳ Đếm ngược kỳ thi
+                </a>
+              </div>
+            </div>
 
-            <button id="toggleTempleBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">🕯️Thắp
-              hương</button>
+            <button id="toggleTempleBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">🕯️Cầu
+              may mắn</button>
             <button id="toggleAlarmBtn" class="btn btn-outline-primary btn-sm ml-2 lockapi" style="font-size: 0.8rem;">⏰
               Đồng hồ</button>
 
-            <button id="toggleVisualgoBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">📊
-              Thuật
-              toán</button>
-            <button id="toggleMathAiBtn" class="btn btn-outline-primary btn-sm ml-2" style="font-size: 0.8rem;">📐 Math
-              AI</button>
+            <div class="dropdown ml-2 d-inline-block">
+              <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="dropdownVisual"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 0.8rem;">
+                ⚙️ Trực quan
+              </button>
+              <div class="dropdown-menu custom-dropdown" aria-labelledby="dropdownVisual" style="min-width: 10rem;">
+                <a class="dropdown-item custom-item" href="#" id="toggleSimulationBtn">
+                  🎮 Mô phỏng
+                </a>
+                <a class="dropdown-item custom-item" href="#" id="toggleVisualgoBtn">
+                  📊 Thuật toán
+                </a>
+              </div>
+            </div>
+
+
             <div class="dropdown ml-2 d-inline-block">
               <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="dropdownTools"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 0.8rem;">
@@ -98,8 +120,12 @@
                 <a class="dropdown-item custom-item" href="#" id="toggleCreateAIPicBtn">
                   🤖 Create AI
                 </a>
+                <a class="dropdown-item custom-item" href="#" id="toggleMathAiBtn">
+                  📐 Math AI
+                </a>
               </div>
             </div>
+
             <div class="dropdown ml-2 d-inline-block">
               <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="dropdownCasio"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 0.8rem;">
@@ -213,8 +239,18 @@
       Trình duyệt của bạn không hỗ trợ iframe.
     </iframe>
   </div>
-
-
+  <div id="convertHsaIframeContainer" class="iframe-wrapper">
+    <iframe
+      src="https://jnmezpss.manus.space/?fbclid=IwQ0xDSwKelI9leHRuA2FlbQIxMQABHsDHpn6MjFG_22gNPABlk9rfM0ugWP4ik_mRJtIXO08k36gCY3YpOcYTnl36_aem_93ozUfqJhxV0ePDdARVj8g"
+      width="100%" height="100%" style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
+  <div id="simulationIframeContainer" class="iframe-wrapper" style="display: none;">
+    <iframe src="./mophong/index.html" width="100%" height="100%" style="border: none; display: block;">
+      Trình duyệt của bạn không hỗ trợ iframe.
+    </iframe>
+  </div>
   <div id="feedbackPopup" class="feedback-popup" style="display:none;">
     <div class="feedback-content">
       <div class="feedback-header">
@@ -245,10 +281,19 @@
       <button id="toggleFeedbackBtnMobile" class="d-md-none dropdown-item text-secondary">
         ✍️ Nhận xét
       </button>
-      <button id="toggleIframeBtnMobile" class="d-md-none dropdown-item text-primary">📝 Tra điểm thi</button>
-      <button id="toggleCountdownBtnMobile" class="d-md-none dropdown-item text-primary">
-        ⏳ Đếm ngược kỳ thi
-      </button>
+      <div class="dropdown">
+        <button class="btn btn-outline-primary d-md-none dropdown-toggle dropdown-item" type="button"
+          id="dropdownExamToolsMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          style="width: 100%; text-align: left; color: rgb(91, 184, 228);">
+          🎯 Công cụ thi
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownExamToolsMobile" style="width: 100%;">
+          <button id="toggleIframeBtnMobile" class="dropdown-item btn-outline-pink">📝 Tra điểm thi</button>
+          <button id="convertHsaScoreBtnMobile" class="dropdown-item btn-outline-pink">📊 Đổi điểm HSA</button>
+          <button id="toggleCountdownBtnMobile" class="dropdown-item btn-outline-pink">⏳ Đếm ngược kỳ thi</button>
+        </div>
+      </div>
+
       <div class="dropdown">
         <button class="btn btn-outline-primary d-md-none dropdown-toggle dropdown-item" type="button"
           id="dropdownThinkingMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -263,10 +308,20 @@
 
         </div>
       </div>
-      <button id="toggleTempleBtnMobile" class="d-md-none dropdown-item text-primary">🕯️ Thắp hương</button>
+      <button id="toggleTempleBtnMobile" class="d-md-none dropdown-item text-primary">🕯️ Cầu may mắn</button>
       <button id="toggleAlarmBtnMobile" class="d-md-none dropdown-item text-primary lockapi">⏰ Đồng hồ</button>
-      <button id="toggleVisualgoBtnMobile" class="d-md-none dropdown-item text-primary">📊 Thuật toán</button>
-      <button id="toggleMathAiBtnMobile" class="d-md-none dropdown-item text-primary">📐 Math AI</button>
+      <div class="dropdown">
+        <button class="btn btn-outline-primary d-md-none dropdown-toggle dropdown-item" type="button"
+          id="dropdownVisualMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          style="width: 100%; text-align: left; color: rgb(91, 184, 228);">
+          ⚙️ Trực quan
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownVisualMobile" style="width: 100%;">
+          <button id="toggleSimulationBtnMobile" class="dropdown-item btn-outline-pink">🎮 Mô phỏng</button>
+          <button id="toggleVisualgoBtnMobile" class="dropdown-item btn-outline-pink">📊 Thuật toán</button>
+        </div>
+      </div>
+
       <div class="dropdown">
         <button class="btn btn-outline-primary d-md-none dropdown-toggle dropdown-item" type="button"
           id="dropdownToolsMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -276,8 +331,10 @@
         <div class="dropdown-menu" aria-labelledby="dropdownToolsMobile" style="width: 100%;">
           <button id="toggleGeogebraBtnMobile" class="dropdown-item btn-outline-pink">👨🏼 Swap Face</button>
           <button id="toggleCreateAIPicBtnMobile" class="dropdown-item btn-outline-pink">🤖 Create AI Picture</button>
+          <button id="toggleMathAiBtnMobile" class="dropdown-item btn-outline-pink">📐 Math AI</button>
         </div>
       </div>
+
       <div class="dropdown">
         <button class="btn btn-outline-primary d-md-none dropdown-toggle dropdown-item" type="button"
           id="dropdownCasioMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
