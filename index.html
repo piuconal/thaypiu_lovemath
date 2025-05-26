@@ -703,18 +703,30 @@
     }
 
     // Khởi tạo khi DOM sẵn sàng
+    function getParticleCount() {
+      if (window.innerWidth <= 480) { // màn hình nhỏ (điện thoại)
+        return 130; // giảm particle
+      } else if (window.innerWidth <= 768) { // tablet
+        return 200;
+      }
+      return 340; // desktop hoặc lớn hơn
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       const canvas = document.getElementById('particleCanvas');
-      // Đảm bảo canvas có đúng kích thước header
+
       function resizeCanvas() {
         canvas.width = canvas.clientWidth;
         canvas.height = canvas.clientHeight;
       }
       resizeCanvas();
-      window.addEventListener('resize', resizeCanvas);
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        // Có thể thêm restart hoặc update config nếu muốn
+      });
 
       const network = new ParticleNetwork(canvas, {
-        particleCount: 340,
+        particleCount: getParticleCount(),
         minRadius: 0.7,
         maxRadius: 0.8,
         particleColor: '#1D6584',
@@ -723,7 +735,7 @@
         lineOpacity: 0.55,
         maxDistance: 90,
         moveSpeed: 0.8,
-        backgroundColor: '#BDE5F6', // sửa thành 6 ký tự
+        backgroundColor: '#BDE5F6',
         backgroundOpacity: 1,
         particleOpacity: 0.5,
         mouseRadius: 100,
@@ -732,9 +744,9 @@
         pulseSpeed: 0.02
       });
 
-
       network.start();
     });
+
   </script>
 
 </body>
