@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thông tin LoveMath</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: #4e54c8;
+    }
+
+    .section p {
+      line-height: 1.6;
+    }
+
+    .sub-section {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f9f9f9;
+      border-left: 4px solid #4e54c8;
+      border-radius: 8px;
+    }
+
+    .sub-section h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    /* Căn thẳng hàng ảnh và chữ cho các thẻ h2 và h3 */
+    .section>h2,
+    .sub-section>h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      /* khoảng cách giữa chữ và ảnh */
+      margin-bottom: 8px;
+    }
+
+    .section>h2 img,
+    .sub-section>h3 img {
+      object-fit: contain;
+      display: block;
+      /* loại bỏ khoảng trắng dưới ảnh */
+    }
+
+    /* Khoảng cách dưới mỗi sub-section */
+    .sub-section {
+      margin-bottom: 16px;
+    }
+
+    /* Ẩn mũi tên 2 đầu */
+    ::-webkit-scrollbar-button {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    /* Scrollbar xanh siêu mịn cho Webkit */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #e6f0ff;
+      border-radius: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(192, 39, 98, 0.3);
+      border-radius: 8px;
+      border: 3px solid #e6f0ff;
+      transition: background-color 0.3s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(229, 150, 231, 0.5);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Giới Thiệu và Cách dùng</h1>
+    <i>
+      <h5>Chúc mọi người trải nghiệm vui vẻ và đóng góp để có 1 môi trường học tập hiệu quả</h5>
+    </i>
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>
+        1. Nhận xét
+        <img src="img/1.png" alt="Nhận xét">
+      </h2>
+      <p>Cho người dùng đóng góp ý tưởng xây dựng trang web và nhận xét quá trình học tập tại trung tâm</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Tư duy <img src="img/2.png" alt="Tư duy"></h2>
+
+      <div class="sub-section">
+        <h3>Trò chơi Tháp Hà Nội <img src="img/3.png" alt="Tháp Hà Nội"></h3>
+        <p>Một trò chơi logic cổ điển giúp rèn luyện khả năng phân tích và giải quyết vấn đề. Phù hợp với học sinh, sinh
+          viên muốn phát triển tư duy logic theo cách thú vị và trực quan.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Đánh giá tư duy <img src="img/4.png" alt="Đánh giá tư duy"></h3>
+        <p>Bài kiểm tra sơ bộ dành cho học sinh lớp 12 nhằm xác định năng lực tư duy, từ đó đề xuất lộ trình học tập phù
+          hợp tại trung tâm.</p>
+        <p><em>(Tính năng đang cập nhật...)</em></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Hỗ trợ thi <img src="img/5.png" alt="Hỗ trợ thi"></h2>
+
+      <div class="sub-section">
+        <h3>Tra điểm thi <img src="img/6.png" alt="Tra điểm thi"></h3>
+        <p>Tra cứu điểm thi nhanh chóng từ các nguồn chính thức. Hệ thống sẽ sớm tích hợp tự động hoá theo tên hoặc mã
+          học sinh.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Đổi điểm HSA <img src="img/7.png" alt="Đổi điểm HSA"></h3>
+        <p>Công cụ chuyển đổi điểm HSA sang thang điểm chuẩn quốc gia, giúp học sinh dễ dàng theo
+          dõi năng lực.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Đếm ngược kỳ thi <img src="img/8.png" alt="Đếm ngược kỳ thi"></h3>
+        <p>Hiển thị thời gian còn lại đến các kỳ thi quan trọng như THPT, ĐGNL, HSA... Giúp học sinh quản lý thời gian
+          ôn tập hiệu quả.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Cầu may mắn <img src="img/9.png" alt="Cầu may mắn"></h2>
+      <p>Cho người dùng có thể cầu may khi không có điều kiện di chuyển hoặc thời tiết không thuận lợi. Kèm theo được
+        đọc qua rất nhiều thông tin chi tiết</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Đồng hồ <img src="img/10.png" alt="Đồng hồ"></h2>
+      <p>Cho người dùng có thể hẹn giờ hoặc đặt báo thức nếu không có điện thoại hoặc đang làm bài tập / làm việc trên
+        máy tính</p>
+    </div>
+
+    <div class="section">
+      <h2>6. Trực quan <img src="img/11.png" alt="Trực quan"></h2>
+
+      <div class="sub-section">
+        <h3>Mô phỏng <img src="img/12.png" alt="Mô phỏng"></h3>
+        <p>Trình diễn mô phỏng trực quan các khái niệm khoa học hoặc toán học. Ví dụ: chuyển động vật lý, hệ sinh thái,
+          v.v... nhằm tăng sự hứng thú khi học.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Thuật toán <img src="img/13.png" alt="Thuật toán"></h3>
+        <p>Trình bày trực quan các thuật toán nổi bật như tìm kiếm, sắp xếp, đệ quy bằng biểu đồ và hoạt ảnh dễ hiểu.
+          Phù hợp cho học sinh mới học lập trình.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>7. Tools <img src="img/14.png" alt="Tools"></h2>
+
+      <div class="sub-section">
+        <h3>Swap Face <img src="img/15.png" alt="Swap Face"></h3>
+        <p>Công cụ cho phép hoán đổi khuôn mặt trong hình ảnh hoặc video</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Create AI Picture <img src="img/16.png" alt="Create AI Picture"></h3>
+        <p>Công cụ tạo hình ảnh AI theo mô tả</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Math AI <img src="img/17.png" alt="Math AI"></h3>
+        <p>Dùng AI giải toán để tham khảo.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>8. Casio <img src="img/18.png" alt="Casio"></h2>
+
+      <div class="sub-section">
+        <h3>Cách dùng Casio mọi phiên bản trên IOS/Android <img src="img/19.png" alt="Hướng dẫn Casio"></h3>
+        <p>Hướng dẫn chi tiết cách sử dụng máy tính Casio trên các nền tảng iOS và Android trong trường hợp không có máy
+          tính mang theo đi học.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Casio <img src="img/20.png" alt="Casio Web"></h3>
+        <p>Web máy tính casio khi đã xem xong hướng dẫn bên trên</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>9. XẾP HẠNG <img src="img/21.png" alt="Xếp hạng"></h2>
+      <p>Cho biết xếp hạng của các học sinh đang theo học lớp thầy Piu tại trung tâm</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Chat bot nhún góc phải TRÊN <img src="img/22.png" alt="Chat bot"></h2>
+      <p>Cho người dùng có thể hỏi nhanh 1 vài thông tin cơ bản, nhanh và chính xác</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Hộp quà nhún góc phải DƯỚI <img src="img/23.png" alt="Hộp quà"></h2>
+      <p>Web quay phần quà cho các bạn học sinh đạt điểm cao tại trung tâm</p>
+    </div>
+
+    <div class="section">
+      <h2>12. Danh sách môn TOÁN các khối</h2>
+      <p>Mục lục và tài liệu của các lớp từ 6-12 khi theo học tại trung tâm. Với đầy đủ các chuyên đề, bài tập trắc
+        nghiệm, ....</p>
+    </div>
+
+  </div>
+  <script>
+    // Chặn chuột phải
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // Chặn các tổ hợp phím phổ biến để view source / dev tools
+    document.addEventListener('keydown', function (e) {
+      // Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12, Ctrl+Shift+C
+      if (
+        (e.ctrlKey && e.key.toLowerCase() === 's') ||  // Ctrl+S
+        (e.ctrlKey && e.key.toLowerCase() === 'u') ||  // Ctrl+U
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') || // Ctrl+Shift+C
+        (e.key === 'F12')
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Chặn kéo thả chuột (nhiều khi dùng để inspect iframe)
+    document.addEventListener('dragstart', function (e) {
+      e.preventDefault();
+    });
+
+    // Ngăn click chuột giữa để mở tab mới
+    document.addEventListener('mousedown', function (e) {
+      if (e.button === 1) e.preventDefault();
+    });
+
+    // Nếu dùng nhiều iframe: chặn luôn các iframe nếu cùng domain
+    window.addEventListener('DOMContentLoaded', () => {
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        try {
+          iframe.contentWindow.document.addEventListener('contextmenu', e => e.preventDefault());
+        } catch (e) {
+          // Bỏ qua nếu iframe khác domain (không thể truy cập nội dung)
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
