@@ -37,10 +37,10 @@ body {
   font-family: "Quicksand", sans-serif;
   margin: 0;
   min-height: 100vh;
-  background-image: url("../images/bg.png"); /* thay bằng đường dẫn ảnh của bạn */
-  background-size: cover; /* phủ toàn màn hình */
-  background-position: center; /* căn giữa ảnh */
-  background-repeat: no-repeat;
+  /* background-image: url("../images/bg.png"); */
+  /* background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; */
 }
 
 @keyframes gradientSummer {
@@ -62,6 +62,15 @@ header {
   background-color: rgb(230, 251, 252); /* Nên có nền trắng để che khi scroll */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Tạo bóng nhẹ đẹp */
   opacity: 0.95;
+}
+
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Để nó nằm phía sau toàn bộ nội dung */
 }
 
 .card-header {

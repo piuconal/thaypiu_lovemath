@@ -29,6 +29,7 @@
 </div>
 
 <body>
+  <canvas id="particleCanvas"></canvas>
   <header class="d-flex align-items-center justify-content-between p-3 border rounded shadow-sm">
     <!-- Logo nhỏ bên trái -->
     <div class="d-flex align-items-center">
@@ -171,7 +172,7 @@
         <div class="gradient-border mb-2">
           <img src="images/math.jpg" alt="Minh họa" class="img-fluid image-effect">
         </div>
-        <div class="text-center tucngu text-white">
+        <div class="text-center tucngu text-dark">
           <b><i>"Chăm học thì biết, chăm viết thì hay."</i></b>
         </div>
         <div class="text-center mt-2">
@@ -373,7 +374,7 @@
     </div>
   </div>
   <div id="summerBubbles"></div>
-  <img src="images/bg-left.png" alt="Góc trái" class="bottom-left-img d-none d-md-block">
+  <img src="images/bg-left.png" alt="Góc trái" class="bottom-left-img d-none d-md-block" style="border-radius: 50%;">
 
   <div id="classPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
   background-color: rgba(0, 0, 0, 0.6); z-index: 9999; justify-content: center; align-items: center;">
@@ -450,7 +451,291 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script>
+    /**
+     * ParticleNetwork Class
+     * Creates and manages an interactive particle network animation
+     */
+    class ParticleNetwork {
+      constructor(canvas, config = {}) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d', { alpha: true });
+        if (!this.ctx) {
+          throw new Error('Could not initialize canvas context');
+        }
 
+        this.config = this.validateConfig({
+          particleCount: 120,
+          minRadius: 2,
+          maxRadius: 6,
+          particleColor: '#ffffff', // trắng cho đẹp trên nền tối
+          lineColor: '#ffffff',
+          lineWidth: 1,
+          lineOpacity: 0.15,
+          maxDistance: 150,
+          moveSpeed: 1,
+          backgroundColor: '#111111', // nền tối header
+          backgroundOpacity: 1,
+          particleOpacity: 0.8,
+          mouseRadius: 200,
+          mouseInteraction: true,
+          pulseEnabled: true,
+          pulseSpeed: 0.02,
+          ...config
+        });
+
+        this.particles = [];
+        this.animationId = null;
+        this.isRunning = false;
+        this.mousePosition = null;
+        this.pulseAngle = 0;
+        this.boundHandleResize = this.handleResize.bind(this);
+        this.boundHandleMouseMove = this.handleMouseMove.bind(this);
+        this.boundHandleMouseLeave = this.handleMouseLeave.bind(this);
+
+        this.handleResize();
+        this.createParticles();
+        this.setupEventListeners();
+      }
+
+      validateConfig(config) {
+        const numericParams = [
+          'particleCount', 'minRadius', 'maxRadius', 'lineWidth',
+          'lineOpacity', 'maxDistance', 'moveSpeed', 'backgroundOpacity',
+          'particleOpacity', 'mouseRadius', 'pulseSpeed'
+        ];
+        numericParams.forEach(param => {
+          if (typeof config[param] !== 'number' || isNaN(config[param])) {
+            throw new Error(`Invalid ${param}: must be a number`);
+          }
+        });
+
+        const booleanParams = ['mouseInteraction', 'pulseEnabled'];
+        booleanParams.forEach(param => {
+          if (typeof config[param] !== 'boolean') {
+            throw new Error(`Invalid ${param}: must be a boolean`);
+          }
+        });
+
+        const colorParams = ['backgroundColor', 'particleColor', 'lineColor'];
+        const hexColorRegex = /^#[0-9A-Fa-f]{6}$/;
+        colorParams.forEach(param => {
+          if (!hexColorRegex.test(config[param])) {
+            throw new Error(`Invalid ${param}: must be a valid hex color`);
+          }
+        });
+
+        return config;
+      }
+
+      setupEventListeners() {
+        window.addEventListener('resize', this.boundHandleResize);
+        this.canvas.addEventListener('mousemove', this.boundHandleMouseMove);
+        this.canvas.addEventListener('mouseleave', this.boundHandleMouseLeave);
+      }
+
+      cleanup() {
+        window.removeEventListener('resize', this.boundHandleResize);
+        this.canvas.removeEventListener('mousemove', this.boundHandleMouseMove);
+        this.canvas.removeEventListener('mouseleave', this.boundHandleMouseLeave);
+        this.stop();
+      }
+
+      handleMouseMove(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        this.mousePosition = {
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top
+        };
+      }
+
+      handleMouseLeave() {
+        this.mousePosition = null;
+      }
+
+      handleResize() {
+        this.canvas.width = this.canvas.clientWidth;
+        this.canvas.height = this.canvas.clientHeight;
+      }
+
+      createParticles() {
+        this.particles = [];
+        for (let i = 0; i < this.config.particleCount; i++) {
+          const sizeRange = this.config.maxRadius - this.config.minRadius;
+          const randomSize = Math.random() * sizeRange + this.config.minRadius;
+          this.particles.push({
+            x: Math.random() * this.canvas.width,
+            y: Math.random() * this.canvas.height,
+            dx: (Math.random() - 0.5) * this.config.moveSpeed,
+            dy: (Math.random() - 0.5) * this.config.moveSpeed,
+            radius: randomSize
+          });
+        }
+      }
+
+      updateParticles() {
+        this.pulseAngle += this.config.pulseSpeed;
+        this.particles.forEach(particle => {
+          if (this.config.pulseEnabled) {
+            const pulseScale = Math.sin(this.pulseAngle) * 0.5 + 1;
+            particle.currentRadius = particle.radius * pulseScale;
+          } else {
+            particle.currentRadius = particle.radius;
+          }
+
+          particle.x += particle.dx;
+          particle.y += particle.dy;
+
+          if (this.config.mouseInteraction && this.mousePosition) {
+            const dx = this.mousePosition.x - particle.x;
+            const dy = this.mousePosition.y - particle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < this.config.mouseRadius) {
+              const force = (this.config.mouseRadius - distance) / this.config.mouseRadius;
+              const angle = Math.atan2(dy, dx);
+              const repelX = Math.cos(angle) * force * 0.5;
+              const repelY = Math.sin(angle) * force * 0.5;
+              particle.dx -= repelX;
+              particle.dy -= repelY;
+            }
+          }
+
+          if (particle.x < 0 || particle.x > this.canvas.width) {
+            particle.dx = -particle.dx;
+          }
+          if (particle.y < 0 || particle.y > this.canvas.height) {
+            particle.dy = -particle.dy;
+          }
+
+          const speed = Math.sqrt(particle.dx * particle.dx + particle.dy * particle.dy);
+          if (speed > this.config.moveSpeed) {
+            particle.dx = (particle.dx / speed) * this.config.moveSpeed;
+            particle.dy = (particle.dy / speed) * this.config.moveSpeed;
+          }
+        });
+      }
+
+      drawParticles() {
+        this.ctx.fillStyle = this.config.particleColor;
+        this.ctx.globalAlpha = this.config.particleOpacity;
+        this.particles.forEach(particle => {
+          this.ctx.beginPath();
+          this.ctx.arc(particle.x, particle.y, particle.currentRadius || particle.radius, 0, Math.PI * 2);
+          this.ctx.fill();
+        });
+        this.ctx.globalAlpha = 1;
+      }
+      drawBackgroundGradient() {
+        const ctx = this.ctx;
+        const gradient = ctx.createLinearGradient(0, 0, 0, this.canvas.height);
+        gradient.addColorStop(0, '#EBFFFF');   // Trên: trắng
+        gradient.addColorStop(1, '#a6d8ff');   // Dưới: xanh nhạt
+
+        ctx.fillStyle = gradient;
+        ctx.globalAlpha = this.config.backgroundOpacity;
+        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        ctx.globalAlpha = 1;
+      }
+
+      drawConnections() {
+        for (let i = 0; i < this.particles.length; i++) {
+          for (let j = i + 1; j < this.particles.length; j++) {
+            const dx = this.particles[i].x - this.particles[j].x;
+            const dy = this.particles[i].y - this.particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < this.config.maxDistance) {
+              const opacity = 1 - (distance / this.config.maxDistance);
+              const color = this.hexToRgb(this.config.lineColor);
+              this.ctx.beginPath();
+              this.ctx.strokeStyle = `rgba(${color}, ${opacity * this.config.lineOpacity})`;
+              this.ctx.lineWidth = this.config.lineWidth;
+              this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+              this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+              this.ctx.stroke();
+            }
+          }
+        }
+      }
+
+      hexToRgb(hex) {
+        hex = hex.replace(/^#/, '');
+
+        if (hex.length === 3) {
+          hex = hex.split('').map(c => c + c).join('');
+        }
+
+        const result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        if (!result) {
+          return '255,255,255';
+        }
+
+        return result.slice(1).map(n => parseInt(n, 16)).join(',');
+      }
+
+      stop() {
+        this.isRunning = false;
+        if (this.animationId) {
+          cancelAnimationFrame(this.animationId);
+          this.animationId = null;
+        }
+      }
+
+      start() {
+        if (!this.isRunning) {
+          this.isRunning = true;
+          this.animate();
+        }
+      }
+
+      animate() {
+        this.drawBackgroundGradient();
+
+        this.updateParticles();
+        this.drawConnections();
+        this.drawParticles();
+
+        if (this.isRunning) {
+          this.animationId = requestAnimationFrame(this.animate.bind(this));
+        }
+      }
+    }
+
+    // Khởi tạo khi DOM sẵn sàng
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('particleCanvas');
+      // Đảm bảo canvas có đúng kích thước header
+      function resizeCanvas() {
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      const network = new ParticleNetwork(canvas, {
+        particleCount: 340,
+        minRadius: 0.7,
+        maxRadius: 0.8,
+        particleColor: '#1D6584',
+        lineColor: '#244655',
+        lineWidth: 0.4,
+        lineOpacity: 0.55,
+        maxDistance: 90,
+        moveSpeed: 0.8,
+        backgroundColor: '#BDE5F6', // sửa thành 6 ký tự
+        backgroundOpacity: 1,
+        particleOpacity: 0.5,
+        mouseRadius: 100,
+        mouseInteraction: true,
+        pulseEnabled: true,
+        pulseSpeed: 0.02
+      });
+
+
+      network.start();
+    });
+  </script>
 
 </body>
 
