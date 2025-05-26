@@ -73,9 +73,11 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      /* khoảng cách giữa chữ và ảnh */
+      flex-wrap: wrap;
+      /* thêm dòng này */
       margin-bottom: 8px;
     }
+
 
     .section>h2 img,
     .sub-section>h3 img {
@@ -121,6 +123,14 @@
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.5rem;
+      }
+
+      .section>h2,
+      .sub-section>h3 {
+        flex-direction: column;
+        /* chuyển layout dọc */
+        align-items: flex-start;
+        /* canh trái thay vì center */
       }
 
       .section {
