@@ -5,24 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thông tin LoveMath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: "Quicksand", sans-serif;
       background: #f0f4f8;
       color: #333;
     }
 
     header {
-      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      height: auto;
+      background: linear-gradient(135deg, #65a7dd, #398fe0);
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+      padding: 0.1rem 1rem;
+      padding-top: 20px;
     }
 
     .container {
@@ -47,7 +46,7 @@
 
     .section h2 {
       margin-top: 0;
-      color: #4e54c8;
+      color: #4e7fc8;
     }
 
     .section p {
@@ -58,7 +57,7 @@
       margin-top: 1rem;
       padding: 1rem;
       background: #f9f9f9;
-      border-left: 4px solid #4e54c8;
+      border-left: 4px solid #4e97c8;
       border-radius: 8px;
     }
 
@@ -83,6 +82,7 @@
     .sub-section>h3 img {
       object-fit: contain;
       display: block;
+      border-radius: 60px;
       /* loại bỏ khoảng trắng dưới ảnh */
     }
 
@@ -121,9 +121,6 @@
     }
 
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
 
       .section>h2,
       .sub-section>h3 {
@@ -143,7 +140,9 @@
 <body>
 
   <header>
-    <h1>Giới Thiệu và Cách dùng</h1>
+    <a href="index.html">
+      <img style="width: 70px;" src="images/logo.png" alt="">
+    </a>
     <i>
       <h5>Chúc mọi người trải nghiệm vui vẻ và đóng góp để có 1 môi trường học tập hiệu quả</h5>
     </i>
@@ -162,7 +161,7 @@
       <h2>2. Tư duy <img src="img/2.png" alt="Tư duy"></h2>
 
       <div class="sub-section">
-        <h3>Trò chơi Tháp Hà Nội <img src="img/3.png" alt="Tháp Hà Nội"></h3>
+        <h3>Tower of HaNoi <img src="img/3.png" alt="Tháp Hà Nội"></h3>
         <p>Một trò chơi logic cổ điển giúp rèn luyện khả năng phân tích và giải quyết vấn đề. Phù hợp với học sinh, sinh
           viên muốn phát triển tư duy logic theo cách thú vị và trực quan.</p>
       </div>
