@@ -391,6 +391,10 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("toggleSimulationBtn"),
       document.getElementById("toggleSimulationBtnMobile"),
     ],
+    planet: [
+      document.getElementById("togglePlanetBtn"),
+      document.getElementById("togglePlanetBtnMobile"),
+    ],
   };
 
   const containers = {
@@ -407,6 +411,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ranking: document.getElementById("rankingIframeContainer"), // <-- thêm
     convertHsa: document.getElementById("convertHsaIframeContainer"), // <-- thêm
     simulation: document.getElementById("simulationIframeContainer"),
+    planet: document.getElementById("planetIframeContainer"),
   };
 
   const defaultTexts = {
@@ -423,6 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ranking: "📊 XẾP HẠNG", // <-- thêm
     convertHsa: "📊 Đổi điểm HSA", // <-- thêm
     simulation: "🎮 Mô phỏng",
+    planet: "🌍 Hành tinh",
   };
 
   const hiddenTexts = {
@@ -438,6 +444,7 @@ document.addEventListener("DOMContentLoaded", function () {
     thinkingTest: "Ẩn Đánh giá", // <-- thêm
     convertHsa: "Ẩn Đổi điểm", // <-- thêm
     simulation: "Ẩn Mô phỏng",
+    planet: "Ẩn Hành tinh",
   };
 
   function toggleSnowEffect(show) {
