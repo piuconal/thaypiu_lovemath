@@ -25,9 +25,9 @@ def split_pdf(input_file, split_page, output_file1, output_file2):
     print(f"Đã tách PDF thành 2 phần: {output_file1} và {output_file2}")
 
 # Ví dụ sử dụng
-input_pdf = "b3.pdf"
-split_at_page = 10  # Trang bắt đầu phần thứ 2 (đánh số từ 0)
-output_pdf1 = "tuluan.pdf"
-output_pdf2 = "tracnghiem.pdf"
+input_pdf = "de.pdf"
+split_at_page = 6  # Trang bắt đầu phần thứ 2 (đánh số từ 0)
+output_pdf1 = "Đề 23.pdf"
+output_pdf2 = "Đáp án 23.pdf"
 
 split_pdf(input_pdf, split_at_page, output_pdf1, output_pdf2)
