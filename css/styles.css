@@ -788,7 +788,7 @@ a.lesson-link:hover {
   }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 390px) and (max-width: 576px) {
   #popupImage img {
     width: 59px;
   }
@@ -876,5 +876,105 @@ a.lesson-link:hover {
   }
   .card-body a {
     font-size: 12px;
+  }
+}
+@media (max-width: 389px) {
+  #logomath {
+    width: 44px !important;
+    height: 47px !important;
+  }
+  #showRankingBtn {
+    font-size: 12px;
+  }
+  #teacherInfo {
+    font-size: 9px;
+  }
+  #popupImage img {
+    width: 57px;
+  }
+  #showClassPopupBtn {
+    display: none;
+  }
+  .tucngu {
+    font-size: 12px;
+  }
+  .pt-4,
+  .py-4 {
+    padding-top: 0.2rem !important;
+  }
+  .feedback-popup {
+    width: 75vw;
+    height: 340px;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden; /* Giữ popup không tràn */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feedback-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ngăn tràn ra ngoài */
+  }
+
+  .feedback-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ngăn tràn */
+  }
+
+  .feedback-list {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 0.6rem;
+  }
+  .gradient-border {
+    display: none;
+  }
+  #chatbotPopup {
+    width: 80vw;
+    height: 450px;
+    bottom: 25px;
+    right: 5vw;
+  }
+  .lockapi {
+    margin-top: 5px;
+  }
+  .hsa-badge {
+    margin-top: 4px;
+    display: block;
+    text-align: center;
+    width: 98%;
+    font-size: 9px;
+  }
+  .l10-badge,
+  .thpt-badge {
+    font-size: 9px;
+    width: 48%;
+  }
+  #giftBox {
+    width: 45px; /* kích thước gif */
+  }
+  #giftBox_1 {
+    width: 50px;
+    height: 50px;
+    bottom: 27px !important; /* cách đáy màn hình 20px */
+    right: 20px; /* cách mép phải màn hình 20px */
+  }
+  .blinking {
+    font-size: 10.5px !important;
+  }
+  h5 button {
+    font-size: 10px !important;
+  }
+  .card-body button {
+    font-size: 10px;
+  }
+  .card-body a {
+    font-size: 10px;
   }
 }
