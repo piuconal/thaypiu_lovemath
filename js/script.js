@@ -683,8 +683,48 @@ window.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       overlay.style.display = "none";
       popup.style.display = "none";
-    }, 1500); // đúng bằng thời gian transition
+    }, 5000); // đúng bằng thời gian transition
   }, 100); // đợi 1 giây trước khi bắt đầu mờ dần
+});
+
+const videoPopup = document.getElementById("videoPopup");
+const closeBtn = document.getElementById("closeVideo");
+const video = document.getElementById("introVideo");
+const source = video.querySelector("source");
+
+// Phát video tương ứng thiết bị
+const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+source.src = isMobile ? "video1.mp4" : "video2.mp4";
+video.load();
+video.play();
+
+// Đóng video khi nhấn nút X
+closeBtn.addEventListener("click", () => {
+  videoPopup.classList.add("hidden");
+  video.pause();
+});
+
+// Đóng video khi vuốt theo bất kỳ hướng nào
+let startX = 0;
+let startY = 0;
+
+videoPopup.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+});
+
+videoPopup.addEventListener("touchend", (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const endY = e.changedTouches[0].clientY;
+
+  const deltaX = Math.abs(endX - startX);
+  const deltaY = Math.abs(endY - startY);
+
+  if (deltaX > 50 || deltaY > 50) {
+    // nếu kéo đủ 50px ở bất kỳ hướng nào
+    videoPopup.classList.add("hidden");
+    video.pause();
+  }
 });
 
 const bubbleContainer = document.getElementById("summerBubbles");
