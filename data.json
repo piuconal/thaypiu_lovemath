@@ -467,12 +467,13 @@
     "ÔN THI TỐT NGHIỆP THPTQG 2025": {
       "CHUYÊN ĐỀ: Euler & Hamilton": ["Lý thuyết", "Bài tập"],
       "CHUYÊN ĐỀ: Toán thực tế": [
-        "DẠNG 1: UD ĐẠO HÀM, MAX-MIN HÀM SỐ",
-        "DẠNG 2: UD HÌNH ĐA DIỆN",
-        "DẠNG 3: UD HÀM SỐ MŨ-LOGARIT",
-        "DẠNG 4: UD HÌNH NÓN-TRỤ-CẦU",
-        "DẠNG 5: UD NGUYÊN HÀM-TÍCH PHÂN",
-        "DẠNG 6: UD TOÁN THỰC TẾ KHÁC"
+        "DẠNG 1: ĐẠO HÀM, MAX-MIN HÀM SỐ",
+        "DẠNG 2: HÌNH ĐA DIỆN",
+        "DẠNG 3: HÀM SỐ MŨ-LOGARIT",
+        "DẠNG 4: HÌNH NÓN-TRỤ-CẦU",
+        "DẠNG 5: NGUYÊN HÀM-TÍCH PHÂN",
+        "DẠNG 6: TỌA ĐỘ TRONG KHÔNG GIAN ",
+        "DẠNG 7: TOÁN THỰC TẾ KHÁC"
       ],
       "CHUYÊN ĐỀ: Xác suất có điều kiện": ["ĐIỀU KIỆN", "TOÀN PHẦN - BAYES"],
       "CHUYÊN ĐỀ: Phương pháp hệ tọa độ cực": ["Lý thuyết", "Bài tập"],

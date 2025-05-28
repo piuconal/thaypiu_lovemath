@@ -115,7 +115,7 @@
 </head>
 
 <body>
-  <h1 class="title">DẠNG 6: ỨNG DỤNG TOÁN THỰC TẾ KHÁC</h1>
+  <h1 class="title">DẠNG 6: ỨNG DỤNG PHƯƠNG PHÁP TỌA ĐỘ TRONG KHÔNG GIAN</h1>
 
   <div class="image-list" id="imageList"></div>
 
@@ -127,45 +127,10 @@
   </div>
 
   <script>
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const imageList = document.getElementById('imageList');
-
-    // Tạo 20 ảnh
-    for (let i = 1; i <= 11; i++) {
-      imageList.innerHTML += `
-      <div class="image-item" tabindex="0">
-        <img src="./list_ques/c${i}.png" alt="Bài tập ${i}" />
-        <div class="image-caption">Bài tập ${i}</div>
-      </div>
-    `;
-    }
-
-    // GẮN SỰ KIỆN click SAU KHI đã thêm ảnh vào DOM
-    document.querySelectorAll('.image-item img').forEach(img => {
-      img.addEventListener('click', () => {
-        modal.style.display = 'flex';
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        modal.focus(); // để nhận sự kiện ESC
-      });
-    });
-
-    // Đóng modal khi click ra ngoài ảnh hoặc nhấn ESC
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target === modalImg) {
-        modal.style.display = 'none';
-        modalImg.src = '';
-      }
-    });
-
-    modal.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modal.style.display = 'none';
-        modalImg.src = '';
-      }
-    });
+    const totalImages = 39;
   </script>
+
+  <script src="../js/script.js"></script>pt>
 
 </body>
 
