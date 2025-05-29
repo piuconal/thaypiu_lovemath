@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Yêu cầu mật khẩu trước khi mở chương
   document.addEventListener("click", function (e) {
-    const target = e.target.closest("button.btn-outline-info"); // chỉ nút chương
+    const target = e.target.closest("button.btn-outline-info");
 
     if (target && target.dataset.toggle === "collapse") {
       const collapseId = target.dataset.target;
@@ -212,21 +212,49 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!collapseElement.classList.contains("show")) {
         e.preventDefault();
 
-        // Đặt mật khẩu đúng ở đây (ví dụ: "matkhau123")
         const correctPassword = "math";
-        const userPassword = prompt("🔒 Nhập mật khẩu:");
+        const storageKey = "collapsePasswordUnlocked";
+        const saved = localStorage.getItem(storageKey);
+        const now = Date.now();
+        const expiredAfter = 24 * 60 * 60 * 1000; // 24 giờ
+
+        if (saved) {
+          try {
+            const data = JSON.parse(saved);
+            if (data.unlocked && now - data.timestamp < expiredAfter) {
+              // Đã mở và chưa hết hạn
+              $(collapseId).collapse("show");
+              return;
+            } else {
+              // Hết hạn
+              localStorage.removeItem(storageKey);
+            }
+          } catch (err) {
+            // Dữ liệu hỏng, xóa luôn
+            localStorage.removeItem(storageKey);
+          }
+        }
+
+        const userPassword = prompt(
+          "🔐 Mật khẩu lưu trong 24h không cần nhập lại:"
+        );
 
         if (userPassword === correctPassword) {
           $(collapseId).collapse("show");
+          localStorage.setItem(
+            storageKey,
+            JSON.stringify({
+              unlocked: true,
+              timestamp: now,
+            })
+          );
         } else {
           if (userPassword !== null) {
             alert("❌ Sai mật khẩu!");
           }
-          // Đóng tất cả collapse đang mở
           document.querySelectorAll(".collapse.show").forEach((el) => {
             $(el).collapse("hide");
           });
-
           setTimeout(() => {
             location.reload();
           }, 300);
@@ -780,24 +808,35 @@ function toggleLinks(id) {
   element.classList.toggle("show");
 }
 
-document
-  .getElementById("showClassPopupBtn")
-  .addEventListener("click", function () {
-    const correctPassword = "math";
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("classPopup");
+  const correctPassword = "math";
 
-    const userInput = prompt("🔐 Nhập mật khẩu:");
+  document
+    .getElementById("showClassPopupBtn")
+    .addEventListener("click", function () {
+      const isUnlocked = localStorage.getItem("classPopupUnlocked");
 
-    // Nếu nhấn Cancel hoặc không nhập gì hoặc nhập sai
-    if (
-      userInput === null ||
-      userInput.trim() === "" ||
-      userInput !== correctPassword
-    ) {
-      location.reload(); // Tải lại trang, không mở popup
-      return;
-    }
+      if (isUnlocked === "true") {
+        // Đã nhập mật khẩu rồi, mở popup luôn
+        popup.style.display = "flex";
+        return;
+      }
 
-    // Nếu nhập đúng mật khẩu
-    // Hiện popup bằng cách đổi display
-    document.getElementById("classPopup").style.display = "flex";
-  });
+      // Chưa nhập mật khẩu, hỏi prompt
+      const userInput = prompt("🔐 Nhập mật khẩu:");
+
+      if (
+        userInput === null ||
+        userInput.trim() === "" ||
+        userInput !== correctPassword
+      ) {
+        location.reload(); // Không mở popup
+        return;
+      }
+
+      // Nhập đúng mật khẩu, mở popup và lưu trạng thái
+      popup.style.display = "flex";
+      localStorage.setItem("classPopupUnlocked", "true");
+    });
+});
