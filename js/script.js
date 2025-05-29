@@ -711,7 +711,7 @@ window.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       overlay.style.display = "none";
       popup.style.display = "none";
-    }, 5000); // đúng bằng thời gian transition
+    }, 2500); // đúng bằng thời gian transition
   }, 100); // đợi 1 giây trước khi bắt đầu mờ dần
 });
 
@@ -720,11 +720,27 @@ const closeBtn = document.getElementById("closeVideo");
 const video = document.getElementById("introVideo");
 const source = video.querySelector("source");
 
-// Phát video tương ứng thiết bị
-const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
-source.src = isMobile ? "video1.mp4" : "video2.mp4";
-video.load();
-video.play();
+// Kiểm tra thời điểm video đã được xem gần nhất
+const lastPlayTime = localStorage.getItem("lastVideoPlayTime");
+const now = Date.now();
+
+// Nếu chưa đủ 10 giây, không hiển thị popup
+if (!lastPlayTime || now - parseInt(lastPlayTime) > 3600000) {
+  // Phát video tương ứng thiết bị
+  const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+  source.src = isMobile ? "video1.mp4" : "video2.mp4";
+  video.load();
+  video.play();
+
+  // Hiện popup
+  videoPopup.classList.remove("hidden");
+
+  // Lưu thời điểm video bắt đầu phát
+  localStorage.setItem("lastVideoPlayTime", now);
+} else {
+  // Ẩn popup nếu trong 10s kể từ lần xem gần nhất
+  videoPopup.classList.add("hidden");
+}
 
 // Đóng video khi nhấn nút X
 closeBtn.addEventListener("click", () => {
@@ -749,7 +765,6 @@ videoPopup.addEventListener("touchend", (e) => {
   const deltaY = Math.abs(endY - startY);
 
   if (deltaX > 50 || deltaY > 50) {
-    // nếu kéo đủ 50px ở bất kỳ hướng nào
     videoPopup.classList.add("hidden");
     video.pause();
   }
