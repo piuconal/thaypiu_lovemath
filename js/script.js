@@ -714,38 +714,32 @@ window.addEventListener("DOMContentLoaded", function () {
     }, 2500); // đúng bằng thời gian transition
   }, 100); // đợi 1 giây trước khi bắt đầu mờ dần
 });
-
 const videoPopup = document.getElementById("videoPopup");
 const closeBtn = document.getElementById("closeVideo");
-const video = document.getElementById("introVideo");
-const source = video.querySelector("source");
+const gif = document.getElementById("introGif");
 
-// Kiểm tra thời điểm video đã được xem gần nhất
+// Kiểm tra thời điểm gif đã được xem gần nhất
 const lastPlayTime = localStorage.getItem("lastVideoPlayTime");
 const now = Date.now();
 
-// Nếu chưa đủ 10 giây, không hiển thị popup
 if (!lastPlayTime || now - parseInt(lastPlayTime) > 3600000) {
-  // Phát video tương ứng thiết bị
+  // Hiển thị ảnh GIF phù hợp thiết bị
   const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
-  source.src = isMobile ? "video1.mp4" : "video2.mp4";
-  video.load();
-  video.play();
+  gif.src = isMobile ? "video1.gif" : "video2.gif";
 
   // Hiện popup
   videoPopup.classList.remove("hidden");
 
-  // Lưu thời điểm video bắt đầu phát
+  // Lưu thời điểm bắt đầu hiển thị
   localStorage.setItem("lastVideoPlayTime", now);
 } else {
   // Ẩn popup nếu trong 10s kể từ lần xem gần nhất
   videoPopup.classList.add("hidden");
 }
 
-// Đóng video khi nhấn nút X
+// Đóng khi nhấn nút X
 closeBtn.addEventListener("click", () => {
   videoPopup.classList.add("hidden");
-  video.pause();
 });
 
 // Đóng video khi vuốt theo bất kỳ hướng nào
