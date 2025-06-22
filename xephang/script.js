@@ -8,11 +8,11 @@ fetch(url)
     const rows = csv.trim().split("\n");
     const names = rows[0]
       .split(",")
-      .slice(1, 50)
+      .slice(1, 51)
       .map((name) => name.replace(/"/g, "").trim());
     const scores = rows[1]
       .split(",")
-      .slice(1, 50)
+      .slice(1, 51)
       .map((score) =>
         parseFloat(score.replace(/"/g, "").trim().replace(",", "."))
       );
@@ -28,10 +28,10 @@ fetch(url)
     const topContainer = document.querySelector(".top");
 
     function getScoreClass(colIndex) {
-      if (colIndex >= 0 && colIndex <= 6) return "score-yellow";
-      if (colIndex >= 7 && colIndex <= 18) return "score-green";
-      if (colIndex === 19) return "score-blue";
-      if (colIndex >= 20 && colIndex <= 35) return "score-teal";
+      if (colIndex >= 0 && colIndex <= 7) return "score-yellow";
+      if (colIndex >= 8 && colIndex <= 19) return "score-green";
+      if (colIndex === 20) return "score-blue";
+      if (colIndex >= 21 && colIndex <= 36) return "score-teal";
       return "score-pink";
     }
 
