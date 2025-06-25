@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>TOÁN 12 - HK1 - C1 - B5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../../../../images/logo.png">
+  <link rel="stylesheet" href="../../../../include/bai_css.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="nav-left">
+      <a href="../../../../index.html" class="back-button">←</a>
+    </div>
+
+    <div class="nav-toggle" onclick="toggleMenu()">
+      ☰
+    </div>
+
+    <div class="nav-right" id="navMenu">
+      <button class="nav-button" onclick="loadPDF('tuluan.pdf')">TỰ LUẬN</button>
+      <button class="nav-button" onclick="loadPDF('tracnghiem.pdf')">TRẮC NGHIỆM</button>
+      <button class="nav-button" onclick="showImages()">LỜI GIẢI 1 VÀI CÂU</button>
+    </div>
+  </div>
+
+  <div id="mobile-warning"
+    style="display: none; color: rgb(0, 217, 255); text-align: center; font-weight: bold; margin-top: 10px; margin-bottom: 10px;">
+    Sử dụng máy tính để xem file chi tiết hơn
+  </div>
+  <iframe id="pdfFrame" src="tuluan.pdf"></iframe>
+
+  <div id="imageList"></div>
+
+  <!-- Modal for zoomed image -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <img class="modal-content" id="modalImage">
+  </div>
+
+
+
+</body>
+<script src="../../../../include/bai_js.js"></script>
+
+</html>
